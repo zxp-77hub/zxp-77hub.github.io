@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>其他 on 菜鸟集市</title>
+    <link>https://zxp-77hub.github.io/docs/other/</link>
+    <description>Recent content in 其他 on 菜鸟集市</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="https://zxp-77hub.github.io/docs/other/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>新建开发用租户</title>
+      <link>https://zxp-77hub.github.io/docs/other/%E6%96%B0%E5%BB%BA%E7%A7%9F%E6%88%B7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/other/%E6%96%B0%E5%BB%BA%E7%A7%9F%E6%88%B7/</guid>
+      <description>创建新的租户（账号）的方法如下。
+  进入运维平台（如果没账号找运维开一个），http://ops.q7link.com:8080/，找到创建租户。   选择环境，手机号搞一个能记住的，其他随便填。然后确定   大改一分钟后刷新页面，看是不是成功了。   成功以后，进入系统，用刚刚的手机号登录，密码是123456，会提示密码简单需要重置。
+  重置的话，需要手机号接收验证码。验证码可以通过gql查到。gql地址。需要把下面链接中的IP地址替换成你的环境对应的（见下一步）。
+ http://172.31.50.170:9999/graphiql/index.html?query=%7B%0A%20%20VerificationCode(criteriaStr%3A%22verifyIdFlag%20in%20(%2713344445555%27)%20and%20to_char(expiredTime%2C%20%27yyyymmddhh24miss%27)%20%3E%3D%20to_char(CURRENT_TIMESTAMP%2C%20%27yyyymmddhh24miss%27)%20and%20isUsed%20%3D%20%27false%27%22)%7B%0A%20%20%20%20code%0A%20%20%20%20expiredTime%0A%20%20%20%20verifyIdFlag%0A%20%20%7D%0A%7D    这里。找到你的环境，环境会有两个IP，看哪个IP有9999这个服务，把对应的IP放到上面的链接中。   在gql中替换掉你的手机号，就可以查到验证码了。然后重置密码，进入系统就可以了。
+  </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>前端框架基础 on 菜鸟集市</title>
+    <link>https://zxp-77hub.github.io/docs/base/</link>
+    <description>Recent content in 前端框架基础 on 菜鸟集市</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 06 Apr 2021 11:44:40 +0800</lastBuildDate><atom:link href="https://zxp-77hub.github.io/docs/base/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>初入新手村</title>
+      <link>https://zxp-77hub.github.io/docs/base/%E5%88%9D%E5%85%A5%E6%96%B0%E6%89%8B%E6%9D%91/</link>
+      <pubDate>Tue, 06 Apr 2021 11:44:40 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/base/%E5%88%9D%E5%85%A5%E6%96%B0%E6%89%8B%E6%9D%91/</guid>
+      <description>一、VPN #   申请vpn    等陈欢把vpn的证书发过来。
+  安装openvpn，应用证书。
+  二、安装环境 #  注意事项：
+ go环境的目录结构，GOROOT/src/ metadata项目的名字，git仓库名和本地文件名不一样 go的证书  </description>
+    </item>
+    
+    <item>
+      <title>模型、entity与元数据</title>
+      <link>https://zxp-77hub.github.io/docs/base/entity/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/base/entity/</guid>
+      <description>模型 #  我们系统的后端是领域模型驱动的。比如下图是预算编制方案的模型，其中包含了很多实体(entity)(蓝色的)。 entity #  一个entity就是一个对象，可以通过模型看到各个属性的名字和类型，以及entity之间的关系。
+我们前端的工作就是为entity制作表单和列表，来创建entity的实例或展示entity的信息。
+元数据 #  前端的元数据主要是对entity的描述。entity的名字、entity的属性名、属性类型等等。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://zxp-77hub.github.io/docs/base/%E9%A2%84%E7%BD%AE%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/base/%E9%A2%84%E7%BD%AE%E6%95%B0%E6%8D%AE/</guid>
+      <description>什么是预置数据 #  预置数据可以理解为软件的出厂自带数据，当用户第一次拿到系统时，就存在于系统中的数据。
+在预置数据的基础上，用户可以对它们进行修改，也可以添加自己的数据。我们把修改和添加的数据叫做用户数据。
+系统中有很多种预置数据。
+比如，菜单、查询方案、列表方案
+用户可以自己新加几个菜单选项。可以修改查询方案中的字段。可以修改列表方案中显示的列、显示的宽度。等等
+预置数据与开发的关系 #  通常，预置数据都会在需求中提到，由产品提供。有些预置数据是后端直接放到数据库里的，前端通过gql取。还有一些是前端在前端开发包里面配置的，这就涉及到了查询方案、列表方案、参照、全局搜索、移动端模板等场景。
+将预置数据预置到系统中 #  开发预置的数据是在当前租户的或登录租户的。系统的其他租户是没有这份预置数据的。所以我们需要有一个将预置数据预置到系统中的操作。
+ 记录一下自己预置了什么（表单、老列表、多列表） 把需要预置的数据的信息整理好，发给曾天保同学。其中几个信息如何获取会在下面介绍。  预置表单 环境: release 后端分支: release 预置租户: PSE5KP504EN000F 改了 Project 预置老列表 环境: test 后端分支: feature-budget-iteration-3rd 预置租户: A24SJR50KMK001E 改了 ProjectMemberView 预置多列表 环境: release 后端分支: release 登录租户id: NSKDNT50NVS002J 多列表方案名称: Project_list 预置租户id：在ops的环境信息中，各个环境都会有预置租户id 登录租户id：打开系统，打开开发者工具network，随便选一个请求，其中header中改回有一个租户id，这就是登陆租户id。 </description>
+    </item>
+    
+  </channel>
+</rss>

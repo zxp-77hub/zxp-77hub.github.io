@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BizForm实用攻略 on 菜鸟集市</title>
+    <link>https://zxp-77hub.github.io/docs/form-guide/</link>
+    <description>Recent content in BizForm实用攻略 on 菜鸟集市</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 08 Jul 2021 17:02:03 +0800</lastBuildDate><atom:link href="https://zxp-77hub.github.io/docs/form-guide/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://zxp-77hub.github.io/docs/form-guide/%E6%89%93%E5%8D%B0%E6%A8%A1%E6%9D%BF/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/form-guide/%E6%89%93%E5%8D%B0%E6%A8%A1%E6%9D%BF/</guid>
+      <description>打印模板 #  通常可以通过“单据设计”功能设置一个打印模板，但是不知道为什么有些字段无法通过这种方式配到，只能通过代码加出来。</description>
+    </item>
+    
+    <item>
+      <title>视图</title>
+      <link>https://zxp-77hub.github.io/docs/form-guide/%E8%A7%86%E5%9B%BE/</link>
+      <pubDate>Thu, 08 Jul 2021 17:02:03 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/form-guide/%E8%A7%86%E5%9B%BE/</guid>
+      <description>适用于表单。
+ 主表presenter的getDataOptions  dynamicViews: { [F_BudgetAccount_refDocMappings(子表名字)]: &amp;#39;viewName(视图名字)&amp;#39;, }, 子表presenter  // 视图的数据 private viewData = observable.array([]); // 查看态 onFormViewed(form: EntityForm&amp;lt;any&amp;gt;, disposers: IDisposer[]) { this.addView(disposers) } // 编辑态 onFormCreated(form: EntityForm&amp;lt;any&amp;gt;, disposers: IDisposer[]) { this.addView(disposers) } addView = (disposers) =&amp;gt; { this.formPresenter.formController.addDynamicView( this.logicPath, &amp;#39;viewName&amp;#39;, this.viewData, ) disposers.push( // 监听子表的数据变化  reaction( () =&amp;gt; { return this.form.select(this.logicPath).value.slice(); }, this.updateData, { fireImmediately: true }, ), ); } // 将子表数据进行处理后赋值给视图数据 updateData = () =&amp;gt; { const data = this.</description>
+    </item>
+    
+    <item>
+      <title>外键穿透的自定义点击事件</title>
+      <link>https://zxp-77hub.github.io/docs/form-guide/%E5%A4%96%E9%94%AE%E7%A9%BF%E9%80%8F%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/</link>
+      <pubDate>Thu, 06 May 2021 10:59:01 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/form-guide/%E5%A4%96%E9%94%AE%E7%A9%BF%E9%80%8F%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/</guid>
+      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25  protected onInitialized(formPresenter) { formPresenter.getBean(BeanNames.EventController).on(InternalEvent.onCancel, this.cancel); const isTemplateBill = this.isTemplateBill; if (isTemplateBill) { // 修改外键（项目project）的onClick的穿透的行为。当是计划模板时，穿透到项目模板。  const masterRenderController = this.formPresenter.getBean(BeanNames.MasterRendererController); const billTypeId = this.getBillTypeId(); const options: ForeignKeyLinkRenderOption = { onClick(params: ForeignKeyLinkClickParams) {  if (params.entityName === EN_Project){ const hash = appRouterHashManager.generateHash(&amp;#39;ProjectTemplate&amp;#39;, PageModeEnum.Form as any, { mode: BizFormModeEnum.</description>
+    </item>
+    
+    <item>
+      <title>场景值reaction</title>
+      <link>https://zxp-77hub.github.io/docs/form-guide/%E5%9C%BA%E6%99%AF%E5%80%BCreaction/</link>
+      <pubDate>Mon, 26 Apr 2021 17:49:17 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/form-guide/%E5%9C%BA%E6%99%AF%E5%80%BCreaction/</guid>
+      <description>如果表单的A字段设置了reaction监听。当修改A的value的时候，对应的reaction都会触发。如果希望不触发reaction，就要用到下面的场景值reaction
+// 根据场景值忽略执行的reaction const reactionOmit = this.bizFormPresenter.api.reactionOmitCreator( BizFormScenarios.SourcePicking, ); // 使用reactionOmit监听 disposers.push( reactionOmit( () =&amp;gt; form.select(&amp;#39;F_TimesheetLine_orgRoleType&amp;#39;).value, value =&amp;gt; { } ) ) // 使用reactionOmit对应的场景值赋值，就不会触发reaction this.bizFormPresenter.api.runInScenarios(BizFormScenarios.SourcePicking, () =&amp;gt; { rowField.select(F_TimesheetLine_orgRoleType).value = { id: EN_Department, title: &amp;#39;部门&amp;#39;, name: EN_Department, }; }) </description>
+    </item>
+    
+    <item>
+      <title>表头字段自定义渲染</title>
+      <link>https://zxp-77hub.github.io/docs/form-guide/%E8%A1%A8%E5%A4%B4%E5%AD%97%E6%AE%B5%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B8%B2%E6%9F%93/</link>
+      <pubDate>Mon, 26 Apr 2021 15:58:49 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/form-guide/%E8%A1%A8%E5%A4%B4%E5%AD%97%E6%AE%B5%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B8%B2%E6%9F%93/</guid>
+      <description>表单中配置masterRender可以实现表头字段的自定义渲染，但是外键字段不能通过masterRender处理。
+在MasterRendererController.tsx中有一段代码
+const after: IMasterFieldRender[] = [new LinkRender(), new ForeignKeyLinkRender(), new CommonFieldRender()]; 外键字段会走到ForeignKeyLinkRender组件，而masterRender只在CommonFieldRender中才有使用。
+protected getDisplayOptions(): DisplayOptions { return { masterRender: { [&amp;#39;project&amp;#39;]: props =&amp;gt; { const LinkDiv = styled.div` height: 100%; display: flex; align-items: center; padding-left: 8px; cursor: pointer; color: var(--primary-500); text-decoration: underline; text-underline-position: under; ` return ( &amp;lt;MSTFormElement label={props.template.title} path={&amp;#39;project&amp;#39;} colspan={1} disableError={true} disabled={true} isRequired={false} labelResolver={value =&amp;gt; value[&amp;#39;project&amp;#39;]} // value 对应的 path={...}中的值 contentRenderer={() =&amp;gt; { const data = props.form.value.project return ( &amp;lt;LinkDiv&amp;gt; &amp;lt;span onClick={async () =&amp;gt; { const hash = appRouterHashManager.</description>
+    </item>
+    
+    <item>
+      <title>自定义单据</title>
+      <link>https://zxp-77hub.github.io/docs/form-guide/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8D%95%E6%8D%AE/</link>
+      <pubDate>Tue, 13 Apr 2021 21:07:54 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/form-guide/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8D%95%E6%8D%AE/</guid>
+      <description>两部分组成：
+ 创建form form组件  function createForm(): EntityForm { const formScheme = { closeDate: { type: FieldTypeEnum.Timestamp, initState: { label: &amp;#39;关闭日期&amp;#39;, required: false, visible: false, }, }, closedReason: { type: FieldTypeEnum.JsonObject, referType: EN_BizReason, initState: { label: &amp;#39;关闭原因&amp;#39;, required: false, visible: false, }, }, closedReasonExplain: { type: FieldTypeEnum.String, initState: { label: &amp;#39;关闭原因说明&amp;#39;, required: false, visible: false, }, }, }; const formBuilder = new FormBuilder(); Object.entries(formScheme).forEach(([key, value]) =&amp;gt; { formBuilder.appendField(key, makeField(value)); }); return formBuilder.</description>
+    </item>
+    
+    <item>
+      <title>编辑或显示数字精度</title>
+      <link>https://zxp-77hub.github.io/docs/form-guide/%E7%BC%96%E8%BE%91%E6%88%96%E6%98%BE%E7%A4%BA%E6%95%B0%E5%AD%97%E7%B2%BE%E5%BA%A6/</link>
+      <pubDate>Thu, 01 Apr 2021 18:19:56 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/form-guide/%E7%BC%96%E8%BE%91%E6%88%96%E6%98%BE%E7%A4%BA%E6%95%B0%E5%AD%97%E7%B2%BE%E5%BA%A6/</guid>
+      <description>控制编辑，设置editParams
+public getEditOptions(): EditOptions { return { editParams: { [主表字段名]: () =&amp;gt; { return { numericProps: { decimalPlaces: 精度, minimumValue: &amp;#39;0&amp;#39;, } } }, [`子表名.子表字段名`]: () =&amp;gt; { return { numericProps: { decimalPlaces: 精度, minimumValue: &amp;#39;0&amp;#39;, } } }, } } } 控制显示，子表要自定义渲染
+getGridOptions(): Optional&amp;lt;AdvanceGridProps&amp;gt; { return { columnResolver: (colDefs: ColDef[]) =&amp;gt; { const daysField = colDefs.find(c =&amp;gt; c.field === F_TimesheetLine_days); if (daysField) { daysField.cellRendererFramework = (params) =&amp;gt; { return React.</description>
+    </item>
+    
+    <item>
+      <title>水印</title>
+      <link>https://zxp-77hub.github.io/docs/form-guide/%E6%B0%B4%E5%8D%B0/</link>
+      <pubDate>Wed, 31 Mar 2021 16:28:22 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/form-guide/%E6%B0%B4%E5%8D%B0/</guid>
+      <description>go项目
+ trek/services/form-services/middlewares/entities/【实体名】/params.go  // 1. 实体的哪些字段要作为水印 var watermarkFieldNames = []string{ gen_ef.F_Project_billFullStatusObject, gen_ef.F_Project_budgetStatus, } var ( // 2. 	watermarkSettingParams = form_service_middlewares_common.WatermarkSettingMiddlewareCreatorParams{ Items: form_service_middlewares_common.DefaultWatermarkSettingItemsCreator(watermarkFieldNames...), } // 3. 	billCommonRulesParams = form_service_middlewares_common.BillCommonRulesCreatorParams{ WatermarkSettingMiddlewareCreatorParams: &amp;amp;watermarkSettingParams, } ) trek/services/form-services/middlewares/entities/【实体名】/index.go  func GetMiddlewareCreators() []form_context.FormMiddlewareCreator { middlewareCreators := []form_context.FormMiddlewareCreator{ // 1. 	form_service_middlewares_common.BillCommonRulesMiddlewareCreator(billCommonRulesParams), } } </description>
+    </item>
+    
+    <item>
+      <title>Value</title>
+      <link>https://zxp-77hub.github.io/docs/form-guide/value/</link>
+      <pubDate>Wed, 17 Mar 2021 17:01:44 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/form-guide/value/</guid>
+      <description>Presenter.api.formController.form.select(&#39;modelSubtables/0/dimensions/2&#39;).value
+Presenter.api.formController.form.getSubmitValue()</description>
+    </item>
+    
+    <item>
+      <title>AllPaths</title>
+      <link>https://zxp-77hub.github.io/docs/form-guide/allpaths/</link>
+      <pubDate>Mon, 08 Mar 2021 15:38:59 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/form-guide/allpaths/</guid>
+      <description>bizFormPresenter.api.formController.entityCRUD.allPaths bizFormPresenter.api.getForm().select(&#39;timesheetLines/0/indvRole&#39;) </description>
+    </item>
+    
+    <item>
+      <title>单据状态</title>
+      <link>https://zxp-77hub.github.io/docs/form-guide/%E5%8D%95%E6%8D%AE%E7%8A%B6%E6%80%81/</link>
+      <pubDate>Fri, 26 Feb 2021 14:29:44 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/form-guide/%E5%8D%95%E6%8D%AE%E7%8A%B6%E6%80%81/</guid>
+      <description>export const ENUM_BillStatus = &amp;#34;BillStatus&amp;#34;; // 单据状态 export const ENUM_BillStatus_draft = &amp;#34;BillStatus.draft&amp;#34;; // 未提交 export const ENUM_BillStatus_submitting = &amp;#34;BillStatus.submitting&amp;#34;; // 提交中 export const ENUM_BillStatus_submitted = &amp;#34;BillStatus.submitted&amp;#34;; // 已提交 export const ENUM_BillStatus_approving = &amp;#34;BillStatus.approving&amp;#34;; // 审批中 export const ENUM_BillStatus_effecting = &amp;#34;BillStatus.effecting&amp;#34;; // 生效中 export const ENUM_BillStatus_effective = &amp;#34;BillStatus.effective&amp;#34;; // 已生效 export const ENUM_BillStatus_restarting = &amp;#34;BillStatus.restarting&amp;#34;; // 退回中 export const ENUM_BillStatus_restarted = &amp;#34;BillStatus.restarted&amp;#34;; // 已退回 export const ENUM_BillStatus_recalling = &amp;#34;BillStatus.recalling&amp;#34;; // 撤回中 export const ENUM_BillStatus_recalled = &amp;#34;BillStatus.</description>
+    </item>
+    
+    <item>
+      <title>删除行</title>
+      <link>https://zxp-77hub.github.io/docs/form-guide/%E5%88%A0%E9%99%A4%E8%A1%8C/</link>
+      <pubDate>Mon, 22 Feb 2021 18:20:56 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/form-guide/%E5%88%A0%E9%99%A4%E8%A1%8C/</guid>
+      <description>const refDocMappingsField = this.form.select(F_BudgetAccount_refDocMappings); if (refDocMappingsField.value !== undefined) { let len = refDocMappingsField.value.length; while (len&amp;gt;0){ this.formController.deleteRowByRealIndex( F_BudgetAccount_refDocMappings, len - 1, ); len --; } } </description>
+    </item>
+    
+    <item>
+      <title>创建form时带默认数据</title>
+      <link>https://zxp-77hub.github.io/docs/form-guide/init-form/</link>
+      <pubDate>Tue, 05 Jan 2021 11:25:11 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/form-guide/init-form/</guid>
+      <description>场景 #  在新建”项目“时，选择了项目分类后点新建，所选择的分类会出现在表单的”项目分类“中。
+ 选择分类 点新建  自动填写了“项目分类”   怎么实现 #    在跳转页面时，将需要的参数放入proxyHistory.push的第二个参数passParams中。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26  class ProjectListPagePresenter extends QueryListPagePresenter&amp;lt; IProjectListPagePresenterOption &amp;gt;{ protected commandActionResolver(commandActions: ToolbarAction[]): ToolbarAction[] { commandActions.unshift({ id: &amp;#39;project-view&amp;#39;, group: ToolbarActionGroup.Group1, action: this.presenter.toolbarConnector.makeCreateButton({ onClick: billTypeId =&amp;gt; { const hash = appRouterHashManager.generateHash(EN_Project, PageModeEnum.</description>
+    </item>
+    
+  </channel>
+</rss>
