@@ -6,7 +6,7 @@
     <description>Recent content in 通用功能攻略 on 菜鸟集市</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 07 Jul 2021 10:06:36 +0800</lastBuildDate><atom:link href="https://zxp-77hub.github.io/docs/common/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Mar 2021 11:53:41 +0800</lastBuildDate><atom:link href="https://zxp-77hub.github.io/docs/common/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GQL</title>
       <link>https://zxp-77hub.github.io/docs/common/gql/</link>
@@ -16,53 +16,7 @@
       <description>普通的gql #  最简单的，直接查一个对象（表）的全部数据
 { BudgetAccount{ id name accountType { id name } } } 加一点查询条件
 { BudgetAccount(criteriaStr:&amp;quot;name in (&#39;1&#39;,&#39;2&#39;,&#39;3&#39;)&amp;quot;){ id name accountType { id name } } } 这个会查到name为1、2、3的多条数据
-高级的gql #  上面只能查到一个表的数据及其关联的外键，子表的数据。下面来搞一个子查询。
- 因为有的时候，后端的模型中，没有包含我们需要的子表，只能我们自己构建
- { BudgetAccount(criteriaStr:&amp;quot;&amp;quot;){ a: exprField(expr:&amp;quot;()&amp;quot;) b: exprField(expr:&amp;quot;()&amp;quot;) } } 其中a:是个模型上的一个字段起别名，exprField是一个可以扩展的额外字段，利用这两个就可以做成子查询了。
-举个例子。对于预算指标，复合指标有若干个子指标，但是直接通过BudgetIndicator模型获取不到它们。就可以这样做
-{ BudgetIndicator(criteriaStr:&amp;quot;isComposite=true&amp;quot;){ id isComposite child: exprField(expr:&amp;quot;(select string_agg(CONCAT_WS(&#39;,&#39;,childIndicator.id,childIndicator.name),&#39;;&#39;) from BudgetIndicatorComposition where parentIndicatorId=m.id)&amp;quot;) } } 这里使用了两个sql函数把多条记录、多个字段组合成了一个字符串。拿到数据后前端经过简单的split转化就可以拿到json对象了。
-常用的sql函数 #  string_agg: 如果查出来有多条结果，会将它们拼装为一个字符串
-例子：string_agg(object.name, &#39;, &#39;)
-coalesce：如果alias存在则取alias，不存在取name</description>
-    </item>
-    
-    <item>
-      <title>线上调试</title>
-      <link>https://zxp-77hub.github.io/docs/common/%E7%BA%BF%E4%B8%8A%E8%B0%83%E8%AF%95/</link>
-      <pubDate>Wed, 07 Jul 2021 10:06:36 +0800</pubDate>
-      
-      <guid>https://zxp-77hub.github.io/docs/common/%E7%BA%BF%E4%B8%8A%E8%B0%83%E8%AF%95/</guid>
-      <description>线上系统的url后面加?ui-test=t可以让系统加载source map</description>
-    </item>
-    
-    <item>
-      <title>EntityDataTree</title>
-      <link>https://zxp-77hub.github.io/docs/common/entitydatatree/</link>
-      <pubDate>Tue, 29 Jun 2021 13:41:36 +0800</pubDate>
-      
-      <guid>https://zxp-77hub.github.io/docs/common/entitydatatree/</guid>
-      <description>寻找自定义该组件中的gql的方法 #  预算项目列表中的左树用了CustomerCategory组件，它又用了CategoryTree组件，其中又用了EntityDataTree组件，其中又用到了CommonProvider类，最终的gql就是在CommonProvider中生成并使用的。
-return client .query&amp;lt;{ data: T[] }&amp;gt;({ query: `query{ data: ${queryBuilder.toString()} }` }) </description>
-    </item>
-    
-    <item>
-      <title>GridRowAction的popover</title>
-      <link>https://zxp-77hub.github.io/docs/common/gridrowaction%E7%9A%84popover/</link>
-      <pubDate>Thu, 01 Apr 2021 18:45:12 +0800</pubDate>
-      
-      <guid>https://zxp-77hub.github.io/docs/common/gridrowaction%E7%9A%84popover/</guid>
-      <description>多列表方案中
-getRowActions(rowIndex: number, data: any): IGridAction[] { const actions = this.presenter.listSolutionConnector.rowActionController.makeDefaultRowActions( data, ); const disabledTimeAction = { icon: &amp;#39;icontuichu&amp;#39;, title: &amp;#39;停用日期&amp;#39;, key: &amp;#39;disabledDate&amp;#39;, onClick: () =&amp;gt; {}, popoverRender: () =&amp;gt; { return { content: ( &amp;lt;div /&amp;gt; ), }; }, } } </description>
-    </item>
-    
-    <item>
-      <title>提示</title>
-      <link>https://zxp-77hub.github.io/docs/common/%E6%8F%90%E7%A4%BA/</link>
-      <pubDate>Mon, 22 Mar 2021 17:37:07 +0800</pubDate>
-      
-      <guid>https://zxp-77hub.github.io/docs/common/%E6%8F%90%E7%A4%BA/</guid>
-      <description>import { showError, showInfo, showSuccess } from &amp;#39;@root/common/toaster&amp;#39;; showSuccess(&amp;#39;text&amp;#39;) 自适应内容高度的提示
-// apps/link/src/main/screens/projects/budget/budget-account/presenter/budget-account-form-presenter/helper.tsx  AlphaWarning( &amp;#39;text&amp;#39;, () =&amp;gt; {}, () =&amp;gt; {}, ); </description>
+常用的 gql 查询语句 #  1. 查看某种业务对象的实体名 #  // 例如出入库业务 ObjectType(criteriaStr: &amp;quot;appName=&#39;inventory&#39;&amp;quot;) { id title } 2. 查询预制列表组 #  // 例如公告列表组 QueryDefinitionGroup(criteriaStr:&amp;quot;objectType=&#39;Notice&#39;&amp;quot;){ id objectType title } 3. 预制列表方案 #  // 例如公告列表方案 QueryListDefinition(criteriaStr:&amp;quot;objectType=&#39;Notice&#39;&amp;quot;){ id objectType title } 高级的gql #  上面只能查到一个表的数据及其关联的外键，子表的数据。下面来搞一个子查询。</description>
     </item>
     
     <item>
@@ -101,19 +55,10 @@ b := ctx.GetBusinessModuleById(gen_ec.EC_BusinessModule_BusinessModule_budget) /
       <pubDate>Wed, 10 Mar 2021 17:41:36 +0800</pubDate>
       
       <guid>https://zxp-77hub.github.io/docs/common/gen/</guid>
-      <description>http://172.31.23.98:8080/job/front-gen/
-gen:
- 在app/go-gen中修改main/index.go中的ApiHost变量为你环境的host，运行gen.sh； 提交代码，部署trek到目标环境； 在jinkens的front-gen中，左边的Build with Parameters生成目标分支、目标环境的web的gen； 获取PR地址，修改remote分支，默认是master，合并代码  问题 #   某些变量在本地跑完gen后不见了  可能是后端该了某些属性的名字，但是0租户没有同步。    </description>
-    </item>
-    
-    <item>
-      <title>获取系统参数</title>
-      <link>https://zxp-77hub.github.io/docs/common/%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E5%8F%82%E6%95%B0/</link>
-      <pubDate>Tue, 09 Mar 2021 15:48:33 +0800</pubDate>
-      
-      <guid>https://zxp-77hub.github.io/docs/common/%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E5%8F%82%E6%95%B0/</guid>
-      <description>一 #  先在go上设置需要得系统参数，然后在前端取用。 参考：
- trek/services/form-services/middlewares/entities/time-sheet/index.go apps/link/src/main/screens/projects/time-sheet/form/TimeSheetFormPresenter.tsx  // 这里定义需要查询的系统参数 form_service_middlewares_creators.AppendSystemSettingKeyMiddlewareCreator( form_service_middlewares_creators.AppendSystemSettingKeyParams{ Keys: []string{ gen_ec.EC_Setting_timsheetWeekStarts, gen_ec.EC_Setting_timesheetPrecision, gen_ec.EC_Setting_timsheetDay2Hour, gen_ec.EC_Setting_timesheetCostRateType, gen_ec.EC_Setting_priceScale, }, }, ), this.bizFormPresenter.api.getSystemSetting(&amp;#39;timesheetCostRateType&amp;#39;); 二 #  const key = &amp;#39;timesheetCostRateType&amp;#39;; // 参数名 const settingDataLoader = new DataLoader(EN_Setting, [&amp;#39;values.value&amp;#39;], { criteriaStr: `key=&amp;#39;${key}&amp;#39;`, } as QueryOptions); const data = await settingDataLoader.query(); const result = data[0]; // result.value就是该参数的值  </description>
+      <description> 后端实体构建发版后，前端和go 要生成相应的 json
+ 1. go 端 #  进入 script 目录运行
+ sh gen.sh 2. 前端 #  直接运行 rush gen 环境
+问题 #   某些变量在本地跑完gen后不见了  可能是后端该了某些属性的名字，但是0租户没有同步。    </description>
     </item>
     
     <item>
@@ -140,21 +85,21 @@ actionType的定义在文件apps/link/node_modules/@q7/metadata/src/declare/cons
     </item>
     
     <item>
-      <title>后端的接口</title>
+      <title>接口</title>
       <link>https://zxp-77hub.github.io/docs/common/%E6%8E%A5%E5%8F%A3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://zxp-77hub.github.io/docs/common/%E6%8E%A5%E5%8F%A3/</guid>
-      <description>之所以叫“后端的接口”是为了与“go的接口”区分开。
-因为前端只能访问到go不能直接访问到后端，所以后端提供的接口，只能通过go访问。那么就要在go上加一个接口，前端访问go的接口，go访问后端的接口。
-下面介绍一下实现一个go接口的步骤。
-一、声明后端接口地址 #  在文件 trek/urls/url.go 中声明接口地址
-比如这样
-// 批量设置执行指标 	BudgetBatchSetIndicators := BudgetHost + &amp;#34;/baseapp/BudgetAccount/batchSetIndicators&amp;#34; 其中的 BudgetHost 是服务的地址，可以在文件的开头看到，它是根据具体的服务会有所不同的。
-二、添加go的接口 #  找到文件 trek/web/controllers/web-controllers/transparent/index.go
-1. 在 BeforeActivation 方法中创建go的接口 #  1 2 3 4 5  func (c *transparentController) BeforeActivation(b mvc.BeforeActivation) { // ...  b.Handle(iris.MethodPost, &amp;#34;/BudgetAccount/batchSetIndicators&amp;#34;, &amp;#34;BudgetAccountBatchSetIndicators&amp;#34;)  // ... }   其中b.Handle 方法的三个参数分别是
- http method go接口url（前端访问的url） go接口的处理函数  2. 实现“处理函数” #  在上面提到的BeforeActivation方法下面，创建一个与它同级的方法，也就是接口处理函数，内容就是直接给后端发起一个请求。
-其中第11行是第一步中声明的后端url地址 1 2 3 4 5 6 7 8 9 10 11 12  func (c *transparentController) BeforeActivation(b mvc.</description>
+      <description>前端不能直接调用后端提供的rest接口，必须前端请求go，go在请求后端
+一、在 go 上申明后端接口地址 #  在文件 trek/urls/url.go 中声明接口地址
+ 位置 trek/urls/url.yaml
+ 二. 然后控制台进入 app/script 目录 执行 sh gen.sh 命令 #  sh gen.sh 系统会根据定义的接口申明 在 trek/urls/url.go 上自动生成
+ 先声明变量。找你相关的代码块，或者自己创建于给代码块，在其中创建变量。  赋值为后端接口地址。在RefreshUrls方法内，将刚刚的变量赋值。  注：这两步是 gen 根据 url.yaml 自动生成，不用手动操作
+三. 添加 go 的接口 #   文件路径 trek/web/controllers/web-controllers/transparent/index.go
+ 第一部分，声明一个接口
+ 声明go接口的方法（post、get等） 前端访问go接口的url，如果url中包含参数用花括号 处理方法的名字  第二部分，实现方法处理接口
+ 拿到url中参数，请求后端接口 刚刚设置的后端接口地址的变量  四. 前端调用接口 #   文件路径 apps/link/src/api/urls.ts
+ 在这个文件里找到自己的entity，如果没有就创建一个，在其中声明一个字段作为接口地址（就是第三步的2）。 然后就可以调接口了，要使用 import client from &#39;@client&#39;;</description>
     </item>
     
     <item>
@@ -170,7 +115,7 @@ actionType的定义在文件apps/link/node_modules/@q7/metadata/src/declare/cons
     </item>
     
     <item>
-      <title>脱离form对entity进行crud</title>
+      <title>脱离 form 对entity进行 CRUD</title>
       <link>https://zxp-77hub.github.io/docs/common/entitycrud/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       

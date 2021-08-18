@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="场景 #  有时我需要刷新列表，比如，在列表上面的工具栏中加个按钮，按钮会搞了一个弹窗出来修改数据；比如，新建了一个单据。
-实现 #  新老列表的presenter中都实现了refresh方法">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="刷新列表" />
-<meta property="og:description" content="场景 #  有时我需要刷新列表，比如，在列表上面的工具栏中加个按钮，按钮会搞了一个弹窗出来修改数据；比如，新建了一个单据。
-实现 #  新老列表的presenter中都实现了refresh方法" />
+<meta name="description" content="import { showError, showInfo, showSuccess } from &#39;@root/common/toaster&#39;; showSuccess(&#39;text&#39;) 自适应内容高度的提示
+// apps/link/src/main/screens/projects/budget/budget-account/presenter/budget-account-form-presenter/helper.tsx  AlphaWarning( &#39;text&#39;, () =&gt; {}, () =&gt; {}, ); ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="提示" />
+<meta property="og:description" content="import { showError, showInfo, showSuccess } from &#39;@root/common/toaster&#39;; showSuccess(&#39;text&#39;) 自适应内容高度的提示
+// apps/link/src/main/screens/projects/budget/budget-account/presenter/budget-account-form-presenter/helper.tsx  AlphaWarning( &#39;text&#39;, () =&gt; {}, () =&gt; {}, ); " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zxp-77hub.github.io/docs/list-guide/%E5%88%B7%E6%96%B0%E5%88%97%E8%A1%A8/" /><meta property="article:section" content="docs" />
-<meta property="article:published_time" content="2021-01-15T14:34:22+08:00" />
-<meta property="article:modified_time" content="2021-01-15T14:34:22+08:00" />
+<meta property="og:url" content="https://zxp-77hub.github.io/docs/component/%E6%8F%90%E7%A4%BA/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2021-03-22T17:37:07+08:00" />
+<meta property="article:modified_time" content="2021-03-22T17:37:07+08:00" />
 
-<title>刷新列表 | 菜鸟集市</title>
+<title>提示 | 菜鸟集市</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.958cea7827621d6fbcb3acf091344c3e44e3d2a9428f9c3c38bb9eb37bf8c45d.css" integrity="sha256-lYzqeCdiHW&#43;8s6zwkTRMPkTj0qlCj5w8OLues3v4xF0=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.962cc879a4627c45782dd60d62529d275869ff9538e58609cb63b7a85fc16226.js" integrity="sha256-lizIeaRifEV4LdYNYlKdJ1hp/5U45YYJy2O3qF/BYiY=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.534240ba55b94f4c0bbb2511df3c69ecee9f1cd4097a3d70d2a80f6a05b6c0f6.js" integrity="sha256-U0JAulW5T0wLuyUR3zxp7O6fHNQJej1w0qgPagW2wPY=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -152,58 +152,6 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://zxp-77hub.github.io/docs/common/%E7%BA%BF%E4%B8%8A%E8%B0%83%E8%AF%95/" class="">线上调试</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://zxp-77hub.github.io/docs/common/entitydatatree/" class="">EntityDataTree</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://zxp-77hub.github.io/docs/common/gridrowaction%E7%9A%84popover/" class="">GridRowAction的popover</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://zxp-77hub.github.io/docs/common/%E6%8F%90%E7%A4%BA/" class="">提示</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="https://zxp-77hub.github.io/docs/common/%E5%B8%81%E7%A7%8D%E7%B2%BE%E5%BA%A6/" class="">币种精度</a>
   
 
@@ -256,19 +204,6 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://zxp-77hub.github.io/docs/common/%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E5%8F%82%E6%95%B0/" class="">获取系统参数</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="https://zxp-77hub.github.io/docs/common/%E4%B8%9A%E5%8A%A1%E8%A7%84%E5%88%99/" class="">获取业务规则</a>
   
 
@@ -295,7 +230,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://zxp-77hub.github.io/docs/common/%E6%8E%A5%E5%8F%A3/" class="">后端的接口</a>
+    <a href="https://zxp-77hub.github.io/docs/common/%E6%8E%A5%E5%8F%A3/" class="">接口</a>
   
 
         </li>
@@ -321,7 +256,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://zxp-77hub.github.io/docs/common/entitycrud/" class="">脱离form对entity进行crud</a>
+    <a href="https://zxp-77hub.github.io/docs/common/entitycrud/" class="">脱离 form 对entity进行 CRUD</a>
   
 
         </li>
@@ -414,19 +349,6 @@ https://github.com/alex-shpak/hugo-book
 
           
   <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://zxp-77hub.github.io/docs/form-guide/%E6%89%93%E5%8D%B0%E6%A8%A1%E6%9D%BF/" class="">打印模板</a>
-  
-
-        </li>
-      
     
       
         <li>
@@ -808,19 +730,6 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://zxp-77hub.github.io/docs/list-guide/%E5%88%B7%E6%96%B0%E5%88%97%E8%A1%A8/" class=" active">刷新列表</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <span>虚拟字段</span>
   
 
@@ -888,6 +797,19 @@ https://github.com/alex-shpak/hugo-book
 
           
   <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/component/%E6%8F%90%E7%A4%BA/" class=" active">提示</a>
+  
+
+        </li>
+      
     
       
         <li>
@@ -1056,7 +978,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>刷新列表</strong>
+  <strong>提示</strong>
 
   <label for="toc-control">
     
@@ -1070,12 +992,7 @@ https://github.com/alex-shpak/hugo-book
   <aside class="hidden clearfix">
     
   
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#场景">场景</a></li>
-    <li><a href="#实现">实现</a></li>
-  </ul>
-</nav>
+<nav id="TableOfContents"></nav>
 
 
 
@@ -1091,19 +1008,20 @@ https://github.com/alex-shpak/hugo-book
     
     
     
-    <h1>刷新列表</h1>
+    <h1>提示</h1>
     <p>作者：王书硕</p>
-    <hr/><h2 id="场景">
-  场景
-  <a class="anchor" href="#%e5%9c%ba%e6%99%af">#</a>
-</h2>
-<p>有时我需要刷新列表，比如，在列表上面的工具栏中加个按钮，按钮会搞了一个弹窗出来修改数据；比如，新建了一个单据。</p>
-<h2 id="实现">
-  实现
-  <a class="anchor" href="#%e5%ae%9e%e7%8e%b0">#</a>
-</h2>
-<p>新老列表的presenter中都实现了refresh方法</p>
-</article>
+    <hr/><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">showError</span>, <span style="color:#a6e22e">showInfo</span>, <span style="color:#a6e22e">showSuccess</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@root/common/toaster&#39;</span>;
+
+<span style="color:#a6e22e">showSuccess</span>(<span style="color:#e6db74">&#39;text&#39;</span>)
+</code></pre></div><p>自适应内容高度的提示</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#75715e">// apps/link/src/main/screens/projects/budget/budget-account/presenter/budget-account-form-presenter/helper.tsx
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">AlphaWarning</span>(
+  <span style="color:#e6db74">&#39;text&#39;</span>,
+  () <span style="color:#f92672">=&gt;</span> {},
+  () <span style="color:#f92672">=&gt;</span> {},
+);
+</code></pre></div></article>
  
       
 
@@ -1142,12 +1060,7 @@ https://github.com/alex-shpak/hugo-book
       <div class="book-toc-content">
         
   
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#场景">场景</a></li>
-    <li><a href="#实现">实现</a></li>
-  </ul>
-</nav>
+<nav id="TableOfContents"></nav>
 
 
  

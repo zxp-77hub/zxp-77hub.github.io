@@ -68,15 +68,5 @@ this.presenter.listSolutionConnector.selectionItems </description>
 效果图： export class ProjectListPagePresenter extends QueryListPagePresenter{ protected commandActionResolver(commandActions: ToolbarAction[]): ToolbarAction[] { // 简单的action  commandActions.unshift({ id: &amp;#39;project-view&amp;#39;, group: ToolbarActionGroup.Group1, action: this.presenter.toolbarConnector.makeCreateButton({ onClick: billTypeId =&amp;gt; { }, }), }); // 复杂的action  commandActions.push(new ProjectMultiCloseAction(this.presenter.listSolutionConnector)) } }  覆盖父类的commandActionResolver方法。向参数commandActions数组中添加ToolbarAction元素即可。 ToolbarAction有两种方式创建。 简单的话，可以用对象字面量创建。 复杂的话，就用一个对象来实现ToolbarAction。参考ProjectMultiCloseAction  </description>
     </item>
     
-    <item>
-      <title>刷新列表</title>
-      <link>https://zxp-77hub.github.io/docs/list-guide/%E5%88%B7%E6%96%B0%E5%88%97%E8%A1%A8/</link>
-      <pubDate>Fri, 15 Jan 2021 14:34:22 +0800</pubDate>
-      
-      <guid>https://zxp-77hub.github.io/docs/list-guide/%E5%88%B7%E6%96%B0%E5%88%97%E8%A1%A8/</guid>
-      <description>场景 #  有时我需要刷新列表，比如，在列表上面的工具栏中加个按钮，按钮会搞了一个弹窗出来修改数据；比如，新建了一个单据。
-实现 #  新老列表的presenter中都实现了refresh方法</description>
-    </item>
-    
   </channel>
 </rss>
