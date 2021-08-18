@@ -1,5 +1,5 @@
 ---
-title: 脱离form对entity进行crud
+title: 脱离 form 对entity进行 CRUD
 author: 王书硕
 ---
 

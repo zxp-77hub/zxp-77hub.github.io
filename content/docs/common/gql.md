@@ -33,6 +33,33 @@ weight: 1
 ```
 这个会查到name为1、2、3的多条数据
 
+## 常用的 gql 查询语句
+### 1. 查看某种业务对象的实体名
+```angular2html
+// 例如出入库业务
+ObjectType(criteriaStr: "appName='inventory'") {
+  id
+  title
+}
+```
+### 2. 查询预制列表组
+```angular2html
+// 例如公告列表组
+QueryDefinitionGroup(criteriaStr:"objectType='Notice'"){
+	id
+  objectType
+  title
+}
+```
+### 3. 预制列表方案
+```angular2html
+// 例如公告列表方案
+QueryListDefinition(criteriaStr:"objectType='Notice'"){
+  id
+  objectType
+  title
+}
+```
 ## 高级的gql
 上面只能查到一个表的数据及其关联的外键，子表的数据。下面来搞一个子查询。
 > 因为有的时候，后端的模型中，没有包含我们需要的子表，只能我们自己构建
@@ -135,3 +162,4 @@ type FieldMappingRes struct {
 1. queryString定义语句的模板，其中可以包含一些模板变量
 2. GraphqlTemplate将模板变量引用到模板
 3. 用DoHTTPPost发起请求
+
