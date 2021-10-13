@@ -1,4 +1,4 @@
 ---
-title: 组件
-weight: 2000
+title: 五. 组件
+weight: 500
 ---

@@ -1,6 +1,6 @@
 ---
-title: "多组织"
-weight: 200
+title: "七. 多组织"
+weight: 700
 # bookFlatSection: false
 # bookToc: true
 # bookHidden: false

@@ -1,6 +1,6 @@
 ---
-title: "前端框架基础"
-weight: 50
+title: "一. 前端框架基础"
+weight: 100
 # bookFlatSection: false
 # bookToc: true
 # bookHidden: false

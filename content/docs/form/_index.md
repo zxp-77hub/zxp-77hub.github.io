@@ -1,6 +1,6 @@
 ---
-title: "BizForm基础"
-weight: 100
+title: "二. BizForm基础"
+weight: 200
 # bookFlatSection: false
 # bookToc: true
 # bookHidden: false
