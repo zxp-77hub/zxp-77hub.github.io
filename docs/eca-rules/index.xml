@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>三. Eca Rules on 菜鸟集市</title>
+    <link>https://zxp-77hub.github.io/docs/eca-rules/</link>
+    <description>Recent content in 三. Eca Rules on 菜鸟集市</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 13 Oct 2021 17:47:15 +0800</lastBuildDate><atom:link href="https://zxp-77hub.github.io/docs/eca-rules/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>头体字段值同步</title>
+      <link>https://zxp-77hub.github.io/docs/eca-rules/%E5%A4%B4%E4%BD%93%E5%AD%97%E6%AE%B5%E5%80%BC%E5%90%8C%E6%AD%A5/</link>
+      <pubDate>Wed, 13 Oct 2021 17:47:15 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/eca-rules/%E5%A4%B4%E4%BD%93%E5%AD%97%E6%AE%B5%E5%80%BC%E5%90%8C%E6%AD%A5/</guid>
+      <description>ReactiveMasterToTables #   主表字段值同步到子表 字段值
+ ReactiveTablesToMaster #   子表字段值同步到主表
+ </description>
+    </item>
+    
+    <item>
+      <title>ReactiveCriteria-字段过滤处理</title>
+      <link>https://zxp-77hub.github.io/docs/eca-rules/reactivecriteria-%E5%AD%97%E6%AE%B5%E8%BF%87%E6%BB%A4%E5%A4%84%E7%90%86/</link>
+      <pubDate>Thu, 30 Sep 2021 14:33:16 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/eca-rules/reactivecriteria-%E5%AD%97%E6%AE%B5%E8%BF%87%E6%BB%A4%E5%A4%84%E7%90%86/</guid>
+      <description>ReactiveCriteria #   添加参照字段过滤条件
+ { &amp;quot;name&amp;quot;: &amp;quot;ReactiveCriteria&amp;quot;, &amp;quot;description&amp;quot;: &amp;quot;描述&amp;quot;, &amp;quot;params&amp;quot;: { &amp;quot;field&amp;quot;: &amp;quot;字段id&amp;quot;, &amp;quot;fragment&amp;quot;: { &amp;quot;bindVars&amp;quot;: { &amp;quot;createOrgId&amp;quot;: &amp;quot;$root.createOrg.id&amp;quot; // 变量 }, &amp;quot;criteriaStr&amp;quot;: &amp;quot;createOrgId = :createOrgId&amp;quot;, &amp;quot;fireImmediately&amp;quot;: true, &amp;quot;when&amp;quot;: &amp;quot;$root.createOrg.id !== undefined&amp;quot; } } } </description>
+    </item>
+    
+    <item>
+      <title>ReactiveAssignment-字段值处理</title>
+      <link>https://zxp-77hub.github.io/docs/eca-rules/reactiveassignment-%E5%AD%97%E6%AE%B5%E5%80%BC%E5%A4%84%E7%90%86/</link>
+      <pubDate>Thu, 30 Sep 2021 14:26:50 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/eca-rules/reactiveassignment-%E5%AD%97%E6%AE%B5%E5%80%BC%E5%A4%84%E7%90%86/</guid>
+      <description>ReactiveAssignment #    </description>
+    </item>
+    
+    <item>
+      <title>ReactiveFieldStatus-字段状态处理</title>
+      <link>https://zxp-77hub.github.io/docs/eca-rules/reactivefieldstatus-%E5%AD%97%E6%AE%B5%E7%8A%B6%E6%80%81%E5%A4%84%E7%90%86/</link>
+      <pubDate>Thu, 30 Sep 2021 10:39:28 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/eca-rules/reactivefieldstatus-%E5%AD%97%E6%AE%B5%E7%8A%B6%E6%80%81%E5%A4%84%E7%90%86/</guid>
+      <description>ReactiveFieldStatus #   控制字段的各种状态，必填/只读
+ { &amp;quot;name&amp;quot;: &amp;quot;ReactiveFieldStatus&amp;quot;, &amp;quot;description&amp;quot;: &amp;quot;描述处理的场景&amp;quot;, &amp;quot;params&amp;quot;: { &amp;quot;effect&amp;quot;: { &amp;quot;expr&amp;quot;: &amp;quot;true&amp;quot;, // &amp;quot;fireImmediately&amp;quot;: true, // 是否立即执行 &amp;quot;status&amp;quot;: &amp;quot;Readonly&amp;quot;, // Readonly，Required &amp;quot;when&amp;quot;: &amp;quot;$root.createdOrg === undefined&amp;quot; // 触发条件 }, &amp;quot;field&amp;quot;: &amp;quot;startPeriod&amp;quot; // 处理字段 } }, </description>
+    </item>
+    
+  </channel>
+</rss>
