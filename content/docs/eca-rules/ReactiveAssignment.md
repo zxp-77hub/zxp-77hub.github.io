@@ -1,10 +1,10 @@
 ---
-title: "ReactiveAssignment-字段值处理"
-date: 2021-09-30T14:26:50+08:00
+title: "ReactiveAssignment"
+date: 2021-10-14T14:15:05+08:00
 author: 张学鹏
 ---
 ### ReactiveAssignment
-> 对字段赋值
+>
 
 ```javascript
 type IReactiveAssignmentEffect = struct {
@@ -83,5 +83,4 @@ type IReactiveAssignmentParamsV2 = struct {
 	Effects []*IReactiveAssignmentEffectV2 `json:"effects,omitempty"`
 }
 
-``` 
-### 示例
+```
