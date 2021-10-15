@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ReactiveCriteria #   添加参照字段过滤条件
- { &quot;name&quot;: &quot;ReactiveCriteria&quot;, &quot;description&quot;: &quot;描述&quot;, &quot;params&quot;: { &quot;field&quot;: &quot;字段id&quot;, &quot;fragment&quot;: { &quot;bindVars&quot;: { &quot;createOrgId&quot;: &quot;$root.createOrg.id&quot; // 变量 }, &quot;criteriaStr&quot;: &quot;createOrgId = :createOrgId&quot;, &quot;fireImmediately&quot;: true, &quot;when&quot;: &quot;$root.createOrg.id !== undefined&quot; } } } ">
+ type IReactiveCriteriaFragment = struct { /** 取值表达式 */ CriteriaStr string `json:&#34;criteriaStr&#34;` /** 动态参数 */ BindVars map[string]interface{} `json:&#34;bindVars,omitempty&#34;` /** 当取值表达式为空时，根据 autoClear 的结果判断是否同步清空 默认值：false */ AutoClear bool `json:&#34;autoClear,omitempty&#34;` /** 当 when = true 时，才会执行规则 默认值：true */ When string `json:&#34;when,omitempty&#34;` /** 和其他条件的 与或关系 */ Join string `json:&#34;join,omitempty&#34;` /** 是否立即生效 默认值：false */ FireImmediately bool `json:&#34;fireImmediately,omitempty&#34;` } type IReactiveCriteriaParams = struct { /** 目标字段 */ Field string `json:&#34;field&#34;` /** 过滤因素, 支持简单的静态过滤条件字符串 和 复杂的结构化设置 */ Fragment *IReactiveCriteriaFragment `json:&#34;fragment,omitempty&#34;` Fragments []*IReactiveCriteriaFragment `json:&#34;fragments,omitempty&#34;` } 示例 #  { &quot;name&quot;: &quot;ReactiveCriteria&quot;, &quot;description&quot;: &quot;描述&quot;, &quot;params&quot;: { &quot;field&quot;: &quot;字段id&quot;, &quot;fragment&quot;: { &quot;bindVars&quot;: { &quot;createOrgId&quot;: &quot;$root.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="ReactiveCriteria-字段过滤处理" />
 <meta property="og:description" content="ReactiveCriteria #   添加参照字段过滤条件
- { &quot;name&quot;: &quot;ReactiveCriteria&quot;, &quot;description&quot;: &quot;描述&quot;, &quot;params&quot;: { &quot;field&quot;: &quot;字段id&quot;, &quot;fragment&quot;: { &quot;bindVars&quot;: { &quot;createOrgId&quot;: &quot;$root.createOrg.id&quot; // 变量 }, &quot;criteriaStr&quot;: &quot;createOrgId = :createOrgId&quot;, &quot;fireImmediately&quot;: true, &quot;when&quot;: &quot;$root.createOrg.id !== undefined&quot; } } } " />
+ type IReactiveCriteriaFragment = struct { /** 取值表达式 */ CriteriaStr string `json:&#34;criteriaStr&#34;` /** 动态参数 */ BindVars map[string]interface{} `json:&#34;bindVars,omitempty&#34;` /** 当取值表达式为空时，根据 autoClear 的结果判断是否同步清空 默认值：false */ AutoClear bool `json:&#34;autoClear,omitempty&#34;` /** 当 when = true 时，才会执行规则 默认值：true */ When string `json:&#34;when,omitempty&#34;` /** 和其他条件的 与或关系 */ Join string `json:&#34;join,omitempty&#34;` /** 是否立即生效 默认值：false */ FireImmediately bool `json:&#34;fireImmediately,omitempty&#34;` } type IReactiveCriteriaParams = struct { /** 目标字段 */ Field string `json:&#34;field&#34;` /** 过滤因素, 支持简单的静态过滤条件字符串 和 复杂的结构化设置 */ Fragment *IReactiveCriteriaFragment `json:&#34;fragment,omitempty&#34;` Fragments []*IReactiveCriteriaFragment `json:&#34;fragments,omitempty&#34;` } 示例 #  { &quot;name&quot;: &quot;ReactiveCriteria&quot;, &quot;description&quot;: &quot;描述&quot;, &quot;params&quot;: { &quot;field&quot;: &quot;字段id&quot;, &quot;fragment&quot;: { &quot;bindVars&quot;: { &quot;createOrgId&quot;: &quot;$root." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://zxp-77hub.github.io/docs/eca-rules/reactivecriteria-%E5%AD%97%E6%AE%B5%E8%BF%87%E6%BB%A4%E5%A4%84%E7%90%86/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2021-09-30T14:33:16+08:00" />
@@ -18,7 +18,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.958cea7827621d6fbcb3acf091344c3e44e3d2a9428f9c3c38bb9eb37bf8c45d.css" integrity="sha256-lYzqeCdiHW&#43;8s6zwkTRMPkTj0qlCj5w8OLues3v4xF0=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.c8d65ed5763e8913e1de0453f91d97c84741ebc475922e5005a9ef7d5d02cc05.js" integrity="sha256-yNZe1XY&#43;iRPh3gRT&#43;R2XyEdB68R1ki5QBanvfV0CzAU=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.741bafdbd3676ee0f66ed12df96bb3fdb6078ecfa3aed22cf1fb6b0ef9735041.js" integrity="sha256-dBuv29NnbuD2btEt&#43;Wuz/bYHjs&#43;jrtIs8ftrDvlzUEE=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -201,6 +201,71 @@ https://github.com/alex-shpak/hugo-book
 
           
   <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/eca-rules/reactivefieldvalidator/" class="">ReactiveFieldValidator</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/eca-rules/reactivefieldcomponentprops/" class="">ReactiveFieldComponentProps</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/eca-rules/assignment/" class="">Assignment</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/eca-rules/fieldvalidatorrelations/" class="">FieldValidatorRelations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/eca-rules/reactiveassignment/" class="">ReactiveAssignment</a>
+  
+
+        </li>
+      
     
       
         <li>
@@ -1069,6 +1134,7 @@ https://github.com/alex-shpak/hugo-book
     <li>
       <ul>
         <li><a href="#reactivecriteria">ReactiveCriteria</a></li>
+        <li><a href="#示例">示例</a></li>
       </ul>
     </li>
   </ul>
@@ -1097,6 +1163,51 @@ https://github.com/alex-shpak/hugo-book
 <blockquote>
 <p>添加参照字段过滤条件</p>
 </blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">type</span> <span style="color:#a6e22e">IReactiveCriteriaFragment</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">struct</span> {
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	  取值表达式
+</span><span style="color:#75715e">	*/</span>
+	<span style="color:#a6e22e">CriteriaStr</span> <span style="color:#a6e22e">string</span> <span style="color:#e6db74">`json:&#34;criteriaStr&#34;`</span>
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	  动态参数
+</span><span style="color:#75715e">	*/</span>
+	<span style="color:#a6e22e">BindVars</span> <span style="color:#a6e22e">map</span>[<span style="color:#a6e22e">string</span>]<span style="color:#66d9ef">interface</span>{} <span style="color:#e6db74">`json:&#34;bindVars,omitempty&#34;`</span>
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	  当取值表达式为空时，根据 autoClear 的结果判断是否同步清空
+</span><span style="color:#75715e">	  默认值：false
+</span><span style="color:#75715e">	*/</span>
+	<span style="color:#a6e22e">AutoClear</span> <span style="color:#a6e22e">bool</span> <span style="color:#e6db74">`json:&#34;autoClear,omitempty&#34;`</span>
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	  当 when = true 时，才会执行规则
+</span><span style="color:#75715e">	  默认值：true
+</span><span style="color:#75715e">	*/</span>
+	<span style="color:#a6e22e">When</span> <span style="color:#a6e22e">string</span> <span style="color:#e6db74">`json:&#34;when,omitempty&#34;`</span>
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	  和其他条件的 与或关系
+</span><span style="color:#75715e">	*/</span>
+	<span style="color:#a6e22e">Join</span> <span style="color:#a6e22e">string</span> <span style="color:#e6db74">`json:&#34;join,omitempty&#34;`</span>
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	  是否立即生效
+</span><span style="color:#75715e">	  默认值：false
+</span><span style="color:#75715e">	*/</span>
+	<span style="color:#a6e22e">FireImmediately</span> <span style="color:#a6e22e">bool</span> <span style="color:#e6db74">`json:&#34;fireImmediately,omitempty&#34;`</span>
+}
+
+<span style="color:#a6e22e">type</span> <span style="color:#a6e22e">IReactiveCriteriaParams</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">struct</span> {
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	  目标字段
+</span><span style="color:#75715e">	*/</span>
+	<span style="color:#a6e22e">Field</span> <span style="color:#a6e22e">string</span> <span style="color:#e6db74">`json:&#34;field&#34;`</span>
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	  过滤因素, 支持简单的静态过滤条件字符串 和 复杂的结构化设置
+</span><span style="color:#75715e">	*/</span>
+	<span style="color:#a6e22e">Fragment</span>  <span style="color:#f92672">*</span><span style="color:#a6e22e">IReactiveCriteriaFragment</span>   <span style="color:#e6db74">`json:&#34;fragment,omitempty&#34;`</span>
+	<span style="color:#a6e22e">Fragments</span> []<span style="color:#f92672">*</span><span style="color:#a6e22e">IReactiveCriteriaFragment</span> <span style="color:#e6db74">`json:&#34;fragments,omitempty&#34;`</span>
+}
+</code></pre></div><h3 id="示例">
+  示例
+  <a class="anchor" href="#%e7%a4%ba%e4%be%8b">#</a>
+</h3>
 <pre tabindex="0"><code class="language-angular2html" data-lang="angular2html">{
     &quot;name&quot;: &quot;ReactiveCriteria&quot;,
     &quot;description&quot;: &quot;描述&quot;,
@@ -1156,6 +1267,7 @@ https://github.com/alex-shpak/hugo-book
     <li>
       <ul>
         <li><a href="#reactivecriteria">ReactiveCriteria</a></li>
+        <li><a href="#示例">示例</a></li>
       </ul>
     </li>
   </ul>

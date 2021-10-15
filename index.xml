@@ -6,7 +6,7 @@
     <description>Recent content on 菜鸟集市</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 13 Oct 2021 17:47:15 +0800</lastBuildDate><atom:link href="https://zxp-77hub.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 Oct 2021 14:17:38 +0800</lastBuildDate><atom:link href="https://zxp-77hub.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>初入新手村</title>
       <link>https://zxp-77hub.github.io/docs/base/%E5%88%9D%E5%85%A5%E6%96%B0%E6%89%8B%E6%9D%91/</link>
@@ -114,14 +114,58 @@ We&#39;ll start with creating a new site with a very basic template.</descriptio
     </item>
     
     <item>
+      <title>ReactiveFieldValidator</title>
+      <link>https://zxp-77hub.github.io/docs/eca-rules/reactivefieldvalidator/</link>
+      <pubDate>Thu, 14 Oct 2021 14:17:38 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/eca-rules/reactivefieldvalidator/</guid>
+      <description>ReactiveFieldValidator #    type IReactiveFieldValidatorItem = struct { /** Validator 名称 */ Name string `json:&amp;#34;name&amp;#34;` /** 验证参数 */ Params map[string]interface{} `json:&amp;#34;params&amp;#34;` /** 是否是结构化的 默认是false 如果是false 则 按照实例进行验证 也就是验证加载FormField 实例 如果结构化为true 会剔除实例的影响 直接用logicPath 新增验证 这样的话 就会对当前字表的某一列都有效 */ IsStruct bool `json:&amp;#34;isStruct&amp;#34;` /** 当 when = true 时，才会执行规则 默认值：true */ When string `json:&amp;#34;when,omitempty&amp;#34;` /** 是否立即执行 默认值：false */ FireImmediately bool `json:&amp;#34;fireImmediately&amp;#34;` } type IReactiveFieldValidatorParams = struct { /** 目标字段 */ Field string `json:&amp;#34;field&amp;#34;` /** 校验器定义 */ Effect *IReactiveFieldValidatorItem `json:&amp;#34;effect,omitempty&amp;#34;` Effects []*IReactiveFieldValidatorItem `json:&amp;#34;effects,omitempty&amp;#34;` } </description>
+    </item>
+    
+    <item>
+      <title>ReactiveFieldComponentProps</title>
+      <link>https://zxp-77hub.github.io/docs/eca-rules/reactivefieldcomponentprops/</link>
+      <pubDate>Thu, 14 Oct 2021 14:16:59 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/eca-rules/reactivefieldcomponentprops/</guid>
+      <description>ReactiveFieldComponentProps #  type IReactiveFieldComponentPropsItem = struct { Props map[string]interface{} `json:&amp;#34;props,omitempty&amp;#34;` IsDestruct bool `json:&amp;#34;isDestruct&amp;#34;` When string `json:&amp;#34;when,omitempty&amp;#34;` FireImmediately bool `json:&amp;#34;fireImmediately,omitempty&amp;#34;` } type IReactiveFieldComponentProps = struct { Field string `json:&amp;#34;field&amp;#34;` Effect *IReactiveFieldComponentPropsItem `json:&amp;#34;effect,omitempty&amp;#34;` Effects []*IReactiveFieldComponentPropsItem `json:&amp;#34;effects,omitempty&amp;#34;` } </description>
+    </item>
+    
+    <item>
+      <title>Assignment</title>
+      <link>https://zxp-77hub.github.io/docs/eca-rules/assignment/</link>
+      <pubDate>Thu, 14 Oct 2021 14:16:26 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/eca-rules/assignment/</guid>
+      <description>Assignment #    type IAssignmentParams struct { /** * 被赋值字段 */ Field string `json:&amp;#34;field&amp;#34;` /** * 赋值结果，支持表达式 */ Expr string `json:&amp;#34;expr&amp;#34;` } </description>
+    </item>
+    
+    <item>
+      <title>FieldValidatorRelations</title>
+      <link>https://zxp-77hub.github.io/docs/eca-rules/fieldvalidatorrelations/</link>
+      <pubDate>Thu, 14 Oct 2021 14:15:46 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/eca-rules/fieldvalidatorrelations/</guid>
+      <description>FieldValidatorRelations #    type IFieldValidatorRelationsItem = struct { /** * 目标字段 */ Source string `json:&amp;#34;source&amp;#34;` /** * 校验字段 */ Targets []string `json:&amp;#34;targets&amp;#34;` /** * 是否双向影响 * 默认值：false */ Bidirectional bool `json:&amp;#34;bidirectional&amp;#34;` } type IFieldValidatorRelations = struct { Relations []IFieldValidatorRelationsItem `json:&amp;#34;relations&amp;#34;` } </description>
+    </item>
+    
+    <item>
+      <title>ReactiveAssignment</title>
+      <link>https://zxp-77hub.github.io/docs/eca-rules/reactiveassignment/</link>
+      <pubDate>Thu, 14 Oct 2021 14:15:05 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/eca-rules/reactiveassignment/</guid>
+      <description>ReactiveAssignment #    type IReactiveAssignmentEffect = struct { /** 取值表达式 */ Expr string `json:&amp;#34;expr&amp;#34;` /** 当目标字段有值时，根据 overrideExpr 的结果来判断是否需要覆盖 默认值：false */ Override bool `json:&amp;#34;override&amp;#34;` /** 当取值表达式为空时，根据 autoClear 的结果判断是否同步清空 默认值：false */ AutoClear bool `json:&amp;#34;autoClear&amp;#34;` /** 当 when = true 时，才会执行规则 默认值：true */ When string `json:&amp;#34;when,omitempty&amp;#34;` /** 是否立即生效 默认值：false */ FireImmediately bool `json:&amp;#34;fireImmediately&amp;#34;` } type IReactiveAssignmentEffectV2 = struct { /** 取值表达式 */ Expr string `json:&amp;#34;expr&amp;#34;` /** 当目标字段有值时，根据 overrideExpr 的结果来判断是否需要覆盖 默认值：false */ Override string `json:&amp;#34;override&amp;#34;` /** 当取值表达式为空时，根据 autoClear 的结果判断是否同步清空 默认值：false */ AutoClear string `json:&amp;#34;autoClear&amp;#34;` /** 当 when = true 时，才会执行规则 默认值：true */ When string `json:&amp;#34;when,omitempty&amp;#34;` /** 是否立即生效 默认值：false */ FireImmediately string `json:&amp;#34;fireImmediately&amp;#34;` } type IReactiveAssignmentParams = struct { /** 目标字段 */ Field string `json:&amp;#34;field&amp;#34;` /** 赋值来源 */ Effect *IReactiveAssignmentEffect `json:&amp;#34;effect,omitempty&amp;#34;` Effects []*IReactiveAssignmentEffect `json:&amp;#34;effects,omitempty&amp;#34;` } type IReactiveAssignmentParamsV2 = struct { /** 目标字段 */ Field string `json:&amp;#34;field&amp;#34;` /** 赋值来源 */ Effect *IReactiveAssignmentEffectV2 `json:&amp;#34;effect,omitempty&amp;#34;` Effects []*IReactiveAssignmentEffectV2 `json:&amp;#34;effects,omitempty&amp;#34;` } </description>
+    </item>
+    
+    <item>
       <title>头体字段值同步</title>
       <link>https://zxp-77hub.github.io/docs/eca-rules/%E5%A4%B4%E4%BD%93%E5%AD%97%E6%AE%B5%E5%80%BC%E5%90%8C%E6%AD%A5/</link>
       <pubDate>Wed, 13 Oct 2021 17:47:15 +0800</pubDate>
       
       <guid>https://zxp-77hub.github.io/docs/eca-rules/%E5%A4%B4%E4%BD%93%E5%AD%97%E6%AE%B5%E5%80%BC%E5%90%8C%E6%AD%A5/</guid>
-      <description>ReactiveMasterToTables #   主表字段值同步到子表 字段值
- ReactiveTablesToMaster #   子表字段值同步到主表
- </description>
+      <description>ReactiveMasterToTables #   主表字段值同步到子表
+ /** * 子表设置 */ type IReactiveMasterToTablesTarget = struct { /** * 子表字段名 */ DataTable string `json:&amp;#34;dataTable&amp;#34;` /** * 同步的列字段名 */ Field string `json:&amp;#34;field&amp;#34;` /** * 数据过滤表达式，类似之前的视图，只有在满足表达式条件下的数据行，会被同步数据 * expr =&amp;gt; boolean, defaultWhen =&amp;gt; ignore disabled | readonly */ ViewName string `json:&amp;#34;viewName,omitempty&amp;#34;` /** * 数据过滤表达式，类似之前的视图，只有在满足表达式条件下的数据行，会被同步数据 * expr =&amp;gt; boolean, defaultWhen =&amp;gt; ignore disabled | readonly */ When string `json:&amp;#34;when,omitempty&amp;#34;` /** * force update all */ Always string `json:&amp;#34;always,omitempty&amp;#34;` } /** * 表头字段同步到子表上 */ type IReactiveMasterToTablesParams = struct { /** * 表头字段表达式 */ SourceValue string `json:&amp;#34;sourceValue&amp;#34;` /** * 子表设置 */ Target *IReactiveMasterToTablesTarget `json:&amp;#34;target,omitempty&amp;#34;` /** * 多子表设置（推荐） */ Targets []*IReactiveMasterToTablesTarget `json:&amp;#34;targets,omitempty&amp;#34;` } 字段值</description>
     </item>
     
     <item>
@@ -131,7 +175,7 @@ We&#39;ll start with creating a new site with a very basic template.</descriptio
       
       <guid>https://zxp-77hub.github.io/docs/eca-rules/reactivecriteria-%E5%AD%97%E6%AE%B5%E8%BF%87%E6%BB%A4%E5%A4%84%E7%90%86/</guid>
       <description>ReactiveCriteria #   添加参照字段过滤条件
- { &amp;quot;name&amp;quot;: &amp;quot;ReactiveCriteria&amp;quot;, &amp;quot;description&amp;quot;: &amp;quot;描述&amp;quot;, &amp;quot;params&amp;quot;: { &amp;quot;field&amp;quot;: &amp;quot;字段id&amp;quot;, &amp;quot;fragment&amp;quot;: { &amp;quot;bindVars&amp;quot;: { &amp;quot;createOrgId&amp;quot;: &amp;quot;$root.createOrg.id&amp;quot; // 变量 }, &amp;quot;criteriaStr&amp;quot;: &amp;quot;createOrgId = :createOrgId&amp;quot;, &amp;quot;fireImmediately&amp;quot;: true, &amp;quot;when&amp;quot;: &amp;quot;$root.createOrg.id !== undefined&amp;quot; } } } </description>
+ type IReactiveCriteriaFragment = struct { /** 取值表达式 */ CriteriaStr string `json:&amp;#34;criteriaStr&amp;#34;` /** 动态参数 */ BindVars map[string]interface{} `json:&amp;#34;bindVars,omitempty&amp;#34;` /** 当取值表达式为空时，根据 autoClear 的结果判断是否同步清空 默认值：false */ AutoClear bool `json:&amp;#34;autoClear,omitempty&amp;#34;` /** 当 when = true 时，才会执行规则 默认值：true */ When string `json:&amp;#34;when,omitempty&amp;#34;` /** 和其他条件的 与或关系 */ Join string `json:&amp;#34;join,omitempty&amp;#34;` /** 是否立即生效 默认值：false */ FireImmediately bool `json:&amp;#34;fireImmediately,omitempty&amp;#34;` } type IReactiveCriteriaParams = struct { /** 目标字段 */ Field string `json:&amp;#34;field&amp;#34;` /** 过滤因素, 支持简单的静态过滤条件字符串 和 复杂的结构化设置 */ Fragment *IReactiveCriteriaFragment `json:&amp;#34;fragment,omitempty&amp;#34;` Fragments []*IReactiveCriteriaFragment `json:&amp;#34;fragments,omitempty&amp;#34;` } 示例 #  { &amp;quot;name&amp;quot;: &amp;quot;ReactiveCriteria&amp;quot;, &amp;quot;description&amp;quot;: &amp;quot;描述&amp;quot;, &amp;quot;params&amp;quot;: { &amp;quot;field&amp;quot;: &amp;quot;字段id&amp;quot;, &amp;quot;fragment&amp;quot;: { &amp;quot;bindVars&amp;quot;: { &amp;quot;createOrgId&amp;quot;: &amp;quot;$root.</description>
     </item>
     
     <item>
@@ -140,7 +184,8 @@ We&#39;ll start with creating a new site with a very basic template.</descriptio
       <pubDate>Thu, 30 Sep 2021 14:26:50 +0800</pubDate>
       
       <guid>https://zxp-77hub.github.io/docs/eca-rules/reactiveassignment-%E5%AD%97%E6%AE%B5%E5%80%BC%E5%A4%84%E7%90%86/</guid>
-      <description>ReactiveAssignment #    </description>
+      <description>ReactiveAssignment #   对字段赋值
+ type IReactiveAssignmentEffect = struct { /** 取值表达式 */ Expr string `json:&amp;#34;expr&amp;#34;` /** 当目标字段有值时，根据 overrideExpr 的结果来判断是否需要覆盖 默认值：false */ Override bool `json:&amp;#34;override&amp;#34;` /** 当取值表达式为空时，根据 autoClear 的结果判断是否同步清空 默认值：false */ AutoClear bool `json:&amp;#34;autoClear&amp;#34;` /** 当 when = true 时，才会执行规则 默认值：true */ When string `json:&amp;#34;when,omitempty&amp;#34;` /** 是否立即生效 默认值：false */ FireImmediately bool `json:&amp;#34;fireImmediately&amp;#34;` } type IReactiveAssignmentEffectV2 = struct { /** 取值表达式 */ Expr string `json:&amp;#34;expr&amp;#34;` /** 当目标字段有值时，根据 overrideExpr 的结果来判断是否需要覆盖 默认值：false */ Override string `json:&amp;#34;override&amp;#34;` /** 当取值表达式为空时，根据 autoClear 的结果判断是否同步清空 默认值：false */ AutoClear string `json:&amp;#34;autoClear&amp;#34;` /** 当 when = true 时，才会执行规则 默认值：true */ When string `json:&amp;#34;when,omitempty&amp;#34;` /** 是否立即生效 默认值：false */ FireImmediately string `json:&amp;#34;fireImmediately&amp;#34;` } type IReactiveAssignmentParams = struct { /** 目标字段 */ Field string `json:&amp;#34;field&amp;#34;` /** 赋值来源 */ Effect *IReactiveAssignmentEffect `json:&amp;#34;effect,omitempty&amp;#34;` Effects []*IReactiveAssignmentEffect `json:&amp;#34;effects,omitempty&amp;#34;` } type IReactiveAssignmentParamsV2 = struct { /** 目标字段 */ Field string `json:&amp;#34;field&amp;#34;` /** 赋值来源 */ Effect *IReactiveAssignmentEffectV2 `json:&amp;#34;effect,omitempty&amp;#34;` Effects []*IReactiveAssignmentEffectV2 `json:&amp;#34;effects,omitempty&amp;#34;` } 示例 #  </description>
     </item>
     
     <item>
@@ -150,7 +195,8 @@ We&#39;ll start with creating a new site with a very basic template.</descriptio
       
       <guid>https://zxp-77hub.github.io/docs/eca-rules/reactivefieldstatus-%E5%AD%97%E6%AE%B5%E7%8A%B6%E6%80%81%E5%A4%84%E7%90%86/</guid>
       <description>ReactiveFieldStatus #   控制字段的各种状态，必填/只读
- { &amp;quot;name&amp;quot;: &amp;quot;ReactiveFieldStatus&amp;quot;, &amp;quot;description&amp;quot;: &amp;quot;描述处理的场景&amp;quot;, &amp;quot;params&amp;quot;: { &amp;quot;effect&amp;quot;: { &amp;quot;expr&amp;quot;: &amp;quot;true&amp;quot;, // &amp;quot;fireImmediately&amp;quot;: true, // 是否立即执行 &amp;quot;status&amp;quot;: &amp;quot;Readonly&amp;quot;, // Readonly，Required &amp;quot;when&amp;quot;: &amp;quot;$root.createdOrg === undefined&amp;quot; // 触发条件 }, &amp;quot;field&amp;quot;: &amp;quot;startPeriod&amp;quot; // 处理字段 } }, </description>
+ type IReactiveFieldStatusEffect = struct { /** 状态名称 目前支持：Readonly、Required */ Status string `json:&amp;#34;status&amp;#34;` /** 状态值表达式 */ Expr interface{} `json:&amp;#34;expr&amp;#34;` /** 当 when = true 时，才会执行规则 默认值：true */ When string `json:&amp;#34;when,omitempty&amp;#34;` /** 是否立即生效 默认值：false */ FireImmediately bool `json:&amp;#34;fireImmediately&amp;#34;` } type IReactiveFieldStatusParams = struct { /** 目标字段 */ Field string `json:&amp;#34;field&amp;#34;` /** 状态设置 */ Effect *IReactiveFieldStatusEffect `json:&amp;#34;effect,omitempty&amp;#34;` Effects []*IReactiveFieldStatusEffect `json:&amp;#34;effects,omitempty&amp;#34;` } 示例
+{ &amp;quot;name&amp;quot;: &amp;quot;ReactiveFieldStatus&amp;quot;, &amp;quot;description&amp;quot;: &amp;quot;描述处理的场景&amp;quot;, &amp;quot;params&amp;quot;: { &amp;quot;effect&amp;quot;: { &amp;quot;expr&amp;quot;: &amp;quot;true&amp;quot;, // &amp;quot;fireImmediately&amp;quot;: true, // 是否立即执行 &amp;quot;status&amp;quot;: &amp;quot;Readonly&amp;quot;, // Readonly，Required &amp;quot;when&amp;quot;: &amp;quot;$root.</description>
     </item>
     
     <item>

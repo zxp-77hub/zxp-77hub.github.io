@@ -3,13 +3,11 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="ReactiveMasterToTables #   主表字段值同步到子表 字段值
- ReactiveTablesToMaster #   子表字段值同步到主表
- ">
+<meta name="description" content="ReactiveMasterToTables #   主表字段值同步到子表
+ /** * 子表设置 */ type IReactiveMasterToTablesTarget = struct { /** * 子表字段名 */ DataTable string `json:&#34;dataTable&#34;` /** * 同步的列字段名 */ Field string `json:&#34;field&#34;` /** * 数据过滤表达式，类似之前的视图，只有在满足表达式条件下的数据行，会被同步数据 * expr =&gt; boolean, defaultWhen =&gt; ignore disabled | readonly */ ViewName string `json:&#34;viewName,omitempty&#34;` /** * 数据过滤表达式，类似之前的视图，只有在满足表达式条件下的数据行，会被同步数据 * expr =&gt; boolean, defaultWhen =&gt; ignore disabled | readonly */ When string `json:&#34;when,omitempty&#34;` /** * force update all */ Always string `json:&#34;always,omitempty&#34;` } /** * 表头字段同步到子表上 */ type IReactiveMasterToTablesParams = struct { /** * 表头字段表达式 */ SourceValue string `json:&#34;sourceValue&#34;` /** * 子表设置 */ Target *IReactiveMasterToTablesTarget `json:&#34;target,omitempty&#34;` /** * 多子表设置（推荐） */ Targets []*IReactiveMasterToTablesTarget `json:&#34;targets,omitempty&#34;` } 字段值">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="头体字段值同步" />
-<meta property="og:description" content="ReactiveMasterToTables #   主表字段值同步到子表 字段值
- ReactiveTablesToMaster #   子表字段值同步到主表
- " />
+<meta property="og:description" content="ReactiveMasterToTables #   主表字段值同步到子表
+ /** * 子表设置 */ type IReactiveMasterToTablesTarget = struct { /** * 子表字段名 */ DataTable string `json:&#34;dataTable&#34;` /** * 同步的列字段名 */ Field string `json:&#34;field&#34;` /** * 数据过滤表达式，类似之前的视图，只有在满足表达式条件下的数据行，会被同步数据 * expr =&gt; boolean, defaultWhen =&gt; ignore disabled | readonly */ ViewName string `json:&#34;viewName,omitempty&#34;` /** * 数据过滤表达式，类似之前的视图，只有在满足表达式条件下的数据行，会被同步数据 * expr =&gt; boolean, defaultWhen =&gt; ignore disabled | readonly */ When string `json:&#34;when,omitempty&#34;` /** * force update all */ Always string `json:&#34;always,omitempty&#34;` } /** * 表头字段同步到子表上 */ type IReactiveMasterToTablesParams = struct { /** * 表头字段表达式 */ SourceValue string `json:&#34;sourceValue&#34;` /** * 子表设置 */ Target *IReactiveMasterToTablesTarget `json:&#34;target,omitempty&#34;` /** * 多子表设置（推荐） */ Targets []*IReactiveMasterToTablesTarget `json:&#34;targets,omitempty&#34;` } 字段值" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://zxp-77hub.github.io/docs/eca-rules/%E5%A4%B4%E4%BD%93%E5%AD%97%E6%AE%B5%E5%80%BC%E5%90%8C%E6%AD%A5/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2021-10-13T17:47:15+08:00" />
@@ -20,7 +18,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.958cea7827621d6fbcb3acf091344c3e44e3d2a9428f9c3c38bb9eb37bf8c45d.css" integrity="sha256-lYzqeCdiHW&#43;8s6zwkTRMPkTj0qlCj5w8OLues3v4xF0=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.c8d65ed5763e8913e1de0453f91d97c84741ebc475922e5005a9ef7d5d02cc05.js" integrity="sha256-yNZe1XY&#43;iRPh3gRT&#43;R2XyEdB68R1ki5QBanvfV0CzAU=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.741bafdbd3676ee0f66ed12df96bb3fdb6078ecfa3aed22cf1fb6b0ef9735041.js" integrity="sha256-dBuv29NnbuD2btEt&#43;Wuz/bYHjs&#43;jrtIs8ftrDvlzUEE=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -203,6 +201,71 @@ https://github.com/alex-shpak/hugo-book
 
           
   <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/eca-rules/reactivefieldvalidator/" class="">ReactiveFieldValidator</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/eca-rules/reactivefieldcomponentprops/" class="">ReactiveFieldComponentProps</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/eca-rules/assignment/" class="">Assignment</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/eca-rules/fieldvalidatorrelations/" class="">FieldValidatorRelations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/eca-rules/reactiveassignment/" class="">ReactiveAssignment</a>
+  
+
+        </li>
+      
     
       
         <li>
@@ -1098,9 +1161,61 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#reactivemastertotables">#</a>
 </h3>
 <blockquote>
-<p>主表字段值同步到子表
-字段值</p>
+<p>主表字段值同步到子表</p>
 </blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * 子表设置
+</span><span style="color:#75715e"> */</span>
+<span style="color:#a6e22e">type</span> <span style="color:#a6e22e">IReactiveMasterToTablesTarget</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">struct</span> {
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 子表字段名
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#a6e22e">DataTable</span> <span style="color:#a6e22e">string</span> <span style="color:#e6db74">`json:&#34;dataTable&#34;`</span>
+
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 同步的列字段名
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#a6e22e">Field</span> <span style="color:#a6e22e">string</span> <span style="color:#e6db74">`json:&#34;field&#34;`</span>
+
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 数据过滤表达式，类似之前的视图，只有在满足表达式条件下的数据行，会被同步数据
+</span><span style="color:#75715e">	 * expr =&gt; boolean, defaultWhen =&gt; ignore disabled | readonly
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#a6e22e">ViewName</span> <span style="color:#a6e22e">string</span> <span style="color:#e6db74">`json:&#34;viewName,omitempty&#34;`</span>
+
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 数据过滤表达式，类似之前的视图，只有在满足表达式条件下的数据行，会被同步数据
+</span><span style="color:#75715e">	 * expr =&gt; boolean, defaultWhen =&gt; ignore disabled | readonly
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#a6e22e">When</span> <span style="color:#a6e22e">string</span> <span style="color:#e6db74">`json:&#34;when,omitempty&#34;`</span>
+
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * force update all
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#a6e22e">Always</span> <span style="color:#a6e22e">string</span> <span style="color:#e6db74">`json:&#34;always,omitempty&#34;`</span>
+}
+
+<span style="color:#75715e">/**
+</span><span style="color:#75715e"> *  表头字段同步到子表上
+</span><span style="color:#75715e"> */</span>
+<span style="color:#a6e22e">type</span> <span style="color:#a6e22e">IReactiveMasterToTablesParams</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">struct</span> {
+
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 表头字段表达式
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#a6e22e">SourceValue</span> <span style="color:#a6e22e">string</span> <span style="color:#e6db74">`json:&#34;sourceValue&#34;`</span>
+
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 子表设置
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#a6e22e">Target</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">IReactiveMasterToTablesTarget</span> <span style="color:#e6db74">`json:&#34;target,omitempty&#34;`</span>
+
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 多子表设置（推荐）
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#a6e22e">Targets</span> []<span style="color:#f92672">*</span><span style="color:#a6e22e">IReactiveMasterToTablesTarget</span> <span style="color:#e6db74">`json:&#34;targets,omitempty&#34;`</span>
+}
+</code></pre></div><p>字段值</p>
 <h3 id="reactivetablestomaster">
   ReactiveTablesToMaster
   <a class="anchor" href="#reactivetablestomaster">#</a>
@@ -1108,7 +1223,96 @@ https://github.com/alex-shpak/hugo-book
 <blockquote>
 <p>子表字段值同步到主表</p>
 </blockquote>
-</article>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * 子表设置
+</span><span style="color:#75715e"> */</span>
+<span style="color:#a6e22e">type</span> <span style="color:#a6e22e">IReactiveTablesToMasterSourceValue</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">struct</span> {
+
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 子表字段名
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#a6e22e">DataTable</span> <span style="color:#a6e22e">string</span> <span style="color:#e6db74">`json:&#34;dataTable&#34;`</span>
+
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 子表中取值的表达式，可以是简单的字段值，也可以是复杂的计算结果
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#a6e22e">Expr</span> <span style="color:#a6e22e">string</span> <span style="color:#e6db74">`json:&#34;expr&#34;`</span>
+
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 数据过滤表达式，类似之前的视图，只有在满足表达式条件下的数据行，会作为数据源
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#a6e22e">When</span> <span style="color:#a6e22e">string</span> <span style="color:#e6db74">`json:&#34;when,omitempty&#34;`</span>
+
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 视图名称，如果同时存在 viewName 和 when，则同时生效
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#a6e22e">ViewName</span> <span style="color:#a6e22e">string</span> <span style="color:#e6db74">`json:&#34;viewName,omitempty&#34;`</span>
+
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 当满足这个表达式时，同步全部数据，和 when 有点儿类似
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#a6e22e">Always</span> <span style="color:#a6e22e">string</span> <span style="color:#e6db74">`json:&#34;always,omitempty&#34;`</span>
+}
+
+<span style="color:#75715e">/**
+</span><span style="color:#75715e"> * params 中，以下几个参数暂时兼容老的写法，后期需要重构及优化：
+</span><span style="color:#75715e"> * - disableFieldWhenDifferent
+</span><span style="color:#75715e"> * - onlyHandleDisabled
+</span><span style="color:#75715e"> * - clearFieldWhenDifferent
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> */</span>
+<span style="color:#a6e22e">type</span> <span style="color:#a6e22e">IReactiveTablesToMasterParams</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">struct</span> {
+
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 主表字段名
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#a6e22e">Field</span> <span style="color:#a6e22e">string</span> <span style="color:#e6db74">`json:&#34;field&#34;`</span>
+
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 当子表数据不同时，设置主表字段不可编辑
+</span><span style="color:#75715e">	 * 默认值 = true
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#a6e22e">DisableFieldWhenDifferent</span> <span style="color:#a6e22e">bool</span> <span style="color:#e6db74">`json:&#34;disableFieldWhenDifferent,omitempty&#34;`</span>
+
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 只控制表头字段状态，不进行值的会写同步
+</span><span style="color:#75715e">	 * 默认值 = false
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#a6e22e">OnlyHandleDisabled</span> <span style="color:#a6e22e">bool</span> <span style="color:#e6db74">`json:&#34;onlyHandleDisabled,omitempty&#34;`</span>
+
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 当子表数据不同时，清空主表字段
+</span><span style="color:#75715e">	 * 默认值 = true
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#a6e22e">ClearFieldWhenDifferent</span> <span style="color:#a6e22e">bool</span> <span style="color:#e6db74">`json:&#34;clearFieldWhenDifferent,omitempty&#34;`</span>
+
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 多个子表数据聚合计算的方法
+</span><span style="color:#75715e">	 * 默认值 = &#39;Equal&#39;
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#a6e22e">AggregationMethod</span> <span style="color:#a6e22e">string</span> <span style="color:#e6db74">`json:&#34;aggregationMethod,omitempty&#34;`</span>
+
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 计算精度的获取方式
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#a6e22e">PrecisionExpr</span> <span style="color:#a6e22e">string</span> <span style="color:#e6db74">`json:&#34;precisionExpr,omitempty&#34;`</span>
+
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 是否立即执行
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#a6e22e">FireImmediately</span> <span style="color:#a6e22e">bool</span> <span style="color:#e6db74">`json:&#34;fireImmediately,omitempty&#34;`</span>
+
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 子表设置
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#a6e22e">SourceValue</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">IReactiveTablesToMasterSourceValue</span> <span style="color:#e6db74">`json:&#34;sourceValue,omitempty&#34;`</span>
+
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 子表设置（推荐）
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#a6e22e">SourceValues</span> []<span style="color:#f92672">*</span><span style="color:#a6e22e">IReactiveTablesToMasterSourceValue</span> <span style="color:#e6db74">`json:&#34;sourceValues,omitempty&#34;`</span>
+}
+</code></pre></div></article>
  
       
 
