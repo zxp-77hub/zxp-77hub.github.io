@@ -5,7 +5,7 @@ author: 张学鹏
 ---
 
 ### ReactiveFieldStatus
-> 控制字段的各种状态，必填/只读
+> 创建一个响应式的字段状态，会根据依赖数据实时返回新状态，并添加到目标字段上
 ```javascript
 type IReactiveFieldStatusEffect = struct {
 	/**
@@ -41,7 +41,8 @@ type IReactiveFieldStatusParams = struct {
 	Effects []*IReactiveFieldStatusEffect `json:"effects,omitempty"`
 }
 ```
-示例
+### 示例
+#### 1. 当创建组织为空时，startPeriod 字段禁用
 ```angular2html
 {
     "name": "ReactiveFieldStatus",

@@ -1,10 +1,10 @@
 ---
-title: "ReactiveCriteria-字段过滤处理"
+title: "ReactiveCriteria"
 date: 2021-09-30T14:33:16+08:00
 author: 张学鹏
 ---
 ### ReactiveCriteria
->  添加参照字段过滤条件
+>  创建一个响应式的过滤条件，会根据规则中的依赖字段返回实时的新过滤条件，并添加到目标字段上
 
 ```javascript
 type IReactiveCriteriaFragment = struct {

@@ -4,7 +4,7 @@ date: 2021-10-14T14:15:05+08:00
 author: 张学鹏
 ---
 ### ReactiveAssignment
->
+> 创建一个响应式的赋值动作，会根据规则中的依赖字段返回实时的新计算结果，并赋给目标字段
 
 ```javascript
 type IReactiveAssignmentEffect = struct {
@@ -83,4 +83,23 @@ type IReactiveAssignmentParamsV2 = struct {
 	Effects []*IReactiveAssignmentEffectV2 `json:"effects,omitempty"`
 }
 
+```
+### 示例 
+#### 1.明细行主单位根据存货带出 
+```json
+{
+  "name": "ReactiveAssignment",
+  "description": "主单位跟具存货赋值",
+  "params":{
+    "effects":[
+      {
+        "autoClear":true, // 
+        "expr":"$current.product.unit", // 赋值表达式：取存货下的unit 
+        "fireImmediately":true, // 是否立即执行
+        "when":"true"  // 只有为 true 时才执行
+      }
+    ],
+    "field":"baseUnit"  // 需要被赋值（操作）的字段名： 主单位
+  }
+}
 ```

@@ -4,7 +4,7 @@ date: 2021-10-14T14:17:38+08:00
 author: 张学鹏
 ---
 ### ReactiveFieldValidator
->
+> 创建一个响应式的字段状态，会根据条件实时添加或删除对应 Validator
 
 ```javascript
 type IReactiveFieldValidatorItem = struct {
