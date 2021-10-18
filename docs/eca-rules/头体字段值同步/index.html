@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="ReactiveMasterToTables #   主表字段值同步到子表
+<meta name="description" content="ReactiveMasterToTables #   创建一个响应式的表头同步数据到表体，会根据表头的表达式结果，实时进行同步
  /** * 子表设置 */ type IReactiveMasterToTablesTarget = struct { /** * 子表字段名 */ DataTable string `json:&#34;dataTable&#34;` /** * 同步的列字段名 */ Field string `json:&#34;field&#34;` /** * 数据过滤表达式，类似之前的视图，只有在满足表达式条件下的数据行，会被同步数据 * expr =&gt; boolean, defaultWhen =&gt; ignore disabled | readonly */ ViewName string `json:&#34;viewName,omitempty&#34;` /** * 数据过滤表达式，类似之前的视图，只有在满足表达式条件下的数据行，会被同步数据 * expr =&gt; boolean, defaultWhen =&gt; ignore disabled | readonly */ When string `json:&#34;when,omitempty&#34;` /** * force update all */ Always string `json:&#34;always,omitempty&#34;` } /** * 表头字段同步到子表上 */ type IReactiveMasterToTablesParams = struct { /** * 表头字段表达式 */ SourceValue string `json:&#34;sourceValue&#34;` /** * 子表设置 */ Target *IReactiveMasterToTablesTarget `json:&#34;target,omitempty&#34;` /** * 多子表设置（推荐） */ Targets []*IReactiveMasterToTablesTarget `json:&#34;targets,omitempty&#34;` } 字段值">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="头体字段值同步" />
-<meta property="og:description" content="ReactiveMasterToTables #   主表字段值同步到子表
+<meta property="og:description" content="ReactiveMasterToTables #   创建一个响应式的表头同步数据到表体，会根据表头的表达式结果，实时进行同步
  /** * 子表设置 */ type IReactiveMasterToTablesTarget = struct { /** * 子表字段名 */ DataTable string `json:&#34;dataTable&#34;` /** * 同步的列字段名 */ Field string `json:&#34;field&#34;` /** * 数据过滤表达式，类似之前的视图，只有在满足表达式条件下的数据行，会被同步数据 * expr =&gt; boolean, defaultWhen =&gt; ignore disabled | readonly */ ViewName string `json:&#34;viewName,omitempty&#34;` /** * 数据过滤表达式，类似之前的视图，只有在满足表达式条件下的数据行，会被同步数据 * expr =&gt; boolean, defaultWhen =&gt; ignore disabled | readonly */ When string `json:&#34;when,omitempty&#34;` /** * force update all */ Always string `json:&#34;always,omitempty&#34;` } /** * 表头字段同步到子表上 */ type IReactiveMasterToTablesParams = struct { /** * 表头字段表达式 */ SourceValue string `json:&#34;sourceValue&#34;` /** * 子表设置 */ Target *IReactiveMasterToTablesTarget `json:&#34;target,omitempty&#34;` /** * 多子表设置（推荐） */ Targets []*IReactiveMasterToTablesTarget `json:&#34;targets,omitempty&#34;` } 字段值" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://zxp-77hub.github.io/docs/eca-rules/%E5%A4%B4%E4%BD%93%E5%AD%97%E6%AE%B5%E5%80%BC%E5%90%8C%E6%AD%A5/" /><meta property="article:section" content="docs" />
@@ -18,7 +18,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.958cea7827621d6fbcb3acf091344c3e44e3d2a9428f9c3c38bb9eb37bf8c45d.css" integrity="sha256-lYzqeCdiHW&#43;8s6zwkTRMPkTj0qlCj5w8OLues3v4xF0=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.741bafdbd3676ee0f66ed12df96bb3fdb6078ecfa3aed22cf1fb6b0ef9735041.js" integrity="sha256-dBuv29NnbuD2btEt&#43;Wuz/bYHjs&#43;jrtIs8ftrDvlzUEE=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.a4451df25a60d4d6f36af599a075f696238a7e6c60a4a9fa547660d289116d89.js" integrity="sha256-pEUd8lpg1NbzavWZoHX2liOKfmxgpKn6VHZg0okRbYk=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -209,6 +209,32 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="https://zxp-77hub.github.io/docs/eca-rules/%E8%A7%84%E5%88%99%E9%AA%8C%E8%AF%81/" class="">规则验证</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/eca-rules/%E5%9F%BA%E7%A1%80%E7%9B%B8%E5%85%B3/" class="">基础相关</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="https://zxp-77hub.github.io/docs/eca-rules/reactivefieldvalidator/" class="">ReactiveFieldValidator</a>
   
 
@@ -287,33 +313,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://zxp-77hub.github.io/docs/eca-rules/reactivecriteria-%E5%AD%97%E6%AE%B5%E8%BF%87%E6%BB%A4%E5%A4%84%E7%90%86/" class="">ReactiveCriteria-字段过滤处理</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://zxp-77hub.github.io/docs/eca-rules/reactiveassignment-%E5%AD%97%E6%AE%B5%E5%80%BC%E5%A4%84%E7%90%86/" class="">ReactiveAssignment-字段值处理</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://zxp-77hub.github.io/docs/eca-rules/reactivefieldstatus-%E5%AD%97%E6%AE%B5%E7%8A%B6%E6%80%81%E5%A4%84%E7%90%86/" class="">ReactiveFieldStatus-字段状态处理</a>
+    <a href="https://zxp-77hub.github.io/docs/eca-rules/reactivefieldstatus/" class="">ReactiveFieldStatus-字段状态处理</a>
   
 
         </li>
@@ -1135,6 +1135,12 @@ https://github.com/alex-shpak/hugo-book
       <ul>
         <li><a href="#reactivemastertotables">ReactiveMasterToTables</a></li>
         <li><a href="#reactivetablestomaster">ReactiveTablesToMaster</a></li>
+        <li><a href="#示例">示例</a></li>
+        <li><a href="#1-表头同步到表体">1. 表头同步到表体</a>
+          <ul>
+            <li><a href="#2-表体同步到表头">2. 表体同步到表头</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -1161,7 +1167,7 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#reactivemastertotables">#</a>
 </h3>
 <blockquote>
-<p>主表字段值同步到子表</p>
+<p>创建一个响应式的表头同步数据到表体，会根据表头的表达式结果，实时进行同步</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">/**
 </span><span style="color:#75715e"> * 子表设置
@@ -1221,7 +1227,7 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#reactivetablestomaster">#</a>
 </h3>
 <blockquote>
-<p>子表字段值同步到主表</p>
+<p>创建一个响应式的表体同步数据到表头，会根据表体的表达式计算结果，实时进行同步</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">/**
 </span><span style="color:#75715e"> * 子表设置
@@ -1312,6 +1318,52 @@ https://github.com/alex-shpak/hugo-book
 </span><span style="color:#75715e">	 */</span>
 	<span style="color:#a6e22e">SourceValues</span> []<span style="color:#f92672">*</span><span style="color:#a6e22e">IReactiveTablesToMasterSourceValue</span> <span style="color:#e6db74">`json:&#34;sourceValues,omitempty&#34;`</span>
 }
+</code></pre></div><h3 id="示例">
+  示例
+  <a class="anchor" href="#%e7%a4%ba%e4%be%8b">#</a>
+</h3>
+<h3 id="1-表头同步到表体">
+  1. 表头同步到表体
+  <a class="anchor" href="#1-%e8%a1%a8%e5%a4%b4%e5%90%8c%e6%ad%a5%e5%88%b0%e8%a1%a8%e4%bd%93">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;ReactiveMasterToTables&#34;</span>,
+    <span style="color:#f92672">&#34;description&#34;</span>:<span style="color:#e6db74">&#34;表头仓库字段同步到表体仓库字段&#34;</span>,
+    <span style="color:#f92672">&#34;params&#34;</span>:{
+    <span style="color:#f92672">&#34;sourceValue&#34;</span>:<span style="color:#e6db74">&#34;$current.warehouse&#34;</span>,
+    <span style="color:#f92672">&#34;targets&#34;</span>:[
+        {
+        <span style="color:#f92672">&#34;dataTable&#34;</span>:<span style="color:#e6db74">&#34;miscReceiptItems&#34;</span>,
+        <span style="color:#f92672">&#34;field&#34;</span>:<span style="color:#e6db74">&#34;warehouse&#34;</span>,
+        <span style="color:#f92672">&#34;viewName&#34;</span>:<span style="color:#e6db74">&#34;ManualAdd&#34;</span>,
+        },
+    ],
+    <span style="color:#f92672">&#34;when&#34;</span>:<span style="color:#e6db74">&#34;$root.warehouse.$focused &amp;&amp; $root.warehouse&#34;</span>,
+    }
+}
+</code></pre></div><h4 id="2-表体同步到表头">
+  2. 表体同步到表头
+  <a class="anchor" href="#2-%e8%a1%a8%e4%bd%93%e5%90%8c%e6%ad%a5%e5%88%b0%e8%a1%a8%e5%a4%b4">#</a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;ReactiveTablesToMaster&#34;</span>,
+    <span style="color:#f92672">&#34;description&#34;</span>:<span style="color:#e6db74">&#34;子表仓库字段不一致时清空表头仓库且设为禁用&#34;</span>,
+    <span style="color:#f92672">&#34;params&#34;</span>:{
+        <span style="color:#f92672">&#34;aggregationMethod&#34;</span>:<span style="color:#e6db74">&#34;Equal&#34;</span>,
+        <span style="color:#f92672">&#34;clearFieldWhenDifferent&#34;</span>:<span style="color:#66d9ef">true</span>,
+        <span style="color:#f92672">&#34;disableFieldWhenDifferent&#34;</span>:<span style="color:#66d9ef">true</span>,
+        <span style="color:#f92672">&#34;field&#34;</span>:<span style="color:#e6db74">&#34;warehouse&#34;</span>,
+        <span style="color:#f92672">&#34;fireImmediately&#34;</span>:<span style="color:#e6db74">&#34;true&#34;</span>,
+        <span style="color:#f92672">&#34;sourceValues&#34;</span>:[
+            {
+            <span style="color:#f92672">&#34;dataTable&#34;</span>:<span style="color:#e6db74">&#34;miscReceiptItems&#34;</span>,
+            <span style="color:#f92672">&#34;expr&#34;</span>:<span style="color:#e6db74">&#34;$current.warehouse&#34;</span>,
+            <span style="color:#f92672">&#34;viewName&#34;</span>:<span style="color:#e6db74">&#34;Initialized&#34;</span>,
+            <span style="color:#f92672">&#34;when&#34;</span>:<span style="color:#e6db74">&#34;true&#34;</span>,
+            }
+        ]
+    }
+}
 </code></pre></div></article>
  
       
@@ -1357,6 +1409,12 @@ https://github.com/alex-shpak/hugo-book
       <ul>
         <li><a href="#reactivemastertotables">ReactiveMasterToTables</a></li>
         <li><a href="#reactivetablestomaster">ReactiveTablesToMaster</a></li>
+        <li><a href="#示例">示例</a></li>
+        <li><a href="#1-表头同步到表体">1. 表头同步到表体</a>
+          <ul>
+            <li><a href="#2-表体同步到表头">2. 表体同步到表头</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>

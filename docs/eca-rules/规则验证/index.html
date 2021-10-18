@@ -3,19 +3,27 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Move static content to static #  Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
-▾ &lt;root&gt;/ ▾ images/ logo.png  should become
-▾ &lt;root&gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&#39;ll want any files that should reside at the root (such as CNAME) to be moved to static.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Migrate to Hugo from Jekyll" />
-<meta property="og:description" content="Move static content to static #  Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
-▾ &lt;root&gt;/ ▾ images/ logo.png  should become
-▾ &lt;root&gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&#39;ll want any files that should reside at the root (such as CNAME) to be moved to static." />
+<meta name="description" content="验证规则及调试 #   在规则保存成功后，就可以到对应的方案中进行规则验证。
+ 确认规则被加载 #  1.表单 #   在 bizForm/init 接口中，可以通过 response 是否返回了规则，来验证 规则是否被加载。
+ 注意❗，目前表单规则中，会返回三部分内容：
+ 2019年底，在 go 上使用 BizFormRuleManager。AddXXXControl 的规则，id前缀为 &quot;Old-{RuleName}&quot;  2020年底，使用第一版规则工具录入的规则，id前缀为 &quot;{RuleName}-&quot;  使用 ECA Rules 录入的全新规则，id 没有前缀  其中，我们通过配置工具录入的规则，是没有任何前缀的。同时，在多组织后，我们会逐步迁移老代码的规则，敬请各位期待 🤪
+调试 #   现阶段，可以通过断点的方式进行调试，目前我们正在推动执行过程数据收集，后续可以根据数据进行问题排查。
+ 所以规则的运行时代码，都在这里，根据规则名称就可以找到对应的执行代码。所有规则的运行时代码，都会实现 IBizRuleActions 这个接口
+/** * @link http://gitlab.q7link.com/front/platform/common-solution/-/blob/feature-multi-org2/src/eca/actions/declare.ts */ export interface IBizRuleActions&lt;T = any&gt; { readonly name: string; schema: JSONSchema7; schemaDefs?: Record&lt;string, JSONSchema7&gt; getExpression?(param: T): RuleFieldItem[] execute(ctx: IRuleActionContext, params: T); } ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="规则验证" />
+<meta property="og:description" content="验证规则及调试 #   在规则保存成功后，就可以到对应的方案中进行规则验证。
+ 确认规则被加载 #  1.表单 #   在 bizForm/init 接口中，可以通过 response 是否返回了规则，来验证 规则是否被加载。
+ 注意❗，目前表单规则中，会返回三部分内容：
+ 2019年底，在 go 上使用 BizFormRuleManager。AddXXXControl 的规则，id前缀为 &quot;Old-{RuleName}&quot;  2020年底，使用第一版规则工具录入的规则，id前缀为 &quot;{RuleName}-&quot;  使用 ECA Rules 录入的全新规则，id 没有前缀  其中，我们通过配置工具录入的规则，是没有任何前缀的。同时，在多组织后，我们会逐步迁移老代码的规则，敬请各位期待 🤪
+调试 #   现阶段，可以通过断点的方式进行调试，目前我们正在推动执行过程数据收集，后续可以根据数据进行问题排查。
+ 所以规则的运行时代码，都在这里，根据规则名称就可以找到对应的执行代码。所有规则的运行时代码，都会实现 IBizRuleActions 这个接口
+/** * @link http://gitlab.q7link.com/front/platform/common-solution/-/blob/feature-multi-org2/src/eca/actions/declare.ts */ export interface IBizRuleActions&lt;T = any&gt; { readonly name: string; schema: JSONSchema7; schemaDefs?: Record&lt;string, JSONSchema7&gt; getExpression?(param: T): RuleFieldItem[] execute(ctx: IRuleActionContext, params: T); } " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zxp-77hub.github.io/posts/migrate-from-jekyll/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2014-03-10T00:00:00+00:00" />
-<meta property="article:modified_time" content="2014-03-10T00:00:00+00:00" />
+<meta property="og:url" content="https://zxp-77hub.github.io/docs/eca-rules/%E8%A7%84%E5%88%99%E9%AA%8C%E8%AF%81/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2021-10-18T10:28:35+08:00" />
+<meta property="article:modified_time" content="2021-10-18T10:28:35+08:00" />
 
-<title>Migrate to Hugo from Jekyll | 菜鸟集市</title>
+<title>规则验证 | 菜鸟集市</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.958cea7827621d6fbcb3acf091344c3e44e3d2a9428f9c3c38bb9eb37bf8c45d.css" integrity="sha256-lYzqeCdiHW&#43;8s6zwkTRMPkTj0qlCj5w8OLues3v4xF0=" crossorigin="anonymous">
@@ -211,7 +219,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://zxp-77hub.github.io/docs/eca-rules/%E8%A7%84%E5%88%99%E9%AA%8C%E8%AF%81/" class="">规则验证</a>
+    <a href="https://zxp-77hub.github.io/docs/eca-rules/%E8%A7%84%E5%88%99%E9%AA%8C%E8%AF%81/" class=" active">规则验证</a>
   
 
         </li>
@@ -1117,7 +1125,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Migrate to Hugo from Jekyll</strong>
+  <strong>规则验证</strong>
 
   <label for="toc-control">
     
@@ -1133,23 +1141,20 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#move-static-content-to-static">Move static content to <code>static</code></a></li>
-    <li><a href="#create-your-hugo-configuration-file">Create your Hugo configuration file</a></li>
-    <li><a href="#set-your-configuration-publish-folder-to-_site">Set your configuration publish folder to <code>_site</code></a></li>
-    <li><a href="#convert-jekyll-templates-to-hugo-templates">Convert Jekyll templates to Hugo templates</a></li>
-    <li><a href="#convert-jekyll-plugins-to-hugo-shortcodes">Convert Jekyll plugins to Hugo shortcodes</a>
+    <li>
       <ul>
-        <li><a href="#implementation">Implementation</a></li>
-        <li><a href="#usage">Usage</a></li>
+        <li><a href="#验证规则及调试">验证规则及调试</a>
+          <ul>
+            <li><a href="#确认规则被加载">确认规则被加载</a>
+              <ul>
+                <li><a href="#1表单">1.表单</a></li>
+              </ul>
+            </li>
+            <li><a href="#调试">调试</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
-    <li><a href="#finishing-touches">Finishing touches</a>
-      <ul>
-        <li><a href="#fix-content">Fix content</a></li>
-        <li><a href="#clean-up">Clean up</a></li>
-      </ul>
-    </li>
-    <li><a href="#a-practical-example-in-a-diff">A practical example in a diff</a></li>
   </ul>
 </nav>
 
@@ -1162,188 +1167,59 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-<article class="markdown">
-  <h1>
-    <a href="/posts/migrate-from-jekyll/">Migrate to Hugo from Jekyll</a>
-  </h1>
-  
-  <h5>March 10, 2014</h5>
-
-
-
-  
-
-  
-
-
-
-<h2 id="move-static-content-to-static">
-  Move static content to <code>static</code>
-  <a class="anchor" href="#move-static-content-to-static">#</a>
-</h2>
-<p>Jekyll has a rule that any directory not starting with <code>_</code> will be copied as-is to the <code>_site</code> output. Hugo keeps all static content under <code>static</code>. You should therefore move it all there.
-With Jekyll, something that looked like</p>
-<pre><code>▾ &lt;root&gt;/
-    ▾ images/
-        logo.png
-</code></pre>
-<p>should become</p>
-<pre><code>▾ &lt;root&gt;/
-    ▾ static/
-        ▾ images/
-            logo.png
-</code></pre>
-<p>Additionally, you'll want any files that should reside at the root (such as <code>CNAME</code>) to be moved to <code>static</code>.</p>
-<h2 id="create-your-hugo-configuration-file">
-  Create your Hugo configuration file
-  <a class="anchor" href="#create-your-hugo-configuration-file">#</a>
-</h2>
-<p>Hugo can read your configuration as JSON, YAML or TOML. Hugo supports parameters custom configuration too. Refer to the <a href="/overview/configuration/">Hugo configuration documentation</a> for details.</p>
-<h2 id="set-your-configuration-publish-folder-to-_site">
-  Set your configuration publish folder to <code>_site</code>
-  <a class="anchor" href="#set-your-configuration-publish-folder-to-_site">#</a>
-</h2>
-<p>The default is for Jekyll to publish to <code>_site</code> and for Hugo to publish to <code>public</code>. If, like me, you have <a href="http://blog.blindgaenger.net/generate_github_pages_in_a_submodule.html"><code>_site</code> mapped to a git submodule on the <code>gh-pages</code> branch</a>, you'll want to do one of two alternatives:</p>
-<ol>
-<li>
-<p>Change your submodule to point to map <code>gh-pages</code> to public instead of <code>_site</code> (recommended).</p>
-<pre><code> git submodule deinit _site
- git rm _site
- git submodule add -b gh-pages git@github.com:your-username/your-repo.git public
-</code></pre>
-</li>
-<li>
-<p>Or, change the Hugo configuration to use <code>_site</code> instead of <code>public</code>.</p>
-<pre><code> {
-     ..
-     &quot;publishdir&quot;: &quot;_site&quot;,
-     ..
- }
-</code></pre>
-</li>
-</ol>
-<h2 id="convert-jekyll-templates-to-hugo-templates">
-  Convert Jekyll templates to Hugo templates
-  <a class="anchor" href="#convert-jekyll-templates-to-hugo-templates">#</a>
-</h2>
-<p>That's the bulk of the work right here. The documentation is your friend. You should refer to <a href="http://jekyllrb.com/docs/templates/">Jekyll's template documentation</a> if you need to refresh your memory on how you built your blog and <a href="/layout/templates/">Hugo's template</a> to learn Hugo's way.</p>
-<p>As a single reference data point, converting my templates for <a href="http://heyitsalex.net/">heyitsalex.net</a> took me no more than a few hours.</p>
-<h2 id="convert-jekyll-plugins-to-hugo-shortcodes">
-  Convert Jekyll plugins to Hugo shortcodes
-  <a class="anchor" href="#convert-jekyll-plugins-to-hugo-shortcodes">#</a>
-</h2>
-<p>Jekyll has <a href="http://jekyllrb.com/docs/plugins/">plugins</a>; Hugo has <a href="/doc/shortcodes/">shortcodes</a>. It's fairly trivial to do a port.</p>
-<h3 id="implementation">
-  Implementation
-  <a class="anchor" href="#implementation">#</a>
+  <article class="markdown">
+    
+    
+    
+    
+    <h1>规则验证</h1>
+    <p>作者：张学鹏</p>
+    <hr/><h3 id="验证规则及调试">
+  验证规则及调试
+  <a class="anchor" href="#%e9%aa%8c%e8%af%81%e8%a7%84%e5%88%99%e5%8f%8a%e8%b0%83%e8%af%95">#</a>
 </h3>
-<p>As an example, I was using a custom <a href="https://github.com/alexandre-normand/alexandre-normand/blob/74bb12036a71334fdb7dba84e073382fc06908ec/_plugins/image_tag.rb"><code>image_tag</code></a> plugin to generate figures with caption when running Jekyll. As I read about shortcodes, I found Hugo had a nice built-in shortcode that does exactly the same thing.</p>
-<p>Jekyll's plugin:</p>
-<pre><code>module Jekyll
-  class ImageTag &lt; Liquid::Tag
-    @url = nil
-    @caption = nil
-    @class = nil
-    @link = nil
-    // Patterns
-    IMAGE_URL_WITH_CLASS_AND_CAPTION =
-    IMAGE_URL_WITH_CLASS_AND_CAPTION_AND_LINK = /(\w+)(\s+)((https?:\/\/|\/)(\S+))(\s+)&quot;(.*?)&quot;(\s+)-&gt;((https?:\/\/|\/)(\S+))(\s*)/i
-    IMAGE_URL_WITH_CAPTION = /((https?:\/\/|\/)(\S+))(\s+)&quot;(.*?)&quot;/i
-    IMAGE_URL_WITH_CLASS = /(\w+)(\s+)((https?:\/\/|\/)(\S+))/i
-    IMAGE_URL = /((https?:\/\/|\/)(\S+))/i
-    def initialize(tag_name, markup, tokens)
-      super
-      if markup =~ IMAGE_URL_WITH_CLASS_AND_CAPTION_AND_LINK
-        @class   = $1
-        @url     = $3
-        @caption = $7
-        @link = $9
-      elsif markup =~ IMAGE_URL_WITH_CLASS_AND_CAPTION
-        @class   = $1
-        @url     = $3
-        @caption = $7
-      elsif markup =~ IMAGE_URL_WITH_CAPTION
-        @url     = $1
-        @caption = $5
-      elsif markup =~ IMAGE_URL_WITH_CLASS
-        @class = $1
-        @url   = $3
-      elsif markup =~ IMAGE_URL
-        @url = $1
-      end
-    end
-    def render(context)
-      if @class
-        source = &quot;&lt;figure class='#{@class}'&gt;&quot;
-      else
-        source = &quot;&lt;figure&gt;&quot;
-      end
-      if @link
-        source += &quot;&lt;a href=\&quot;#{@link}\&quot;&gt;&quot;
-      end
-      source += &quot;&lt;img src=\&quot;#{@url}\&quot;&gt;&quot;
-      if @link
-        source += &quot;&lt;/a&gt;&quot;
-      end
-      source += &quot;&lt;figcaption&gt;#{@caption}&lt;/figcaption&gt;&quot; if @caption
-      source += &quot;&lt;/figure&gt;&quot;
-      source
-    end
-  end
-end
-Liquid::Template.register_tag('image', Jekyll::ImageTag)
-</code></pre>
-<p>is written as this Hugo shortcode:</p>
-<pre><code>&lt;!-- image --&gt;
-&lt;figure {{ with .Get &quot;class&quot; }}class=&quot;{{.}}&quot;{{ end }}&gt;
-    {{ with .Get &quot;link&quot;}}&lt;a href=&quot;{{.}}&quot;&gt;{{ end }}
-        &lt;img src=&quot;{{ .Get &quot;src&quot; }}&quot; {{ if or (.Get &quot;alt&quot;) (.Get &quot;caption&quot;) }}alt=&quot;{{ with .Get &quot;alt&quot;}}{{.}}{{else}}{{ .Get &quot;caption&quot; }}{{ end }}&quot;{{ end }} /&gt;
-    {{ if .Get &quot;link&quot;}}&lt;/a&gt;{{ end }}
-    {{ if or (or (.Get &quot;title&quot;) (.Get &quot;caption&quot;)) (.Get &quot;attr&quot;)}}
-    &lt;figcaption&gt;{{ if isset .Params &quot;title&quot; }}
-        {{ .Get &quot;title&quot; }}{{ end }}
-        {{ if or (.Get &quot;caption&quot;) (.Get &quot;attr&quot;)}}&lt;p&gt;
-        {{ .Get &quot;caption&quot; }}
-        {{ with .Get &quot;attrlink&quot;}}&lt;a href=&quot;{{.}}&quot;&gt; {{ end }}
-            {{ .Get &quot;attr&quot; }}
-        {{ if .Get &quot;attrlink&quot;}}&lt;/a&gt; {{ end }}
-        &lt;/p&gt; {{ end }}
-    &lt;/figcaption&gt;
-    {{ end }}
-&lt;/figure&gt;
-&lt;!-- image --&gt;
-</code></pre>
-<h3 id="usage">
-  Usage
-  <a class="anchor" href="#usage">#</a>
-</h3>
-<p>I simply changed:</p>
-<pre><code>{% image full http://farm5.staticflickr.com/4136/4829260124_57712e570a_o_d.jpg &quot;One of my favorite touristy-type photos. I secretly waited for the good light while we were &quot;having fun&quot; and took this. Only regret: a stupid pole in the top-left corner of the frame I had to clumsily get rid of at post-processing.&quot; -&gt;http://www.flickr.com/photos/alexnormand/4829260124/in/set-72157624547713078/ %}
-</code></pre>
-<p>to this (this example uses a slightly extended version named <code>fig</code>, different than the built-in <code>figure</code>):</p>
-<pre><code>{{% fig class=&quot;full&quot; src=&quot;http://farm5.staticflickr.com/4136/4829260124_57712e570a_o_d.jpg&quot; title=&quot;One of my favorite touristy-type photos. I secretly waited for the good light while we were having fun and took this. Only regret: a stupid pole in the top-left corner of the frame I had to clumsily get rid of at post-processing.&quot; link=&quot;http://www.flickr.com/photos/alexnormand/4829260124/in/set-72157624547713078/&quot; %}}
-</code></pre>
-<p>As a bonus, the shortcode named parameters are, arguably, more readable.</p>
-<h2 id="finishing-touches">
-  Finishing touches
-  <a class="anchor" href="#finishing-touches">#</a>
-</h2>
-<h3 id="fix-content">
-  Fix content
-  <a class="anchor" href="#fix-content">#</a>
-</h3>
-<p>Depending on the amount of customization that was done with each post with Jekyll, this step will require more or less effort. There are no hard and fast rules here except that <code>hugo server --watch</code> is your friend. Test your changes and fix errors as needed.</p>
-<h3 id="clean-up">
-  Clean up
-  <a class="anchor" href="#clean-up">#</a>
-</h3>
-<p>You'll want to remove the Jekyll configuration at this point. If you have anything else that isn't used, delete it.</p>
-<h2 id="a-practical-example-in-a-diff">
-  A practical example in a diff
-  <a class="anchor" href="#a-practical-example-in-a-diff">#</a>
-</h2>
-<p><a href="http://heyitsalex.net/">Hey, it's Alex</a> was migrated in less than a <em>father-with-kids day</em> from Jekyll to Hugo. You can see all the changes (and screw-ups) by looking at this <a href="https://github.com/alexandre-normand/alexandre-normand/compare/869d69435bd2665c3fbf5b5c78d4c22759d7613a...b7f6605b1265e83b4b81495423294208cc74d610">diff</a>.</p>
-</article>
+<blockquote>
+<p>在规则保存成功后，就可以到对应的方案中进行规则验证。</p>
+</blockquote>
+<h4 id="确认规则被加载">
+  确认规则被加载
+  <a class="anchor" href="#%e7%a1%ae%e8%ae%a4%e8%a7%84%e5%88%99%e8%a2%ab%e5%8a%a0%e8%bd%bd">#</a>
+</h4>
+<h5 id="1表单">
+  1.表单
+  <a class="anchor" href="#1%e8%a1%a8%e5%8d%95">#</a>
+</h5>
+<blockquote>
+<p>在 bizForm/init 接口中，可以通过 response 是否返回了规则，来验证
+规则是否被加载。</p>
+</blockquote>
+<p><img src="https://res.cloudinary.com/dzvqvpouv/image/upload/v1634524940/%E8%8F%9C%E9%B8%9F%E9%9B%86%E5%B8%82/eca-rules/iShot2021-10-18_10.39.00_wwlmzd.png" alt="规则加载" /></p>
+<p>注意❗，目前表单规则中，会返回三部分内容：</p>
+<ul>
+<li>2019年底，在 go 上使用 BizFormRuleManager。AddXXXControl 的规则，id前缀为 &quot;Old-{RuleName}&quot; <br/></li>
+<li>2020年底，使用第一版规则工具录入的规则，id前缀为 &quot;{RuleName}-&quot; <br/></li>
+<li>使用 ECA Rules 录入的全新规则，id 没有前缀<br/></li>
+</ul>
+<p>其中，我们通过配置工具录入的规则，是没有任何前缀的。同时，在多组织后，我们会逐步迁移老代码的规则，敬请各位期待 🤪</p>
+<h4 id="调试">
+  调试
+  <a class="anchor" href="#%e8%b0%83%e8%af%95">#</a>
+</h4>
+<blockquote>
+<p>现阶段，可以通过断点的方式进行调试，目前我们正在推动执行过程数据收集，后续可以根据数据进行问题排查。</p>
+</blockquote>
+<p>所以规则的运行时代码，都在这里，根据规则名称就可以找到对应的执行代码。所有规则的运行时代码，都会实现 IBizRuleActions 这个接口</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * @link http://gitlab.q7link.com/front/platform/common-solution/-/blob/feature-multi-org2/src/eca/actions/declare.ts
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IBizRuleActions</span>&lt;<span style="color:#f92672">T</span> <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#a6e22e">any</span>&gt; {
+  <span style="color:#66d9ef">readonly</span> <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>;
+  <span style="color:#a6e22e">schema</span>: <span style="color:#66d9ef">JSONSchema7</span>;
+  <span style="color:#a6e22e">schemaDefs?</span>: <span style="color:#66d9ef">Record</span>&lt;<span style="color:#f92672">string</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#a6e22e">JSONSchema7</span>&gt;
+  <span style="color:#a6e22e">getExpression</span><span style="color:#f92672">?</span>(<span style="color:#a6e22e">param</span>: <span style="color:#66d9ef">T</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">RuleFieldItem</span>[]
+  <span style="color:#a6e22e">execute</span>(<span style="color:#a6e22e">ctx</span>: <span style="color:#66d9ef">IRuleActionContext</span>, <span style="color:#a6e22e">params</span>: <span style="color:#66d9ef">T</span>);
+}
+</code></pre></div></article>
  
       
 
@@ -1384,23 +1260,20 @@ Liquid::Template.register_tag('image', Jekyll::ImageTag)
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#move-static-content-to-static">Move static content to <code>static</code></a></li>
-    <li><a href="#create-your-hugo-configuration-file">Create your Hugo configuration file</a></li>
-    <li><a href="#set-your-configuration-publish-folder-to-_site">Set your configuration publish folder to <code>_site</code></a></li>
-    <li><a href="#convert-jekyll-templates-to-hugo-templates">Convert Jekyll templates to Hugo templates</a></li>
-    <li><a href="#convert-jekyll-plugins-to-hugo-shortcodes">Convert Jekyll plugins to Hugo shortcodes</a>
+    <li>
       <ul>
-        <li><a href="#implementation">Implementation</a></li>
-        <li><a href="#usage">Usage</a></li>
+        <li><a href="#验证规则及调试">验证规则及调试</a>
+          <ul>
+            <li><a href="#确认规则被加载">确认规则被加载</a>
+              <ul>
+                <li><a href="#1表单">1.表单</a></li>
+              </ul>
+            </li>
+            <li><a href="#调试">调试</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
-    <li><a href="#finishing-touches">Finishing touches</a>
-      <ul>
-        <li><a href="#fix-content">Fix content</a></li>
-        <li><a href="#clean-up">Clean up</a></li>
-      </ul>
-    </li>
-    <li><a href="#a-practical-example-in-a-diff">A practical example in a diff</a></li>
   </ul>
 </nav>
 

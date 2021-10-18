@@ -3,19 +3,23 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Move static content to static #  Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
-▾ &lt;root&gt;/ ▾ images/ logo.png  should become
-▾ &lt;root&gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&#39;ll want any files that should reside at the root (such as CNAME) to be moved to static.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Migrate to Hugo from Jekyll" />
-<meta property="og:description" content="Move static content to static #  Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
-▾ &lt;root&gt;/ ▾ images/ logo.png  should become
-▾ &lt;root&gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&#39;ll want any files that should reside at the root (such as CNAME) to be moved to static." />
+<meta name="description" content="表达式 #   针对每个规则，都实现了表达式
+ 变量表达式 #     变量 作用 是否允许业务扩展     $root 根节点 ❌   $current 当前节点 ❌   $parent 父节点 ❌   $context 上下文，由场景方案具体指定有哪些属性，通常不允许业务扩展 ❌   $params 参数，通常业务扩展参数定义在这里 ✅   $fn 表达式函数，允许业务扩展 ✅    节点选择器 #  根节点 $root #   来获取当前规则所绑定的节点的根节点。
+ ❗❗❗ 注意，不同规则可以绑定在不同节点上，但它们根节点因该相同
+详细文档请参考 http://front.q7link.com:3000/docs/biz-rules/docs/eca-rules/get-started/using-expr/using-reference
+上下文 $context #   上下文通常指的是在一个技术方案中，由技术方案本身提供的上下文变量，不支持业务扩展。">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="基础相关" />
+<meta property="og:description" content="表达式 #   针对每个规则，都实现了表达式
+ 变量表达式 #     变量 作用 是否允许业务扩展     $root 根节点 ❌   $current 当前节点 ❌   $parent 父节点 ❌   $context 上下文，由场景方案具体指定有哪些属性，通常不允许业务扩展 ❌   $params 参数，通常业务扩展参数定义在这里 ✅   $fn 表达式函数，允许业务扩展 ✅    节点选择器 #  根节点 $root #   来获取当前规则所绑定的节点的根节点。
+ ❗❗❗ 注意，不同规则可以绑定在不同节点上，但它们根节点因该相同
+详细文档请参考 http://front.q7link.com:3000/docs/biz-rules/docs/eca-rules/get-started/using-expr/using-reference
+上下文 $context #   上下文通常指的是在一个技术方案中，由技术方案本身提供的上下文变量，不支持业务扩展。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zxp-77hub.github.io/posts/migrate-from-jekyll/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2014-03-10T00:00:00+00:00" />
-<meta property="article:modified_time" content="2014-03-10T00:00:00+00:00" />
+<meta property="og:url" content="https://zxp-77hub.github.io/docs/eca-rules/%E5%9F%BA%E7%A1%80%E7%9B%B8%E5%85%B3/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2021-10-15T17:06:04+08:00" />
+<meta property="article:modified_time" content="2021-10-15T17:06:04+08:00" />
 
-<title>Migrate to Hugo from Jekyll | 菜鸟集市</title>
+<title>基础相关 | 菜鸟集市</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.958cea7827621d6fbcb3acf091344c3e44e3d2a9428f9c3c38bb9eb37bf8c45d.css" integrity="sha256-lYzqeCdiHW&#43;8s6zwkTRMPkTj0qlCj5w8OLues3v4xF0=" crossorigin="anonymous">
@@ -224,7 +228,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://zxp-77hub.github.io/docs/eca-rules/%E5%9F%BA%E7%A1%80%E7%9B%B8%E5%85%B3/" class="">基础相关</a>
+    <a href="https://zxp-77hub.github.io/docs/eca-rules/%E5%9F%BA%E7%A1%80%E7%9B%B8%E5%85%B3/" class=" active">基础相关</a>
   
 
         </li>
@@ -1117,7 +1121,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Migrate to Hugo from Jekyll</strong>
+  <strong>基础相关</strong>
 
   <label for="toc-control">
     
@@ -1133,23 +1137,33 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#move-static-content-to-static">Move static content to <code>static</code></a></li>
-    <li><a href="#create-your-hugo-configuration-file">Create your Hugo configuration file</a></li>
-    <li><a href="#set-your-configuration-publish-folder-to-_site">Set your configuration publish folder to <code>_site</code></a></li>
-    <li><a href="#convert-jekyll-templates-to-hugo-templates">Convert Jekyll templates to Hugo templates</a></li>
-    <li><a href="#convert-jekyll-plugins-to-hugo-shortcodes">Convert Jekyll plugins to Hugo shortcodes</a>
+    <li>
       <ul>
-        <li><a href="#implementation">Implementation</a></li>
-        <li><a href="#usage">Usage</a></li>
+        <li><a href="#表达式">表达式</a>
+          <ul>
+            <li><a href="#变量表达式">变量表达式</a></li>
+          </ul>
+        </li>
+        <li><a href="#节点选择器">节点选择器</a>
+          <ul>
+            <li><a href="#根节点-root">根节点 $root</a></li>
+            <li><a href="#上下文-context">上下文 $context</a></li>
+            <li><a href="#表达式传参-params">表达式传参 $params</a></li>
+            <li><a href="#表达式函数-fn">表达式函数 $fn</a>
+              <ul>
+                <li>
+                  <ul>
+                    <li><a href="#1内置函数">1.内置函数</a></li>
+                    <li><a href="#2函数的构成">2.函数的构成</a></li>
+                    <li><a href="#3-函数公共api">3. 函数公共API</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
       </ul>
     </li>
-    <li><a href="#finishing-touches">Finishing touches</a>
-      <ul>
-        <li><a href="#fix-content">Fix content</a></li>
-        <li><a href="#clean-up">Clean up</a></li>
-      </ul>
-    </li>
-    <li><a href="#a-practical-example-in-a-diff">A practical example in a diff</a></li>
   </ul>
 </nav>
 
@@ -1162,187 +1176,241 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-<article class="markdown">
-  <h1>
-    <a href="/posts/migrate-from-jekyll/">Migrate to Hugo from Jekyll</a>
-  </h1>
-  
-  <h5>March 10, 2014</h5>
-
-
-
-  
-
-  
-
-
-
-<h2 id="move-static-content-to-static">
-  Move static content to <code>static</code>
-  <a class="anchor" href="#move-static-content-to-static">#</a>
-</h2>
-<p>Jekyll has a rule that any directory not starting with <code>_</code> will be copied as-is to the <code>_site</code> output. Hugo keeps all static content under <code>static</code>. You should therefore move it all there.
-With Jekyll, something that looked like</p>
-<pre><code>▾ &lt;root&gt;/
-    ▾ images/
-        logo.png
-</code></pre>
-<p>should become</p>
-<pre><code>▾ &lt;root&gt;/
-    ▾ static/
-        ▾ images/
-            logo.png
-</code></pre>
-<p>Additionally, you'll want any files that should reside at the root (such as <code>CNAME</code>) to be moved to <code>static</code>.</p>
-<h2 id="create-your-hugo-configuration-file">
-  Create your Hugo configuration file
-  <a class="anchor" href="#create-your-hugo-configuration-file">#</a>
-</h2>
-<p>Hugo can read your configuration as JSON, YAML or TOML. Hugo supports parameters custom configuration too. Refer to the <a href="/overview/configuration/">Hugo configuration documentation</a> for details.</p>
-<h2 id="set-your-configuration-publish-folder-to-_site">
-  Set your configuration publish folder to <code>_site</code>
-  <a class="anchor" href="#set-your-configuration-publish-folder-to-_site">#</a>
-</h2>
-<p>The default is for Jekyll to publish to <code>_site</code> and for Hugo to publish to <code>public</code>. If, like me, you have <a href="http://blog.blindgaenger.net/generate_github_pages_in_a_submodule.html"><code>_site</code> mapped to a git submodule on the <code>gh-pages</code> branch</a>, you'll want to do one of two alternatives:</p>
-<ol>
-<li>
-<p>Change your submodule to point to map <code>gh-pages</code> to public instead of <code>_site</code> (recommended).</p>
-<pre><code> git submodule deinit _site
- git rm _site
- git submodule add -b gh-pages git@github.com:your-username/your-repo.git public
-</code></pre>
-</li>
-<li>
-<p>Or, change the Hugo configuration to use <code>_site</code> instead of <code>public</code>.</p>
-<pre><code> {
-     ..
-     &quot;publishdir&quot;: &quot;_site&quot;,
-     ..
- }
-</code></pre>
-</li>
-</ol>
-<h2 id="convert-jekyll-templates-to-hugo-templates">
-  Convert Jekyll templates to Hugo templates
-  <a class="anchor" href="#convert-jekyll-templates-to-hugo-templates">#</a>
-</h2>
-<p>That's the bulk of the work right here. The documentation is your friend. You should refer to <a href="http://jekyllrb.com/docs/templates/">Jekyll's template documentation</a> if you need to refresh your memory on how you built your blog and <a href="/layout/templates/">Hugo's template</a> to learn Hugo's way.</p>
-<p>As a single reference data point, converting my templates for <a href="http://heyitsalex.net/">heyitsalex.net</a> took me no more than a few hours.</p>
-<h2 id="convert-jekyll-plugins-to-hugo-shortcodes">
-  Convert Jekyll plugins to Hugo shortcodes
-  <a class="anchor" href="#convert-jekyll-plugins-to-hugo-shortcodes">#</a>
-</h2>
-<p>Jekyll has <a href="http://jekyllrb.com/docs/plugins/">plugins</a>; Hugo has <a href="/doc/shortcodes/">shortcodes</a>. It's fairly trivial to do a port.</p>
-<h3 id="implementation">
-  Implementation
-  <a class="anchor" href="#implementation">#</a>
+  <article class="markdown">
+    
+    
+    
+    
+    <h1>基础相关</h1>
+    <p>作者：张学鹏</p>
+    <hr/><h3 id="表达式">
+  表达式
+  <a class="anchor" href="#%e8%a1%a8%e8%be%be%e5%bc%8f">#</a>
 </h3>
-<p>As an example, I was using a custom <a href="https://github.com/alexandre-normand/alexandre-normand/blob/74bb12036a71334fdb7dba84e073382fc06908ec/_plugins/image_tag.rb"><code>image_tag</code></a> plugin to generate figures with caption when running Jekyll. As I read about shortcodes, I found Hugo had a nice built-in shortcode that does exactly the same thing.</p>
-<p>Jekyll's plugin:</p>
-<pre><code>module Jekyll
-  class ImageTag &lt; Liquid::Tag
-    @url = nil
-    @caption = nil
-    @class = nil
-    @link = nil
-    // Patterns
-    IMAGE_URL_WITH_CLASS_AND_CAPTION =
-    IMAGE_URL_WITH_CLASS_AND_CAPTION_AND_LINK = /(\w+)(\s+)((https?:\/\/|\/)(\S+))(\s+)&quot;(.*?)&quot;(\s+)-&gt;((https?:\/\/|\/)(\S+))(\s*)/i
-    IMAGE_URL_WITH_CAPTION = /((https?:\/\/|\/)(\S+))(\s+)&quot;(.*?)&quot;/i
-    IMAGE_URL_WITH_CLASS = /(\w+)(\s+)((https?:\/\/|\/)(\S+))/i
-    IMAGE_URL = /((https?:\/\/|\/)(\S+))/i
-    def initialize(tag_name, markup, tokens)
-      super
-      if markup =~ IMAGE_URL_WITH_CLASS_AND_CAPTION_AND_LINK
-        @class   = $1
-        @url     = $3
-        @caption = $7
-        @link = $9
-      elsif markup =~ IMAGE_URL_WITH_CLASS_AND_CAPTION
-        @class   = $1
-        @url     = $3
-        @caption = $7
-      elsif markup =~ IMAGE_URL_WITH_CAPTION
-        @url     = $1
-        @caption = $5
-      elsif markup =~ IMAGE_URL_WITH_CLASS
-        @class = $1
-        @url   = $3
-      elsif markup =~ IMAGE_URL
-        @url = $1
-      end
-    end
-    def render(context)
-      if @class
-        source = &quot;&lt;figure class='#{@class}'&gt;&quot;
-      else
-        source = &quot;&lt;figure&gt;&quot;
-      end
-      if @link
-        source += &quot;&lt;a href=\&quot;#{@link}\&quot;&gt;&quot;
-      end
-      source += &quot;&lt;img src=\&quot;#{@url}\&quot;&gt;&quot;
-      if @link
-        source += &quot;&lt;/a&gt;&quot;
-      end
-      source += &quot;&lt;figcaption&gt;#{@caption}&lt;/figcaption&gt;&quot; if @caption
-      source += &quot;&lt;/figure&gt;&quot;
-      source
-    end
-  end
-end
-Liquid::Template.register_tag('image', Jekyll::ImageTag)
-</code></pre>
-<p>is written as this Hugo shortcode:</p>
-<pre><code>&lt;!-- image --&gt;
-&lt;figure {{ with .Get &quot;class&quot; }}class=&quot;{{.}}&quot;{{ end }}&gt;
-    {{ with .Get &quot;link&quot;}}&lt;a href=&quot;{{.}}&quot;&gt;{{ end }}
-        &lt;img src=&quot;{{ .Get &quot;src&quot; }}&quot; {{ if or (.Get &quot;alt&quot;) (.Get &quot;caption&quot;) }}alt=&quot;{{ with .Get &quot;alt&quot;}}{{.}}{{else}}{{ .Get &quot;caption&quot; }}{{ end }}&quot;{{ end }} /&gt;
-    {{ if .Get &quot;link&quot;}}&lt;/a&gt;{{ end }}
-    {{ if or (or (.Get &quot;title&quot;) (.Get &quot;caption&quot;)) (.Get &quot;attr&quot;)}}
-    &lt;figcaption&gt;{{ if isset .Params &quot;title&quot; }}
-        {{ .Get &quot;title&quot; }}{{ end }}
-        {{ if or (.Get &quot;caption&quot;) (.Get &quot;attr&quot;)}}&lt;p&gt;
-        {{ .Get &quot;caption&quot; }}
-        {{ with .Get &quot;attrlink&quot;}}&lt;a href=&quot;{{.}}&quot;&gt; {{ end }}
-            {{ .Get &quot;attr&quot; }}
-        {{ if .Get &quot;attrlink&quot;}}&lt;/a&gt; {{ end }}
-        &lt;/p&gt; {{ end }}
-    &lt;/figcaption&gt;
-    {{ end }}
-&lt;/figure&gt;
-&lt;!-- image --&gt;
-</code></pre>
-<h3 id="usage">
-  Usage
-  <a class="anchor" href="#usage">#</a>
+<blockquote>
+<p>针对每个规则，都实现了表达式</p>
+</blockquote>
+<h4 id="变量表达式">
+  变量表达式
+  <a class="anchor" href="#%e5%8f%98%e9%87%8f%e8%a1%a8%e8%be%be%e5%bc%8f">#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>作用</th>
+<th>是否允许业务扩展</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$root</td>
+<td>根节点</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>$current</td>
+<td>当前节点</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>$parent</td>
+<td>父节点</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>$context</td>
+<td>上下文，由场景方案具体指定有哪些属性，通常不允许业务扩展</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>$params</td>
+<td>参数，通常业务扩展参数定义在这里</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>$fn</td>
+<td>表达式函数，允许业务扩展</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h3 id="节点选择器">
+  节点选择器
+  <a class="anchor" href="#%e8%8a%82%e7%82%b9%e9%80%89%e6%8b%a9%e5%99%a8">#</a>
 </h3>
-<p>I simply changed:</p>
-<pre><code>{% image full http://farm5.staticflickr.com/4136/4829260124_57712e570a_o_d.jpg &quot;One of my favorite touristy-type photos. I secretly waited for the good light while we were &quot;having fun&quot; and took this. Only regret: a stupid pole in the top-left corner of the frame I had to clumsily get rid of at post-processing.&quot; -&gt;http://www.flickr.com/photos/alexnormand/4829260124/in/set-72157624547713078/ %}
-</code></pre>
-<p>to this (this example uses a slightly extended version named <code>fig</code>, different than the built-in <code>figure</code>):</p>
-<pre><code>{{% fig class=&quot;full&quot; src=&quot;http://farm5.staticflickr.com/4136/4829260124_57712e570a_o_d.jpg&quot; title=&quot;One of my favorite touristy-type photos. I secretly waited for the good light while we were having fun and took this. Only regret: a stupid pole in the top-left corner of the frame I had to clumsily get rid of at post-processing.&quot; link=&quot;http://www.flickr.com/photos/alexnormand/4829260124/in/set-72157624547713078/&quot; %}}
-</code></pre>
-<p>As a bonus, the shortcode named parameters are, arguably, more readable.</p>
-<h2 id="finishing-touches">
-  Finishing touches
-  <a class="anchor" href="#finishing-touches">#</a>
-</h2>
-<h3 id="fix-content">
-  Fix content
-  <a class="anchor" href="#fix-content">#</a>
-</h3>
-<p>Depending on the amount of customization that was done with each post with Jekyll, this step will require more or less effort. There are no hard and fast rules here except that <code>hugo server --watch</code> is your friend. Test your changes and fix errors as needed.</p>
-<h3 id="clean-up">
-  Clean up
-  <a class="anchor" href="#clean-up">#</a>
-</h3>
-<p>You'll want to remove the Jekyll configuration at this point. If you have anything else that isn't used, delete it.</p>
-<h2 id="a-practical-example-in-a-diff">
-  A practical example in a diff
-  <a class="anchor" href="#a-practical-example-in-a-diff">#</a>
-</h2>
-<p><a href="http://heyitsalex.net/">Hey, it's Alex</a> was migrated in less than a <em>father-with-kids day</em> from Jekyll to Hugo. You can see all the changes (and screw-ups) by looking at this <a href="https://github.com/alexandre-normand/alexandre-normand/compare/869d69435bd2665c3fbf5b5c78d4c22759d7613a...b7f6605b1265e83b4b81495423294208cc74d610">diff</a>.</p>
+<h4 id="根节点-root">
+  根节点 $root
+  <a class="anchor" href="#%e6%a0%b9%e8%8a%82%e7%82%b9-root">#</a>
+</h4>
+<blockquote>
+<p>来获取当前规则所绑定的节点的根节点。</p>
+</blockquote>
+<p><b>❗❗❗ 注意，不同规则可以绑定在不同节点上，但它们根节点因该相同<b/></p>
+<p>详细文档请参考 <a href="http://front.q7link.com:3000/docs/biz-rules/docs/eca-rules/get-started/using-expr/using-reference">http://front.q7link.com:3000/docs/biz-rules/docs/eca-rules/get-started/using-expr/using-reference</a></p>
+<h4 id="上下文-context">
+  上下文 $context
+  <a class="anchor" href="#%e4%b8%8a%e4%b8%8b%e6%96%87-context">#</a>
+</h4>
+<blockquote>
+<p>上下文通常指的是在一个技术方案中，由技术方案本身提供的上下文变量，不支持业务扩展。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$context.mode</td>
+<td>当前表单模式，Create：新增、Edit：编辑、Copy：复制、Generate：生单、View：查看</td>
+</tr>
+<tr>
+<td>$context.isMobile</td>
+<td>是否是移动端</td>
+</tr>
+<tr>
+<td>$context.entityName</td>
+<td>当前业务对象实体名称</td>
+</tr>
+<tr>
+<td>$context.isEnabledMultiOrg</td>
+<td>是否启用多组织</td>
+</tr>
+<tr>
+<td>$context.businessDate</td>
+<td>业务日期（deprecated）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="表达式传参-params">
+  表达式传参 $params
+  <a class="anchor" href="#%e8%a1%a8%e8%be%be%e5%bc%8f%e4%bc%a0%e5%8f%82-params">#</a>
+</h4>
+<blockquote>
+<p>参数通常是由业务自定义，当遇到复杂逻辑，不好用表达式直接实现的，可以本地代码中计算完成后，在放入 $params 中。待平台更新文档</p>
+</blockquote>
+<h4 id="表达式函数-fn">
+  表达式函数 $fn
+  <a class="anchor" href="#%e8%a1%a8%e8%be%be%e5%bc%8f%e5%87%bd%e6%95%b0-fn">#</a>
+</h4>
+<blockquote>
+<p>表达式函数中，会包含平台内置函数，且允许业务进行扩展。</p>
+</blockquote>
+<h6 id="1内置函数">
+  1.内置函数
+  <a class="anchor" href="#1%e5%86%85%e7%bd%ae%e5%87%bd%e6%95%b0">#</a>
+</h6>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$fn.getEnumValue(enumValue: string): IEnumValue</td>
+<td>传入 enumValue.id，返回一个枚举结构化对象</td>
+</tr>
+<tr>
+<td>$fn.getBusinessType(id: string): IBusinessType</td>
+<td>传入 businessTypeId，返回一个 IBusinessType 结构化对象</td>
+</tr>
+<tr>
+<td>$fn.getObjectType(id: string): IObjectType</td>
+<td>传入 entityName，返回一个 IObjectType 结构化对象</td>
+</tr>
+<tr>
+<td>$fn.sum(...numbers: number[]): number</td>
+<td>加法运算</td>
+</tr>
+<tr>
+<td>$fn.subtract(...numbers: number[]): number</td>
+<td>减法运算</td>
+</tr>
+<tr>
+<td>$fn.multiply(...numbers: number[]): number</td>
+<td>乘法运算</td>
+</tr>
+<tr>
+<td>$fn.divide(...numbers: number[]): number</td>
+<td>除法运算</td>
+</tr>
+</tbody>
+</table>
+<h6 id="2函数的构成">
+  2.函数的构成
+  <a class="anchor" href="#2%e5%87%bd%e6%95%b0%e7%9a%84%e6%9e%84%e6%88%90">#</a>
+</h6>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>是否必填</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>函数名</td>
+<td>是</td>
+<td>由小写或大写字母构成</td>
+</tr>
+<tr>
+<td>描述信息</td>
+<td>是</td>
+<td>描述功能的文字信息</td>
+</tr>
+<tr>
+<td>函数类型申明</td>
+<td>否</td>
+<td>在函数代码中申明即可(未申明则自动分析函数生成)</td>
+</tr>
+<tr>
+<td>默认导出函数</td>
+<td>是</td>
+<td>必须由export default导出函数</td>
+</tr>
+<tr>
+<td>规则执行函数</td>
+<td>是</td>
+<td>必须返回规则执行函数</td>
+</tr>
+</tbody>
+</table>
+<h6 id="3-函数公共api">
+  3. 函数公共API
+  <a class="anchor" href="#3-%e5%87%bd%e6%95%b0%e5%85%ac%e5%85%b1api">#</a>
+</h6>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>form.select</td>
+<td>api.form.select('code')</td>
+<td>查询表单字段返回该字段的多种状态与值</td>
+</tr>
+<tr>
+<td>form.getValue</td>
+<td>api.getValue('code')</td>
+<td>查询表单中某个字段的值</td>
+</tr>
+<tr>
+<td>fn</td>
+<td>api.fn.xxx()</td>
+<td>调用其他公共函数(如：内置函数/引用函数/同一规则组内的函数</td>
+</tr>
+</tbody>
+</table>
 </article>
  
       
@@ -1384,23 +1452,33 @@ Liquid::Template.register_tag('image', Jekyll::ImageTag)
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#move-static-content-to-static">Move static content to <code>static</code></a></li>
-    <li><a href="#create-your-hugo-configuration-file">Create your Hugo configuration file</a></li>
-    <li><a href="#set-your-configuration-publish-folder-to-_site">Set your configuration publish folder to <code>_site</code></a></li>
-    <li><a href="#convert-jekyll-templates-to-hugo-templates">Convert Jekyll templates to Hugo templates</a></li>
-    <li><a href="#convert-jekyll-plugins-to-hugo-shortcodes">Convert Jekyll plugins to Hugo shortcodes</a>
+    <li>
       <ul>
-        <li><a href="#implementation">Implementation</a></li>
-        <li><a href="#usage">Usage</a></li>
+        <li><a href="#表达式">表达式</a>
+          <ul>
+            <li><a href="#变量表达式">变量表达式</a></li>
+          </ul>
+        </li>
+        <li><a href="#节点选择器">节点选择器</a>
+          <ul>
+            <li><a href="#根节点-root">根节点 $root</a></li>
+            <li><a href="#上下文-context">上下文 $context</a></li>
+            <li><a href="#表达式传参-params">表达式传参 $params</a></li>
+            <li><a href="#表达式函数-fn">表达式函数 $fn</a>
+              <ul>
+                <li>
+                  <ul>
+                    <li><a href="#1内置函数">1.内置函数</a></li>
+                    <li><a href="#2函数的构成">2.函数的构成</a></li>
+                    <li><a href="#3-函数公共api">3. 函数公共API</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
       </ul>
     </li>
-    <li><a href="#finishing-touches">Finishing touches</a>
-      <ul>
-        <li><a href="#fix-content">Fix content</a></li>
-        <li><a href="#clean-up">Clean up</a></li>
-      </ul>
-    </li>
-    <li><a href="#a-practical-example-in-a-diff">A practical example in a diff</a></li>
   </ul>
 </nav>
 
