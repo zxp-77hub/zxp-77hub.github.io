@@ -58,3 +58,17 @@ type IReactiveFieldStatusParams = struct {
     }
 },
 ```
+### 根据外件控制敏感字段
+```typescript
+{
+    "name": "ReactiveFieldStatus",
+        "params": {
+        "effect": {
+            "expr": "!$fn.isCarryFieldVisible('spec', $current.product)",
+                "fireImmediately": "true",
+                "status": "Sensitive"
+        },
+        "field": "product.spec"
+    }
+}
+```

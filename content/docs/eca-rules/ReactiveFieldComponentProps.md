@@ -20,3 +20,22 @@ type IReactiveFieldComponentProps = struct {
 	Effects []*IReactiveFieldComponentPropsItem `json:"effects,omitempty"`
 }
 ```
+#### 示例
+```typescript
+{
+    "name": "ReactiveFieldComponentProps",
+    "params": {
+        "field": "createdOrg",
+        "effect": {
+            "props": {
+                "orgRoleTypeIds": [
+                    "InventoryOrg"
+                ]
+            },
+            "isDestruct": false,
+            "when": "true",
+            "fireImmediately": true
+        }
+    }
+}
+```
