@@ -6,7 +6,16 @@
     <description>Recent content in 三. Eca Rules on 菜鸟集市</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 18 Oct 2021 10:28:35 +0800</lastBuildDate><atom:link href="https://zxp-77hub.github.io/docs/eca-rules/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Nov 2021 17:54:40 +0800</lastBuildDate><atom:link href="https://zxp-77hub.github.io/docs/eca-rules/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>单据 档案公共规则引入</title>
+      <link>https://zxp-77hub.github.io/docs/eca-rules/%E5%8D%95%E6%8D%AE-%E6%A1%A3%E6%A1%88%E5%85%AC%E5%85%B1%E8%A7%84%E5%88%99%E5%BC%95%E5%85%A5/</link>
+      <pubDate>Thu, 11 Nov 2021 17:54:40 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/eca-rules/%E5%8D%95%E6%8D%AE-%E6%A1%A3%E6%A1%88%E5%85%AC%E5%85%B1%E8%A7%84%E5%88%99%E5%BC%95%E5%85%A5/</guid>
+      <description>档案公共包引入 #  &amp;#34;dependentPackageIds&amp;#34;: [ &amp;#34;3a061db3-ae38-4559-8cd3-aed0950c6a37&amp;#34; ] 单据公共包引入 #  &amp;#34;dependentPackageIds&amp;#34;: [ &amp;#34;af0f0b05-a736-46d9-8c17-97afd29b5f31&amp;#34; ] </description>
+    </item>
+    
     <item>
       <title>规则验证</title>
       <link>https://zxp-77hub.github.io/docs/eca-rules/%E8%A7%84%E5%88%99%E9%AA%8C%E8%AF%81/</link>
@@ -52,7 +61,7 @@
       
       <guid>https://zxp-77hub.github.io/docs/eca-rules/reactivefieldcomponentprops/</guid>
       <description>ReactiveFieldComponentProps #   创建一个响应式的透传UI组件Props动作，会自动根据依赖数据实时计算新的 props 结果，并添加到目标字段对应的 UI 组件上
- type IReactiveFieldComponentPropsItem = struct { Props map[string]interface{} `json:&amp;#34;props,omitempty&amp;#34;` IsDestruct bool `json:&amp;#34;isDestruct&amp;#34;` When string `json:&amp;#34;when,omitempty&amp;#34;` FireImmediately bool `json:&amp;#34;fireImmediately,omitempty&amp;#34;` } type IReactiveFieldComponentProps = struct { Field string `json:&amp;#34;field&amp;#34;` Effect *IReactiveFieldComponentPropsItem `json:&amp;#34;effect,omitempty&amp;#34;` Effects []*IReactiveFieldComponentPropsItem `json:&amp;#34;effects,omitempty&amp;#34;` } </description>
+ type IReactiveFieldComponentPropsItem = struct { Props map[string]interface{} `json:&amp;#34;props,omitempty&amp;#34;` IsDestruct bool `json:&amp;#34;isDestruct&amp;#34;` When string `json:&amp;#34;when,omitempty&amp;#34;` FireImmediately bool `json:&amp;#34;fireImmediately,omitempty&amp;#34;` } type IReactiveFieldComponentProps = struct { Field string `json:&amp;#34;field&amp;#34;` Effect *IReactiveFieldComponentPropsItem `json:&amp;#34;effect,omitempty&amp;#34;` Effects []*IReactiveFieldComponentPropsItem `json:&amp;#34;effects,omitempty&amp;#34;` } 示例 #  { &amp;#34;name&amp;#34;: &amp;#34;ReactiveFieldComponentProps&amp;#34;, &amp;#34;params&amp;#34;: { &amp;#34;field&amp;#34;: &amp;#34;createdOrg&amp;#34;, &amp;#34;effect&amp;#34;: { &amp;#34;props&amp;#34;: { &amp;#34;orgRoleTypeIds&amp;#34;: [ &amp;#34;InventoryOrg&amp;#34; ] }, &amp;#34;isDestruct&amp;#34;: false, &amp;#34;when&amp;#34;: &amp;#34;true&amp;#34;, &amp;#34;fireImmediately&amp;#34;: true } } } </description>
     </item>
     
     <item>
@@ -96,7 +105,7 @@
     </item>
     
     <item>
-      <title>ReactiveFieldStatus</title>
+      <title>ReactiveFieldStatusgit</title>
       <link>https://zxp-77hub.github.io/docs/eca-rules/reactivefieldstatus/</link>
       <pubDate>Thu, 30 Sep 2021 10:39:28 +0800</pubDate>
       

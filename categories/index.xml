@@ -5,25 +5,6 @@
     <link>https://zxp-77hub.github.io/categories/</link>
     <description>Recent content in Categories on 菜鸟集市</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Wed, 02 Apr 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://zxp-77hub.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Development</title>
-      <link>https://zxp-77hub.github.io/categories/development/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://zxp-77hub.github.io/categories/development/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>https://zxp-77hub.github.io/categories/golang/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://zxp-77hub.github.io/categories/golang/</guid>
-      <description></description>
-    </item>
-    
+    <language>zh-cn</language><atom:link href="https://zxp-77hub.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
