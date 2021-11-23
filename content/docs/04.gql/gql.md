@@ -1,5 +1,5 @@
 ---
-title: GQL
+title: GQL基础
 author: 王书硕
 weight: 1
 ---
