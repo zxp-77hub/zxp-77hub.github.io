@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="普通的gql #  最简单的，直接查一个对象（表）的全部数据
+{ BudgetAccount{ id name accountType { id name } } } 加一点查询条件
+{ BudgetAccount(criteriaStr:&quot;name in (&#39;1&#39;,&#39;2&#39;,&#39;3&#39;)&quot;){ id name accountType { id name } } } 这个会查到name为1、2、3的多条数据
+常用的 gql 查询语句 #  1. 查看某种业务对象的实体名 #  // 例如出入库业务 ObjectType(criteriaStr: &quot;appName=&#39;inventory&#39;&quot;) { id title } 2. 查询预制列表组 #  // 例如公告列表组 QueryDefinitionGroup(criteriaStr:&quot;objectType=&#39;Notice&#39;&quot;){ id objectType title } 3. 预制列表方案 #  // 例如公告列表方案 QueryListDefinition(criteriaStr:&quot;objectType=&#39;Notice&#39;&quot;){ id objectType title } 高级的gql #  上面只能查到一个表的数据及其关联的外键，子表的数据。下面来搞一个子查询。">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="GQL基础" />
+<meta property="og:description" content="普通的gql #  最简单的，直接查一个对象（表）的全部数据
+{ BudgetAccount{ id name accountType { id name } } } 加一点查询条件
+{ BudgetAccount(criteriaStr:&quot;name in (&#39;1&#39;,&#39;2&#39;,&#39;3&#39;)&quot;){ id name accountType { id name } } } 这个会查到name为1、2、3的多条数据
+常用的 gql 查询语句 #  1. 查看某种业务对象的实体名 #  // 例如出入库业务 ObjectType(criteriaStr: &quot;appName=&#39;inventory&#39;&quot;) { id title } 2. 查询预制列表组 #  // 例如公告列表组 QueryDefinitionGroup(criteriaStr:&quot;objectType=&#39;Notice&#39;&quot;){ id objectType title } 3. 预制列表方案 #  // 例如公告列表方案 QueryListDefinition(criteriaStr:&quot;objectType=&#39;Notice&#39;&quot;){ id objectType title } 高级的gql #  上面只能查到一个表的数据及其关联的外键，子表的数据。下面来搞一个子查询。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zxp-77hub.github.io/docs/04.gql/gql/" /><meta property="article:section" content="docs" />
+
+
+
+<title>GQL基础 | 菜鸟集市</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.958cea7827621d6fbcb3acf091344c3e44e3d2a9428f9c3c38bb9eb37bf8c45d.css" integrity="sha256-lYzqeCdiHW&#43;8s6zwkTRMPkTj0qlCj5w8OLues3v4xF0=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.2a4c117eeaf9ef3caf91b308895857bcb5c0fd4b6fe64683527210908baba977.js" integrity="sha256-KkwRfur57zyvkbMIiVhXvLXA/Utv5kaDUnIQkIurqXc=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>菜鸟集市</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>一. 前端框架基础</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/01.base/%E5%88%9D%E5%85%A5%E6%96%B0%E6%89%8B%E6%9D%91/" class="">初入新手村</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/01.base/entity/" class="">模型、entity与元数据</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/01.base/%E9%A2%84%E7%BD%AE%E6%95%B0%E6%8D%AE/" class="">预置数据</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>二. BizForm基础</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/02.form/what-is-bizform/" class="">什么是BizForm</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/02.form/%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86/" class="">BizForm的组成部分</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/02.form/%E5%AD%90%E8%A1%A8/" class="">子表</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/02.form/mstform/" class="">MSTForm-Form状态管理</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>三. Eca Rules</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/03.eca-rules/%E5%9F%BA%E7%A1%80%E7%9B%B8%E5%85%B3/" class="">基础相关</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/03.eca-rules/%E5%AD%97%E6%AE%B5%E7%8A%B6%E6%80%81%E6%96%B9%E6%B3%95/" class="">字段状态方法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/03.eca-rules/%E5%8D%95%E6%8D%AE-%E6%A1%A3%E6%A1%88%E5%85%AC%E5%85%B1%E8%A7%84%E5%88%99%E5%BC%95%E5%85%A5/" class="">单据 档案公共规则引入</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/03.eca-rules/%E8%A7%84%E5%88%99%E9%AA%8C%E8%AF%81/" class="">规则验证</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/03.eca-rules/reactivefieldvalidator/" class="">ReactiveFieldValidator</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/03.eca-rules/reactivefieldcomponentprops/" class="">ReactiveFieldComponentProps</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/03.eca-rules/assignment/" class="">Assignment</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/03.eca-rules/fieldvalidatorrelations/" class="">FieldValidatorRelations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/03.eca-rules/reactiveassignment/" class="">ReactiveAssignment</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/03.eca-rules/%E5%A4%B4%E4%BD%93%E5%AD%97%E6%AE%B5%E5%80%BC%E5%90%8C%E6%AD%A5/" class="">头体字段值同步</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/03.eca-rules/reactivecriteria/" class="">ReactiveCriteria</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/03.eca-rules/reactivefieldstatus/" class="">ReactiveFieldStatusgit</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>四. Gql相关查询</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/04.gql/gql/" class=" active">GQL基础</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>五. BizForm实用攻略</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/05.form-guide/%E8%A7%86%E5%9B%BE/" class="">视图</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/05.form-guide/%E5%A4%96%E9%94%AE%E7%A9%BF%E9%80%8F%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/" class="">外键穿透的自定义点击事件</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/05.form-guide/%E5%9C%BA%E6%99%AF%E5%80%BCreaction/" class="">场景值reaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/05.form-guide/%E8%A1%A8%E5%A4%B4%E5%AD%97%E6%AE%B5%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B8%B2%E6%9F%93/" class="">表头字段自定义渲染</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/05.form-guide/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8D%95%E6%8D%AE/" class="">自定义单据</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/05.form-guide/%E7%BC%96%E8%BE%91%E6%88%96%E6%98%BE%E7%A4%BA%E6%95%B0%E5%AD%97%E7%B2%BE%E5%BA%A6/" class="">编辑或显示数字精度</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/05.form-guide/%E6%B0%B4%E5%8D%B0/" class="">水印</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/05.form-guide/value/" class="">Value</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/05.form-guide/allpaths/" class="">AllPaths</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/05.form-guide/%E5%8D%95%E6%8D%AE%E7%8A%B6%E6%80%81/" class="">单据状态</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/05.form-guide/%E5%88%A0%E9%99%A4%E8%A1%8C/" class="">删除行</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/05.form-guide/init-form/" class="">创建form时带默认数据</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Menu Button</span>
+  
+
+          
+  <ul>
+    
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/05.form-guide/menu-button/menu-%E4%BF%AE%E6%94%B9button/" class="">修改Menu中的Button</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/05.form-guide/menu-button/menu-%E6%96%B0%E5%BB%BAbutton/" class="">新建一个MenuButton</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>六. 列表方案攻略</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/06.list-guide/%E7%A9%BF%E9%80%8F/" class="">穿透</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/06.list-guide/%E6%8C%89%E9%92%AE%E6%9D%83%E9%99%90/" class="">按钮权限</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/06.list-guide/queryfield/" class="">QueryField</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/06.list-guide/%E8%A1%8C%E6%8C%89%E9%92%AErowaction/" class="">行按钮rowAction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/06.list-guide/%E9%80%89%E4%B8%AD%E8%A1%8C/" class="">选中行</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/06.list-guide/%E9%A1%B6%E9%83%A8%E6%8C%89%E9%92%AE/" class="">顶部按钮ToolbarAction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>查询方案</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/06.list-guide/%E6%9F%A5%E8%AF%A2%E6%96%B9%E6%A1%88/%E6%9F%A5%E8%AF%A2%E9%A1%B9%E7%9A%84%E9%BB%98%E8%AE%A4%E5%80%BC/" class="">查询项的默认值</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/06.list-guide/%E6%9F%A5%E8%AF%A2%E6%96%B9%E6%A1%88/%E6%9F%A5%E8%AF%A2%E9%A1%B9/" class="">查询项</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>虚拟字段</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/06.list-guide/%E8%99%9A%E6%8B%9F%E5%AD%97%E6%AE%B5/%E6%9F%A5%E8%AF%A2%E6%96%B9%E6%A1%88/" class="">查询方案</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/06.list-guide/%E8%99%9A%E6%8B%9F%E5%AD%97%E6%AE%B5/%E5%88%97%E8%A1%A8/" class="">列表中显示虚拟字段列</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/06.list-guide/%E8%99%9A%E6%8B%9F%E5%AD%97%E6%AE%B5/%E5%AF%BC%E5%87%BA/" class="">导出</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>七. 组件</span>
+  
+
+          
+  <ul>
+    
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/07.component/%E6%8F%90%E7%A4%BA/" class="">提示</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/07.component/advancedialog/" class="">AdvanceDialog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/07.component/refer/" class="">Refer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/07.component/tablist/" class="">TabList</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/07.component/grid/" class="">Grid</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>八. Inventory库存相关过滤字段</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/08.inventory/%E5%BA%93%E5%AD%98%E7%9B%B8%E5%85%B3%E5%AD%97%E6%AE%B5%E8%BF%87%E6%BB%A4eca-rules/" class="">库存相关字段过滤Eca Rules</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>九. 通用功能攻略</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/09.common/%E5%B8%81%E7%A7%8D%E7%B2%BE%E5%BA%A6/" class="">币种精度</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/09.common/%E5%85%A8%E8%B2%8C%E7%BB%9F%E8%AE%A1%E5%8A%A0%E6%8C%87%E6%A0%87/" class="">全貌统计加指标</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/09.common/%E6%A8%A1%E5%9D%97%E5%90%AF%E7%94%A8/" class="">模块启用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/09.common/gen/" class="">Gen</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/09.common/%E4%B8%9A%E5%8A%A1%E8%A7%84%E5%88%99/" class="">获取业务规则</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/09.common/%E5%8A%9F%E8%83%BD%E6%9D%83%E9%99%90/" class="">功能权限</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/09.common/%E6%8E%A5%E5%8F%A3/" class="">接口</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/09.common/%E6%95%B0%E6%8D%AE%E6%9D%83%E9%99%90/" class="">数据权限</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/09.common/entitycrud/" class="">脱离 form 对entity进行 CRUD</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>十. 多组织</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/10.multi-org/%E5%9D%91/" class="">坑</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>其他</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/16.other/%E6%96%B0%E5%BB%BA%E7%A7%9F%E6%88%B7/" class="">新建开发用租户</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>GQL基础</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#普通的gql">普通的gql</a></li>
+    <li><a href="#常用的-gql-查询语句">常用的 gql 查询语句</a>
+      <ul>
+        <li><a href="#1-查看某种业务对象的实体名">1. 查看某种业务对象的实体名</a></li>
+        <li><a href="#2-查询预制列表组">2. 查询预制列表组</a></li>
+        <li><a href="#3-预制列表方案">3. 预制列表方案</a></li>
+      </ul>
+    </li>
+    <li><a href="#高级的gql">高级的gql</a>
+      <ul>
+        <li><a href="#常用的sql函数">常用的sql函数</a></li>
+      </ul>
+    </li>
+    <li><a href="#dataloader">DataLoader</a></li>
+    <li><a href="#不适用dataloader直接使用gql">不适用DataLoader，直接使用gql</a></li>
+    <li><a href="#go怎么查gql">Go怎么查GQL</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown">
+    
+    
+    
+    
+    <h1>GQL基础</h1>
+    <p>作者：王书硕</p>
+    <hr/><h2 id="普通的gql">
+  普通的gql
+  <a class="anchor" href="#%e6%99%ae%e9%80%9a%e7%9a%84gql">#</a>
+</h2>
+<p>最简单的，直接查一个对象（表）的全部数据</p>
+<pre tabindex="0"><code>{
+  BudgetAccount{
+    id
+    name
+    accountType {
+      id
+      name
+    }
+  }
+}
+</code></pre><p>加一点查询条件</p>
+<pre tabindex="0"><code>{
+  BudgetAccount(criteriaStr:&quot;name in ('1','2','3')&quot;){
+    id
+    name
+    accountType {
+      id
+      name
+    }
+  }
+}
+</code></pre><p>这个会查到name为1、2、3的多条数据</p>
+<h2 id="常用的-gql-查询语句">
+  常用的 gql 查询语句
+  <a class="anchor" href="#%e5%b8%b8%e7%94%a8%e7%9a%84-gql-%e6%9f%a5%e8%af%a2%e8%af%ad%e5%8f%a5">#</a>
+</h2>
+<h3 id="1-查看某种业务对象的实体名">
+  1. 查看某种业务对象的实体名
+  <a class="anchor" href="#1-%e6%9f%a5%e7%9c%8b%e6%9f%90%e7%a7%8d%e4%b8%9a%e5%8a%a1%e5%af%b9%e8%b1%a1%e7%9a%84%e5%ae%9e%e4%bd%93%e5%90%8d">#</a>
+</h3>
+<pre tabindex="0"><code class="language-angular2html" data-lang="angular2html">// 例如出入库业务
+ObjectType(criteriaStr: &quot;appName='inventory'&quot;) {
+  id
+  title
+}
+</code></pre><h3 id="2-查询预制列表组">
+  2. 查询预制列表组
+  <a class="anchor" href="#2-%e6%9f%a5%e8%af%a2%e9%a2%84%e5%88%b6%e5%88%97%e8%a1%a8%e7%bb%84">#</a>
+</h3>
+<pre tabindex="0"><code class="language-angular2html" data-lang="angular2html">// 例如公告列表组
+QueryDefinitionGroup(criteriaStr:&quot;objectType='Notice'&quot;){
+	id
+  objectType
+  title
+}
+</code></pre><h3 id="3-预制列表方案">
+  3. 预制列表方案
+  <a class="anchor" href="#3-%e9%a2%84%e5%88%b6%e5%88%97%e8%a1%a8%e6%96%b9%e6%a1%88">#</a>
+</h3>
+<pre tabindex="0"><code class="language-angular2html" data-lang="angular2html">// 例如公告列表方案
+QueryListDefinition(criteriaStr:&quot;objectType='Notice'&quot;){
+  id
+  objectType
+  title
+}
+</code></pre><h2 id="高级的gql">
+  高级的gql
+  <a class="anchor" href="#%e9%ab%98%e7%ba%a7%e7%9a%84gql">#</a>
+</h2>
+<p>上面只能查到一个表的数据及其关联的外键，子表的数据。下面来搞一个子查询。</p>
+<blockquote>
+<p>因为有的时候，后端的模型中，没有包含我们需要的子表，只能我们自己构建</p>
+</blockquote>
+<pre tabindex="0"><code>{
+  BudgetAccount(criteriaStr:&quot;&quot;){
+    a: exprField(expr:&quot;()&quot;)
+    b: exprField(expr:&quot;()&quot;)
+  }
+}
+</code></pre><p>其中<code>a:</code>是个模型上的一个字段起别名，<code>exprField</code>是一个可以扩展的额外字段，利用这两个就可以做成子查询了。</p>
+<p>举个例子。对于预算指标，复合指标有若干个子指标，但是直接通过BudgetIndicator模型获取不到它们。就可以这样做</p>
+<pre tabindex="0"><code>{
+  BudgetIndicator(criteriaStr:&quot;isComposite=true&quot;){
+    id
+    isComposite
+    child: exprField(expr:&quot;(select string_agg(CONCAT_WS(',',childIndicator.id,childIndicator.name),';')  from BudgetIndicatorComposition where parentIndicatorId=m.id)&quot;)
+  }
+}
+</code></pre><p>这里使用了两个sql函数把多条记录、多个字段组合成了一个字符串。拿到数据后前端经过简单的split转化就可以拿到json对象了。</p>
+<h3 id="常用的sql函数">
+  常用的sql函数
+  <a class="anchor" href="#%e5%b8%b8%e7%94%a8%e7%9a%84sql%e5%87%bd%e6%95%b0">#</a>
+</h3>
+<p><strong>string_agg</strong>: 如果查出来有多条结果，会将它们拼装为一个字符串<br>
+例子：string_agg(object.name, ', ')</p>
+<p><strong>coalesce</strong>：如果alias存在则取alias，不存在取name<br>
+例子：string_agg((coalesce(indicator.alias, indicator.name)), ', ')</p>
+<p><strong>concat_ws</strong>：拼装一条记录的多个字段为一个字段<br>
+例子：string_agg(CONCAT_WS(',',childIndicator.id,childIndicator.name),';')</p>
+<h2 id="dataloader">
+  DataLoader
+  <a class="anchor" href="#dataloader">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">settingDataLoader</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">DataLoader</span>(<span style="color:#a6e22e">EN_Setting</span>, [<span style="color:#e6db74">&#39;values.value&#39;</span>], {
+  <span style="color:#a6e22e">criteriaStr</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`key=&#39;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">accountingBook</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;`</span>,
+} <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">QueryOptions</span>);
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ret</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">settingDataLoader</span>.<span style="color:#a6e22e">query</span>();
+</code></pre></div><h2 id="不适用dataloader直接使用gql">
+  不适用DataLoader，直接使用gql
+  <a class="anchor" href="#%e4%b8%8d%e9%80%82%e7%94%a8dataloader%e7%9b%b4%e6%8e%a5%e4%bd%bf%e7%94%a8gql">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">client</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@client&#39;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fetchControlBalance</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">criteriaStr</span>: <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">dimensionField</span>: <span style="color:#66d9ef">string</span>[]) <span style="color:#f92672">=&gt;</span> {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">res</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">query</span><span style="color:#f92672">&lt;</span>{ <span style="color:#a6e22e">data</span>: <span style="color:#66d9ef">Array</span>&lt;<span style="color:#f92672">IInvoiceType</span>&gt; }<span style="color:#f92672">&gt;</span>({
+    <span style="color:#a6e22e">query</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`
+</span><span style="color:#e6db74">    {
+</span><span style="color:#e6db74">      data: BudgetControlBalance(criteriaStr: &#34;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">criteriaStr</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;){
+</span><span style="color:#e6db74">        id
+</span><span style="color:#e6db74">      }
+</span><span style="color:#e6db74">    }
+</span><span style="color:#e6db74">    `</span>,
+  });
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">data</span>
+};
+</code></pre></div><h2 id="go怎么查gql">
+  Go怎么查GQL
+  <a class="anchor" href="#go%e6%80%8e%e4%b9%88%e6%9f%a5gql">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">GetFieldMapping</span>(<span style="color:#a6e22e">c</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">TrekContext</span>, <span style="color:#a6e22e">billClassId</span> <span style="color:#66d9ef">string</span>) []<span style="color:#a6e22e">Mapping</span> {
+	<span style="color:#a6e22e">queryString</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">`{
+</span><span style="color:#e6db74">  BudgetDimensionFieldMapping(criteriaStr:&#34;billClassId = &#39;</span><span style="color:#75715e">{{</span><span style="color:#a6e22e">.billClassId</span><span style="color:#75715e">}}</span><span style="color:#e6db74">&#39; and dimensionId = &#39;FinancialOrg&#39;&#34;){
+</span><span style="color:#e6db74">    mappingToWhereId mappingField
+</span><span style="color:#e6db74">}
+</span><span style="color:#e6db74">}`</span>
+	<span style="color:#a6e22e">query</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">graphql</span>.<span style="color:#a6e22e">GraphqlTemplate</span>(<span style="color:#a6e22e">queryString</span>, <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">string</span>{
+		<span style="color:#e6db74">&#34;billClassId&#34;</span>: <span style="color:#a6e22e">billClassId</span>,
+	})
+
+	<span style="color:#a6e22e">data</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}{
+		<span style="color:#e6db74">&#34;query&#34;</span>: <span style="color:#a6e22e">query</span>,
+	}
+
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">dataJson</span> <span style="color:#a6e22e">FieldMappingRes</span>
+
+	<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">HttpRequest</span>.<span style="color:#a6e22e">DoHTTPPost</span>(<span style="color:#a6e22e">c</span>, <span style="color:#a6e22e">urls</span>.<span style="color:#a6e22e">AppGraphQL</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">HTTPOptions</span>{
+		<span style="color:#a6e22e">BindBody</span>:    <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">dataJson</span>,
+		<span style="color:#a6e22e">ParamStruct</span>: <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">data</span>,
+	})
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">dataJson</span>.<span style="color:#a6e22e">Data</span>.<span style="color:#a6e22e">BudgetDimensionFieldMapping</span>
+}
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Mapping</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">MappingToWhereId</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;mappingToWhereId&#34;`</span>
+	<span style="color:#a6e22e">MappingField</span>     <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;mappingField&#34;`</span>
+}
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">FieldMappingRes</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">Data</span> <span style="color:#66d9ef">struct</span> {
+		<span style="color:#a6e22e">BudgetDimensionFieldMapping</span> []<span style="color:#a6e22e">Mapping</span> <span style="color:#e6db74">`json:&#34;BudgetDimensionFieldMapping&#34;`</span>
+	} <span style="color:#e6db74">`json:&#34;data&#34;`</span>
+	<span style="color:#a6e22e">Errors</span> []<span style="color:#66d9ef">interface</span>{} <span style="color:#e6db74">`json:&#34;errors&#34;`</span>
+}
+</code></pre></div><ol>
+<li>queryString定义语句的模板，其中可以包含一些模板变量</li>
+<li>GraphqlTemplate将模板变量引用到模板</li>
+<li>用DoHTTPPost发起请求</li>
+</ol>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#普通的gql">普通的gql</a></li>
+    <li><a href="#常用的-gql-查询语句">常用的 gql 查询语句</a>
+      <ul>
+        <li><a href="#1-查看某种业务对象的实体名">1. 查看某种业务对象的实体名</a></li>
+        <li><a href="#2-查询预制列表组">2. 查询预制列表组</a></li>
+        <li><a href="#3-预制列表方案">3. 预制列表方案</a></li>
+      </ul>
+    </li>
+    <li><a href="#高级的gql">高级的gql</a>
+      <ul>
+        <li><a href="#常用的sql函数">常用的sql函数</a></li>
+      </ul>
+    </li>
+    <li><a href="#dataloader">DataLoader</a></li>
+    <li><a href="#不适用dataloader直接使用gql">不适用DataLoader，直接使用gql</a></li>
+    <li><a href="#go怎么查gql">Go怎么查GQL</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

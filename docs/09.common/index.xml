@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>九. 通用功能攻略 on 菜鸟集市</title>
+    <link>https://zxp-77hub.github.io/docs/09.common/</link>
+    <description>Recent content in 九. 通用功能攻略 on 菜鸟集市</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 17 Mar 2021 11:53:41 +0800</lastBuildDate><atom:link href="https://zxp-77hub.github.io/docs/09.common/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>币种精度</title>
+      <link>https://zxp-77hub.github.io/docs/09.common/%E5%B8%81%E7%A7%8D%E7%B2%BE%E5%BA%A6/</link>
+      <pubDate>Wed, 17 Mar 2021 11:53:41 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/09.common/%E5%B8%81%E7%A7%8D%E7%B2%BE%E5%BA%A6/</guid>
+      <description>import { store } from &amp;#39;@models&amp;#39;; // 表单中(EasyBizFormPresenter) this.localCurrency.precision // 不在EasyBizFormPresenter中 store.exchangeDefManager.getLocalCurrency().precision </description>
+    </item>
+    
+    <item>
+      <title>全貌统计加指标</title>
+      <link>https://zxp-77hub.github.io/docs/09.common/%E5%85%A8%E8%B2%8C%E7%BB%9F%E8%AE%A1%E5%8A%A0%E6%8C%87%E6%A0%87/</link>
+      <pubDate>Tue, 16 Mar 2021 11:27:50 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/09.common/%E5%85%A8%E8%B2%8C%E7%BB%9F%E8%AE%A1%E5%8A%A0%E6%8C%87%E6%A0%87/</guid>
+      <description>https://shimo.im/sheets/16q8MDar7Ktv0mk7/cayv7，所有的指标会在这个文档里说明。其中【指标编码】是下文中提到的 MeasureId 。
+需要现在go上配置好指标，然后在前端中获取指标并进行设置。
+go #   trek/services/dashboard/config/project-overview.go addProjectStatisticsConfig函数 addConfig  // 多值指标 addConfig(&amp;amp;dashboard.EvaluateCardConfig{ Id: &amp;#34;projectTimeStatisticCost&amp;#34;, Title: &amp;#34;工时成本&amp;#34;, Icon: &amp;#34;icongongshi1&amp;#34;, ViewType: dashboard.CardViewType_MultiValue, ValueConfig: []dashboard.EvaluateValueConfig{ { Id: &amp;#34;workingTimeCost&amp;#34;, Icon: &amp;#34;iconzonggongshi&amp;#34;, Title: &amp;#34;总工时成本&amp;#34;, MeasureId: &amp;#34;workingTimeCost&amp;#34;, Unit: dashboard.CardViewUnit_TenThounsand, ClassName: &amp;#34;color1&amp;#34;, SupportPenetrate: true, IsAmount: true, ValuePeriodType: dashboard.MeasurePeriodValueTypeOccurs, }, } }) // 单值指标 addConfig(&amp;amp;dashboard.EvaluateCardConfig{ Id: &amp;#34;workingTimeCost&amp;#34;, Title: &amp;#34;总工时成本&amp;#34;, Icon: &amp;#34;&amp;#34;, ViewType: dashboard.CardViewType_SingleValue, ValueConfig: dashboard.EvaluateValueConfig{ Id: &amp;#34;count&amp;#34;, Icon: &amp;#34;iconzonggongshi&amp;#34;, Title: &amp;#34;总工时成本&amp;#34;, MeasureId: &amp;#34;workingTimeCost&amp;#34;, Unit: dashboard.CardViewUnit_TenThounsand, IsAmount: true, ClassName: &amp;#34;color1&amp;#34;, SupportPenetrate: true, ValuePeriodType: dashboard.</description>
+    </item>
+    
+    <item>
+      <title>模块启用</title>
+      <link>https://zxp-77hub.github.io/docs/09.common/%E6%A8%A1%E5%9D%97%E5%90%AF%E7%94%A8/</link>
+      <pubDate>Thu, 11 Mar 2021 11:01:34 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/09.common/%E6%A8%A1%E5%9D%97%E5%90%AF%E7%94%A8/</guid>
+      <description>go #  go项目，获取功能权限是否开启
+b := ctx.GetBusinessModuleById(gen_ec.EC_BusinessModule_BusinessModule_budget) // b.IsEnabled 前端 #  import { store } from &amp;#39;@models&amp;#39;; class A { b() { const contractModel = store.moduleInitManager.getModuleById(&amp;#39;BusinessModule_contract&amp;#39;); if ( !contractModel || !contractModel.isEnabled ) { // ...  } } } </description>
+    </item>
+    
+    <item>
+      <title>Gen</title>
+      <link>https://zxp-77hub.github.io/docs/09.common/gen/</link>
+      <pubDate>Wed, 10 Mar 2021 17:41:36 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/09.common/gen/</guid>
+      <description> 后端实体构建发版后，前端和go 要生成相应的 json
+ 1. go 端 #  进入 script 目录运行
+ sh gen.sh 2. 前端 #  直接运行 rush gen 环境
+问题 #   某些变量在本地跑完gen后不见了  可能是后端该了某些属性的名字，但是0租户没有同步。    </description>
+    </item>
+    
+    <item>
+      <title>获取业务规则</title>
+      <link>https://zxp-77hub.github.io/docs/09.common/%E4%B8%9A%E5%8A%A1%E8%A7%84%E5%88%99/</link>
+      <pubDate>Tue, 05 Jan 2021 17:48:57 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/09.common/%E4%B8%9A%E5%8A%A1%E8%A7%84%E5%88%99/</guid>
+      <description>方式一 #  class ProjectFormPresenter extends EasyBizFormPresenter&amp;lt;IProject&amp;gt;{ private billTypeRules: Array&amp;lt;IBizProcessFuncUnitSetting&amp;gt; = []; xx() { const businessRules = this.bizFormPresenter.api.getBusinessRules() this.billTypeRules = oc(businessRules).rules([]) } } 方式二 #  import { FuncUnit_Constants } from &amp;#39;@q7/athena-gen/src&amp;#39;; class ProjectPlanButton extends MenuButton { private checkEnableProjectRule = () =&amp;gt; { const enableProject: IBizProcessFuncUnitSetting = this.presenter.api.getBusinessRuleById( FuncUnit_Constants.enableProjectScheduleValidator, ); if (enableProject) { return enableProject.setting; } return; }; } 其中FuncUnit_Constants是根据预置数据生成的，可以问后端你要的业务规则的名字。
+业务规则的类型 #  interface IBizProcessFuncUnitSetting { applyTo?: { [key: string]: any } // 应用的对象, 	applyToTypeObject?</description>
+    </item>
+    
+    <item>
+      <title>功能权限</title>
+      <link>https://zxp-77hub.github.io/docs/09.common/%E5%8A%9F%E8%83%BD%E6%9D%83%E9%99%90/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/09.common/%E5%8A%9F%E8%83%BD%E6%9D%83%E9%99%90/</guid>
+      <description>实现 #  使用下面的代码就可以做到查看功能权限
+import { checkAuth } from &amp;#39;@root/func-auth&amp;#39;; import { FunctionAuthActionType } from &amp;#39;@metadata&amp;#39;; checkAuth(EN_Project, FunctionAuthActionType.View) checkAuth方法 #  checkAuth方法的参数：
+   参数 描述     resourceId 资源id   actionType 权限类型，有新增、查看、导出、打印等等    resourceId可能是entityId，也可能是另外定义的resourceId，在文件packages/athena-gen/src/entity-constants/ResourceConstants.ts中。具体是哪个需要和后端确认。
+actionType的定义在文件apps/link/node_modules/@q7/metadata/src/declare/constants.ts中。摘录到下面。
+/** * 功能权限 Action 集合 */ export enum FunctionAuthActionType { // 新增  Add = &amp;#39;add&amp;#39;, // 查看  View = &amp;#39;view&amp;#39;, // 修改  Update = &amp;#39;update&amp;#39;, // 删除  Delete = &amp;#39;delete&amp;#39;, // 输出  Export = &amp;#39;export&amp;#39;, // 打印  Print = &amp;#39;print&amp;#39;, // 作废  Abort = &amp;#39;abort&amp;#39;, // 弃审  Unapprove = &amp;#39;unapprove&amp;#39;, // 审评  Approve = &amp;#39;approve&amp;#39;, // 执行  Execute = &amp;#39;execute&amp;#39;, // 挂起  Suspend = &amp;#39;suspend&amp;#39;, // 取消挂起  CancelSuspend = &amp;#39;cancelSuspend&amp;#39;, // 关闭  Close = &amp;#39;close&amp;#39;, // 打开  Open = &amp;#39;open&amp;#39;, // 预览  Preview = &amp;#39;preview&amp;#39;, // 附件上传  AttachemetUpload = &amp;#39;attachemetUpload&amp;#39;, // 附件删除  AttachmentDelete = &amp;#39;attachmentDelete&amp;#39;, // 附件预览  AttachmentView = &amp;#39;attachmentView&amp;#39;, // 发布  Publish = &amp;#39;publish&amp;#39;, // 设置  Setup = &amp;#39;setup&amp;#39;, // 变更  Change = &amp;#39;change&amp;#39;, } </description>
+    </item>
+    
+    <item>
+      <title>接口</title>
+      <link>https://zxp-77hub.github.io/docs/09.common/%E6%8E%A5%E5%8F%A3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/09.common/%E6%8E%A5%E5%8F%A3/</guid>
+      <description>前端不能直接调用后端提供的rest接口，必须前端请求go，go在请求后端
+一、在 go 上申明后端接口地址 #  在文件 trek/urls/url.go 中声明接口地址
+ 位置 trek/urls/url.yaml
+ 二. 然后控制台进入 app/script 目录 执行 sh gen.sh 命令 #  sh gen.sh 系统会根据定义的接口申明 在 trek/urls/url.go 上自动生成
+ 先声明变量。找你相关的代码块，或者自己创建于给代码块，在其中创建变量。  赋值为后端接口地址。在RefreshUrls方法内，将刚刚的变量赋值。  注：这两步是 gen 根据 url.yaml 自动生成，不用手动操作
+三. 添加 go 的接口 #   文件路径 trek/web/controllers/web-controllers/transparent/index.go
+ 第一部分，声明一个接口
+ 声明go接口的方法（post、get等） 前端访问go接口的url，如果url中包含参数用花括号 处理方法的名字  第二部分，实现方法处理接口
+ 拿到url中参数，请求后端接口 刚刚设置的后端接口地址的变量  四. 前端调用接口 #   文件路径 apps/link/src/api/urls.ts
+ 在这个文件里找到自己的entity，如果没有就创建一个，在其中声明一个字段作为接口地址（就是第三步的2）。 然后就可以调接口了，要使用 import client from &#39;@client&#39;;</description>
+    </item>
+    
+    <item>
+      <title>数据权限</title>
+      <link>https://zxp-77hub.github.io/docs/09.common/%E6%95%B0%E6%8D%AE%E6%9D%83%E9%99%90/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/09.common/%E6%95%B0%E6%8D%AE%E6%9D%83%E9%99%90/</guid>
+      <description>前端的gql默认是会按数据权限过滤的。
+如果想忽略数据权限的话，需要在option中加contextObject参数，当这个参数是不在数据权限范围内的实体时，就表示忽略数据权限。
+所以这里以ignoreDataAuth字符串为参数，来达到忽略权限的目的。
+1 2 3 4 5  const dataLoader = new DataLoader(EN_BudgetPlan, [&amp;#39;id&amp;#39;], { criteriaStr: `projectId=&amp;#39;${this.projectId}&amp;#39;`, sorts: [{ name: &amp;#39;createdTime&amp;#39;, isDesending: true }], contextObject: &amp;#39;ignoreDataAuth&amp;#39;, } as IDataLoaderQueryOptions);   </description>
+    </item>
+    
+    <item>
+      <title>脱离 form 对entity进行 CRUD</title>
+      <link>https://zxp-77hub.github.io/docs/09.common/entitycrud/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/09.common/entitycrud/</guid>
+      <description>有时我们需要新增、修改、删除一条entity的数据。但是这个entity又没有开发对应的form，无法通过表单来完成。这时就要用到EntityCRUDHelper了
+import { EntityCRUDHelper } from &amp;#39;@root/solutions/entity-crud&amp;#39;; EntityCRUDHelper.getInstance().update(EN_BudgetAccountDocImport, data) EntityCRUDHelper提供了create/update/delete等几个方法，可以直接基于entity进行crud操作。
+   方法 参数 描述     create entityName, data 创建一条记录   update entityName, data 修改一条记录    注意事项 #  entity不能是子表。子表必须通过主表创建。</description>
+    </item>
+    
+  </channel>
+</rss>

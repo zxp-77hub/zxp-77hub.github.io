@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>八. Inventory库存相关过滤字段 on 菜鸟集市</title>
+    <link>https://zxp-77hub.github.io/docs/08.inventory/</link>
+    <description>Recent content in 八. Inventory库存相关过滤字段 on 菜鸟集市</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 11 Nov 2021 14:21:51 +0800</lastBuildDate><atom:link href="https://zxp-77hub.github.io/docs/08.inventory/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>库存相关字段过滤Eca Rules</title>
+      <link>https://zxp-77hub.github.io/docs/08.inventory/%E5%BA%93%E5%AD%98%E7%9B%B8%E5%85%B3%E5%AD%97%E6%AE%B5%E8%BF%87%E6%BB%A4eca-rules/</link>
+      <pubDate>Thu, 11 Nov 2021 14:21:51 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/08.inventory/%E5%BA%93%E5%AD%98%E7%9B%B8%E5%85%B3%E5%AD%97%E6%AE%B5%E8%BF%87%E6%BB%A4eca-rules/</guid>
+      <description>1. 明细表存货字段参照过滤-基准类型为数量型 #    { &amp;#34;reference&amp;#34;: &amp;#34;miscReceiptItems&amp;#34;, &amp;#34;actions&amp;#34;: [ { &amp;#34;name&amp;#34;: &amp;#34;ReactiveCriteria&amp;#34;, &amp;#34;description&amp;#34;: &amp;#34;存货参照过滤基准类型为数量型&amp;#34;, &amp;#34;params&amp;#34;: { &amp;#34;field&amp;#34;: &amp;#34;product&amp;#34;, &amp;#34;fragment&amp;#34;: { &amp;#34;autoClear&amp;#34;: true, &amp;#34;criteriaStr&amp;#34;: &amp;#34;productStandardTypeId = &amp;#39;ProductStandardType.quantity&amp;#39;&amp;#34;, &amp;#34;fireImmediately&amp;#34;: true, &amp;#34;when&amp;#34;: &amp;#34;true&amp;#34; } } } ] } 2. 字段过滤透传props #  { &amp;#34;name&amp;#34;: &amp;#34;ReactiveFieldComponentProps&amp;#34;, &amp;#34;description&amp;#34;: &amp;#34;field: 出入库类型&amp;#34;, &amp;#34;params&amp;#34;: { &amp;#34;field&amp;#34;: &amp;#34;stockTransType&amp;#34;, &amp;#34;effects&amp;#34;: [ { &amp;#34;props&amp;#34;: { &amp;#34;contextOrgIds&amp;#34;: &amp;#34;[$current.createdOrg.id]&amp;#34; }, &amp;#34;isDestruct&amp;#34;: false, &amp;#34;when&amp;#34;: &amp;#34;$current.createdOrg.id&amp;#34;, &amp;#34;fireImmediately&amp;#34;: true } ] } } </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>其他 on 菜鸟集市</title>
+    <link>https://zxp-77hub.github.io/docs/16.other/</link>
+    <description>Recent content in 其他 on 菜鸟集市</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="https://zxp-77hub.github.io/docs/16.other/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>新建开发用租户</title>
+      <link>https://zxp-77hub.github.io/docs/16.other/%E6%96%B0%E5%BB%BA%E7%A7%9F%E6%88%B7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/16.other/%E6%96%B0%E5%BB%BA%E7%A7%9F%E6%88%B7/</guid>
+      <description>创建新的租户（账号）的方法如下。
+ 去运维平台查询对应环境地址, 查到对应的 qbos 地址, 一般为对应的 5000 端口  登录地址 http://(qbos对应的ip地址):5000/, 输入密码, temp13 可以用 test1 进行登录  进入租户管理点击新建, 按照需求进行勾选. (注意是否要启用多组织) 多组织和内部交易是一起的, 只有有多组织才有内部交易  然后在租户管理页面进行激活, 输入手机号 测试环境支持随机号码, 输入后,通过 gql 查询验证码, 查询 gql 见下 gql 地址为通过运维平台查询 identity 服务, 一般端口为 9999  { VerificationCode(criteriaStr:&amp;quot;verifyIdFlag in (&#39;注册的手机号&#39;) and to_char(expiredTime, &#39;yyyymmddhh24miss&#39;) &amp;gt;= to_char(CURRENT_TIMESTAMP, &#39;yyyymmddhh24miss&#39;) and isUsed = &#39;false&#39;&amp;quot;){ code expiredTime verifyIdFlag } }  进入对应环境登录界面, 点击激活账号, 输入手机号, 点击获取验证码 输入对应的手机号和验证码, 验证码可以通过 gql 进行查询 成功以后，进入系统，用刚刚的手机号登录，密码是123456，会提示密码简单需要重置。 重置的话，需要手机号接收验证码。验证码可以通过gql查到。 。需要把下面链接中的IP地址替换成你的环境对应的（见下一步）。 这里。找到你的环境，环境会有两个IP，看哪个IP有9999这个服务，把对应的IP放到上面的链接中。  在gql中替换掉你的手机号，就可以查到验证码了。然后重置密码，进入系统就可以了。  </description>
+    </item>
+    
+  </channel>
+</rss>
