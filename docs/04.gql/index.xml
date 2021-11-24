@@ -5,7 +5,8 @@
     <link>https://zxp-77hub.github.io/docs/04.gql/</link>
     <description>Recent content in 四. Gql相关查询 on 菜鸟集市</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language><atom:link href="https://zxp-77hub.github.io/docs/04.gql/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 23 Nov 2021 15:20:01 +0800</lastBuildDate><atom:link href="https://zxp-77hub.github.io/docs/04.gql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GQL基础</title>
       <link>https://zxp-77hub.github.io/docs/04.gql/gql/</link>
@@ -16,6 +17,15 @@
 { BudgetAccount{ id name accountType { id name } } } 加一点查询条件
 { BudgetAccount(criteriaStr:&amp;quot;name in (&#39;1&#39;,&#39;2&#39;,&#39;3&#39;)&amp;quot;){ id name accountType { id name } } } 这个会查到name为1、2、3的多条数据
 常用的 gql 查询语句 #  1. 查看某种业务对象的实体名 #  // 例如出入库业务 ObjectType(criteriaStr: &amp;quot;appName=&#39;inventory&#39;&amp;quot;) { id title } 2. 查询预制列表组 #  // 例如公告列表组 QueryDefinitionGroup(criteriaStr:&amp;quot;objectType=&#39;Notice&#39;&amp;quot;){ id objectType title } 3. 预制列表方案 #  // 例如公告列表方案 QueryListDefinition(criteriaStr:&amp;quot;objectType=&#39;Notice&#39;&amp;quot;){ id objectType title } 高级的gql #  上面只能查到一个表的数据及其关联的外键，子表的数据。下面来搞一个子查询。</description>
+    </item>
+    
+    <item>
+      <title>常用查询</title>
+      <link>https://zxp-77hub.github.io/docs/04.gql/%E5%B8%B8%E7%94%A8%E6%9F%A5%E8%AF%A2/</link>
+      <pubDate>Tue, 23 Nov 2021 15:20:01 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/04.gql/%E5%B8%B8%E7%94%A8%E6%9F%A5%E8%AF%A2/</guid>
+      <description>查找已存在的列表组 #  QueryDefinitionGroup(criteriaStr:&amp;#34;name like &amp;#39;%Misc%&amp;#39;&amp;#34;){ id name objectType } </description>
     </item>
     
   </channel>

@@ -6,7 +6,7 @@
     <description>Recent content on 菜鸟集市</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 22 Nov 2021 16:58:35 +0800</lastBuildDate><atom:link href="https://zxp-77hub.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Nov 2021 18:10:20 +0800</lastBuildDate><atom:link href="https://zxp-77hub.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>基础相关</title>
       <link>https://zxp-77hub.github.io/docs/03.eca-rules/%E5%9F%BA%E7%A1%80%E7%9B%B8%E5%85%B3/</link>
@@ -42,6 +42,24 @@
 { BudgetAccount{ id name accountType { id name } } } 加一点查询条件
 { BudgetAccount(criteriaStr:&amp;quot;name in (&#39;1&#39;,&#39;2&#39;,&#39;3&#39;)&amp;quot;){ id name accountType { id name } } } 这个会查到name为1、2、3的多条数据
 常用的 gql 查询语句 #  1. 查看某种业务对象的实体名 #  // 例如出入库业务 ObjectType(criteriaStr: &amp;quot;appName=&#39;inventory&#39;&amp;quot;) { id title } 2. 查询预制列表组 #  // 例如公告列表组 QueryDefinitionGroup(criteriaStr:&amp;quot;objectType=&#39;Notice&#39;&amp;quot;){ id objectType title } 3. 预制列表方案 #  // 例如公告列表方案 QueryListDefinition(criteriaStr:&amp;quot;objectType=&#39;Notice&#39;&amp;quot;){ id objectType title } 高级的gql #  上面只能查到一个表的数据及其关联的外键，子表的数据。下面来搞一个子查询。</description>
+    </item>
+    
+    <item>
+      <title>常用查询</title>
+      <link>https://zxp-77hub.github.io/docs/04.gql/%E5%B8%B8%E7%94%A8%E6%9F%A5%E8%AF%A2/</link>
+      <pubDate>Tue, 23 Nov 2021 15:20:01 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/04.gql/%E5%B8%B8%E7%94%A8%E6%9F%A5%E8%AF%A2/</guid>
+      <description>查找已存在的列表组 #  QueryDefinitionGroup(criteriaStr:&amp;#34;name like &amp;#39;%Misc%&amp;#39;&amp;#34;){ id name objectType } </description>
+    </item>
+    
+    <item>
+      <title>常用规则</title>
+      <link>https://zxp-77hub.github.io/docs/03.eca-rules/%E5%B8%B8%E7%94%A8%E8%A7%84%E5%88%99/</link>
+      <pubDate>Tue, 23 Nov 2021 18:10:20 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/03.eca-rules/%E5%B8%B8%E7%94%A8%E8%A7%84%E5%88%99/</guid>
+      <description>当一个字段变更时清空另一个字段 #  &amp;#34;id&amp;#34;: &amp;#34;3fed09f2-05e1-462f-8b95-a73b43ebd13e&amp;#34;, &amp;#34;description&amp;#34;: &amp;#34;调入组织切换时清空调入仓库&amp;#34;, &amp;#34;trigger&amp;#34;: { &amp;#34;event&amp;#34;: &amp;#34;Change&amp;#34;, &amp;#34;target&amp;#34;: &amp;#34;$current.inInventoryOrg&amp;#34; }, &amp;#34;condition&amp;#34;: { &amp;#34;if&amp;#34;: &amp;#34;true&amp;#34; }, &amp;#34;actions&amp;#34;: [ { &amp;#34;name&amp;#34;: &amp;#34;Assignment&amp;#34;, &amp;#34;params&amp;#34;: { &amp;#34;expr&amp;#34;: &amp;#34;undefined&amp;#34;, &amp;#34;field&amp;#34;: &amp;#34;inWarehouse&amp;#34; } } ] </description>
     </item>
     
     <item>
