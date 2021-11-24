@@ -472,9 +472,9 @@ b := ctx.GetBusinessModuleById(gen_ec.EC_BusinessModule_BusinessModule_budget) /
       <pubDate>Mon, 01 Mar 2021 14:29:52 +0800</pubDate>
       
       <guid>https://zxp-77hub.github.io/docs/06.list-guide/%E6%9F%A5%E8%AF%A2%E6%96%B9%E6%A1%88/%E6%9F%A5%E8%AF%A2%E9%A1%B9%E7%9A%84%E9%BB%98%E8%AE%A4%E5%80%BC/</guid>
-      <description>这里介绍如何为查询项设置默认值。 参看：trek/services/query-list/middlewares/entities/project-schedule/query-default-value.go
-主要的代码是这段
-func (m *billStatusObjectMiddleware) QueryDefHandler(ctx query_list.QueryListContext, api query_list.QueryDefApi) { schema := api.GetQueryItemSchema(billStatusObjectFieldName) if schema != nil { defaultVal := map[string]interface{}{ &amp;#34;values&amp;#34;: []defItem{ { Title: &amp;#34;已生效&amp;#34;, Id: &amp;#34;BillStatus.effective&amp;#34;, }, }, } api.SetDefaultValue(billStatusObjectFieldName, defaultVal) schema.OperatorId = gen_enums.ENUM_CriteriaOperator_in schema.Operator = ctx.GetContext().GetMetadata().GetEnumValue(gen_enums.ENUM_CriteriaOperator, gen_enums.ENUM_CriteriaOperator_in) } } </description>
+      <description>这里介绍如何为查询项设置默认值。 #  方法一在 go 层设置 #  参看：trek/services/query-list/middlewares/entities/project-schedule/query-default-value.go
+主要的代码是这段,不提倡这种方式设置默认值
+func (m *billStatusObjectMiddleware) QueryDefHandler(ctx query_list.QueryListContext, api query_list.QueryDefApi) { schema := api.GetQueryItemSchema(billStatusObjectFieldName) if schema != nil { defaultVal := map[string]interface{}{ &amp;#34;values&amp;#34;: []defItem{ { Title: &amp;#34;已生效&amp;#34;, Id: &amp;#34;BillStatus.effective&amp;#34;, }, }, } api.SetDefaultValue(billStatusObjectFieldName, defaultVal) schema.OperatorId = gen_enums.ENUM_CriteriaOperator_in schema.Operator = ctx.GetContext().GetMetadata().GetEnumValue(gen_enums.ENUM_CriteriaOperator, gen_enums.ENUM_CriteriaOperator_in) } } 方法二 直接在列表方案的查询方案中插入默认值 #  常用默认值设置 #  一. 日期相关 #     取 值 表达式     今天 {&amp;quot;length&amp;quot;:1,&amp;quot;offset&amp;quot;:0,&amp;quot;unit&amp;quot;:&amp;quot;day&amp;quot;}   昨天 {&amp;quot;length&amp;quot;:1,&amp;quot;offset&amp;quot;:-1,&amp;quot;unit&amp;quot;:&amp;quot;day&amp;quot;}   本周 {&amp;quot;length&amp;quot;:1,&amp;quot;offset&amp;quot;:0,&amp;quot;unit&amp;quot;:&amp;quot;week&amp;quot;}   上周 {&amp;quot;length&amp;quot;:1,&amp;quot;offset&amp;quot;:-1,&amp;quot;unit&amp;quot;:&amp;quot;week&amp;quot;}   本月 {&amp;quot;length&amp;quot;:1,&amp;quot;offset&amp;quot;:0,&amp;quot;unit&amp;quot;:&amp;quot;month&amp;quot;}   上月 {&amp;quot;length&amp;quot;:1,&amp;quot;offset&amp;quot;:-1,&amp;quot;unit&amp;quot;:&amp;quot;month&amp;quot;}   本季 {&amp;quot;length&amp;quot;:1,&amp;quot;offset&amp;quot;:0,&amp;quot;unit&amp;quot;:&amp;quot;quarter&amp;quot;}   上季 {&amp;quot;length&amp;quot;:1,&amp;quot;offset&amp;quot;:-1,&amp;quot;unit&amp;quot;:&amp;quot;quarter&amp;quot;}   本年 {&amp;quot;length&amp;quot;:1,&amp;quot;offset&amp;quot;:-1,&amp;quot;unit&amp;quot;:&amp;quot;year&amp;quot;}   上年 {&amp;quot;length&amp;quot;:1,&amp;quot;offset&amp;quot;:-1,&amp;quot;unit&amp;quot;:&amp;quot;year&amp;quot;}   最近3天 {&amp;quot;length&amp;quot;:3,&amp;quot;offset&amp;quot;:-2,&amp;quot;unit&amp;quot;:&amp;quot;day&amp;quot;}   最近7天 {&amp;quot;length&amp;quot;:7,&amp;quot;offset&amp;quot;:-6,&amp;quot;unit&amp;quot;:&amp;quot;day&amp;quot;}   最近15天 {&amp;quot;length&amp;quot;:14,&amp;quot;offset&amp;quot;:-14,&amp;quot;unit&amp;quot;:&amp;quot;day&amp;quot;}   最近30天 {&amp;quot;length&amp;quot;:30,&amp;quot;offset&amp;quot;:-29,&amp;quot;unit&amp;quot;:&amp;quot;day&amp;quot;}    </description>
     </item>
     
     <item>
@@ -570,7 +570,9 @@ export interface IQueryModelResolverOptions { [key: string]: IQueryModelItemReso
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://zxp-77hub.github.io/docs/06.list-guide/%E8%99%9A%E6%8B%9F%E5%AD%97%E6%AE%B5/%E6%9F%A5%E8%AF%A2%E6%96%B9%E6%A1%88/</guid>
-      <description>a #  </description>
+      <description>a #  开发包，列表方案，查询项。加虚拟字段。
+在go上处理虚拟字段
+参考文件services/query-list/middlewares/entities/budget-model/project-fields.go</description>
     </item>
     
     <item>
