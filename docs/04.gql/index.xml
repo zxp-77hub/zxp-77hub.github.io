@@ -25,7 +25,7 @@
       <pubDate>Tue, 23 Nov 2021 15:20:01 +0800</pubDate>
       
       <guid>https://zxp-77hub.github.io/docs/04.gql/%E5%B8%B8%E7%94%A8%E6%9F%A5%E8%AF%A2/</guid>
-      <description>查找已存在的列表组 #  QueryDefinitionGroup(criteriaStr:&amp;#34;name like &amp;#39;%Misc%&amp;#39;&amp;#34;){ id name objectType } </description>
+      <description>查找已存在的列表组 #  QueryDefinitionGroup(criteriaStr:&amp;#34;name like &amp;#39;%Misc%&amp;#39;&amp;#34;){ id name objectType } 查找老列表方案 #  { UiConfig(criteriaStr:&amp;#34;type=&amp;#39;listSolution&amp;#39;&amp;#34;){ name } } </description>
     </item>
     
   </channel>

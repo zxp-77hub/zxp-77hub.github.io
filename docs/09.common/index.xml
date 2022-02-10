@@ -81,13 +81,14 @@ actionType的定义在文件apps/link/node_modules/@q7/metadata/src/declare/cons
       <description>前端不能直接调用后端提供的rest接口，必须前端请求go，go在请求后端
 一、在 go 上申明后端接口地址 #  在文件 trek/urls/url.go 中声明接口地址
  位置 trek/urls/url.yaml
- 二. 然后控制台进入 app/script 目录 执行 sh gen.sh 命令 #  sh gen.sh 系统会根据定义的接口申明 在 trek/urls/url.go 上自动生成
+ 特别注意新加服务
+ 新加服务要在app/go-gen/main/index.go中添加如下代码
+ 如库存新加的服务 二. 然后控制台进入 app/go-gen/main 目录 执行 sh gen.sh 命令 #  sh gen.sh url 系统会根据定义的接口申明 在 trek/urls/url.go 上自动生成
  先声明变量。找你相关的代码块，或者自己创建于给代码块，在其中创建变量。  赋值为后端接口地址。在RefreshUrls方法内，将刚刚的变量赋值。  注：这两步是 gen 根据 url.yaml 自动生成，不用手动操作
 三. 添加 go 的接口 #   文件路径 trek/web/controllers/web-controllers/transparent/index.go
  第一部分，声明一个接口
  声明go接口的方法（post、get等） 前端访问go接口的url，如果url中包含参数用花括号 处理方法的名字  第二部分，实现方法处理接口
- 拿到url中参数，请求后端接口 刚刚设置的后端接口地址的变量  四. 前端调用接口 #   文件路径 apps/link/src/api/urls.ts
- 在这个文件里找到自己的entity，如果没有就创建一个，在其中声明一个字段作为接口地址（就是第三步的2）。 然后就可以调接口了，要使用 import client from &#39;@client&#39;;</description>
+ 拿到url中参数，请求后端接口 刚刚设置的后端接口地址的变量  四. 前端调用接口 #   文件路径 apps/link/src/api/urls.</description>
     </item>
     
     <item>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>12.go on 菜鸟集市</title>
+    <link>https://zxp-77hub.github.io/docs/12.go/</link>
+    <description>Recent content in 12.go on 菜鸟集市</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 18 Jan 2022 11:25:14 +0800</lastBuildDate><atom:link href="https://zxp-77hub.github.io/docs/12.go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Basics</title>
+      <link>https://zxp-77hub.github.io/docs/12.go/basics/</link>
+      <pubDate>Tue, 18 Jan 2022 11:26:43 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/12.go/basics/</guid>
+      <description>系统参数获取 #  formContext.GetContext().GetSystemSettingService().GetSettingValueByKey(&amp;#34;isEnableBatch&amp;#34;, &amp;#34;&amp;#34;) </description>
+    </item>
+    
+  </channel>
+</rss>
