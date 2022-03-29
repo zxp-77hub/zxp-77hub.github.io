@@ -46,7 +46,10 @@ b := ctx.GetBusinessModuleById(gen_ec.EC_BusinessModule_BusinessModule_budget) /
       <description> 后端实体构建发版后，前端和go 要生成相应的 json
  1. go 端 #  进入 script 目录运行
  sh gen.sh 2. 前端 #  直接运行 rush gen 环境
-问题 #   某些变量在本地跑完gen后不见了  可能是后端该了某些属性的名字，但是0租户没有同步。    </description>
+问题 #    某些变量在本地跑完gen后不见了
+ 可能是后端该了某些属性的名字，但是0租户没有同步。    go 执行gen 后，运行经常报错：某些常量找不到
+ 可以通过 go-gen/extend/extends.go 进行扩展 具体代码参考他人的写法
+   </description>
     </item>
     
     <item>
