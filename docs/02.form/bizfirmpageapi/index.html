@@ -3,17 +3,15 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="多列表方案处理了顶部按钮的权限，但是要在列表方案中指定resourceId
-public getQueryListOption(): IQueryListSolutionPresenterOptions { return { ...super.getQueryListOption(), resourceId: &#39;xxxxxxxxxxxxxxx&#39;, }; } ">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="按钮权限" />
-<meta property="og:description" content="多列表方案处理了顶部按钮的权限，但是要在列表方案中指定resourceId
-public getQueryListOption(): IQueryListSolutionPresenterOptions { return { ...super.getQueryListOption(), resourceId: &#39;xxxxxxxxxxxxxxx&#39;, }; } " />
+<meta name="description" content="authController: 权限控制器 #  authController.actionId // 权限行为动作id  authController.resourceId // 资源id  authController.setResourceId // 设置资源id  authController.checkAuth // 权限校验  authController.checkAuthWithData // 校验数据权限  authController.backViewMode // 返回查看态 createMasterCriteriaRaction: #  criteriaController: #  criteriaController.createCriteriaStrReaction(path, producer, fireImmediately) // 设置字段查询参数 criteriaController.createCriteriaReaction(path, producer, fireImmediately) criteriaController.createDetailCriteriaStrReaction(rowField, subpath, producer, fireImmediately) criteriaController.createDetailCriteriaReaction criteriaController.getDetailCriteriaStr(rowField, fieldName) // 获取子表字段查询参数 criteriaController.getDetailBindVars(rowField, fieldName) // 获取子表字段 bindvar 变量 criteriaController.getCriteriaStr(path) // 获取字段查询参数 criteriaController.getBindVars(path) // 获取字段bindvar 变量 defaultValueController #  detailController #  detailDefaultController #  detailEnricherController #  ecaLogController #  eventController #  fieldAuthController #  fieldComponentPropsController #  formController #  formRuntimeController #  initialController #  masterController #  masterRendererController #  menuController #  paramsController #  polymorphicRenderController #  rangeWalkController #  reactionScenariosController #  sectionController #  stateController #  StateController.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="BizFirmPageApi" />
+<meta property="og:description" content="authController: 权限控制器 #  authController.actionId // 权限行为动作id  authController.resourceId // 资源id  authController.setResourceId // 设置资源id  authController.checkAuth // 权限校验  authController.checkAuthWithData // 校验数据权限  authController.backViewMode // 返回查看态 createMasterCriteriaRaction: #  criteriaController: #  criteriaController.createCriteriaStrReaction(path, producer, fireImmediately) // 设置字段查询参数 criteriaController.createCriteriaReaction(path, producer, fireImmediately) criteriaController.createDetailCriteriaStrReaction(rowField, subpath, producer, fireImmediately) criteriaController.createDetailCriteriaReaction criteriaController.getDetailCriteriaStr(rowField, fieldName) // 获取子表字段查询参数 criteriaController.getDetailBindVars(rowField, fieldName) // 获取子表字段 bindvar 变量 criteriaController.getCriteriaStr(path) // 获取字段查询参数 criteriaController.getBindVars(path) // 获取字段bindvar 变量 defaultValueController #  detailController #  detailDefaultController #  detailEnricherController #  ecaLogController #  eventController #  fieldAuthController #  fieldComponentPropsController #  formController #  formRuntimeController #  initialController #  masterController #  masterRendererController #  menuController #  paramsController #  polymorphicRenderController #  rangeWalkController #  reactionScenariosController #  sectionController #  stateController #  StateController." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zxp-77hub.github.io/docs/06.list-guide/%E6%8C%89%E9%92%AE%E6%9D%83%E9%99%90/" /><meta property="article:section" content="docs" />
-<meta property="article:published_time" content="2021-04-26T15:38:47+08:00" />
-<meta property="article:modified_time" content="2021-04-26T15:38:47+08:00" />
+<meta property="og:url" content="https://zxp-77hub.github.io/docs/02.form/bizfirmpageapi/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-04-01T14:16:24+08:00" />
+<meta property="article:modified_time" content="2022-04-01T14:16:24+08:00" />
 
-<title>按钮权限 | 菜鸟集市</title>
+<title>BizFirmPageApi | 菜鸟集市</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.958cea7827621d6fbcb3acf091344c3e44e3d2a9428f9c3c38bb9eb37bf8c45d.css" integrity="sha256-lYzqeCdiHW&#43;8s6zwkTRMPkTj0qlCj5w8OLues3v4xF0=" crossorigin="anonymous">
@@ -139,7 +137,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://zxp-77hub.github.io/docs/02.form/bizfirmpageapi/" class="">BizFirmPageApi</a>
+    <a href="https://zxp-77hub.github.io/docs/02.form/bizfirmpageapi/" class=" active">BizFirmPageApi</a>
   
 
         </li>
@@ -699,7 +697,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://zxp-77hub.github.io/docs/06.list-guide/%E6%8C%89%E9%92%AE%E6%9D%83%E9%99%90/" class=" active">按钮权限</a>
+    <a href="https://zxp-77hub.github.io/docs/06.list-guide/%E6%8C%89%E9%92%AE%E6%9D%83%E9%99%90/" class="">按钮权限</a>
   
 
         </li>
@@ -1274,7 +1272,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>按钮权限</strong>
+  <strong>BizFirmPageApi</strong>
 
   <label for="toc-control">
     
@@ -1288,7 +1286,39 @@ https://github.com/alex-shpak/hugo-book
   <aside class="hidden clearfix">
     
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#authcontroller-权限控制器">authController: 权限控制器</a></li>
+        <li><a href="#createmastercriteriaraction">createMasterCriteriaRaction:</a></li>
+        <li><a href="#criteriacontroller">criteriaController:</a></li>
+        <li><a href="#defaultvaluecontroller">defaultValueController</a></li>
+        <li><a href="#detailcontroller">detailController</a></li>
+        <li><a href="#detaildefaultcontroller">detailDefaultController</a></li>
+        <li><a href="#detailenrichercontroller">detailEnricherController</a></li>
+        <li><a href="#ecalogcontroller">ecaLogController</a></li>
+        <li><a href="#eventcontroller">eventController</a></li>
+        <li><a href="#fieldauthcontroller">fieldAuthController</a></li>
+        <li><a href="#fieldcomponentpropscontroller">fieldComponentPropsController</a></li>
+        <li><a href="#formcontroller">formController</a></li>
+        <li><a href="#formruntimecontroller">formRuntimeController</a></li>
+        <li><a href="#initialcontroller">initialController</a></li>
+        <li><a href="#mastercontroller">masterController</a></li>
+        <li><a href="#masterrenderercontroller">masterRendererController</a></li>
+        <li><a href="#menucontroller">menuController</a></li>
+        <li><a href="#paramscontroller">paramsController</a></li>
+        <li><a href="#polymorphicrendercontroller">polymorphicRenderController</a></li>
+        <li><a href="#rangewalkcontroller">rangeWalkController</a></li>
+        <li><a href="#reactionscenarioscontroller">reactionScenariosController</a></li>
+        <li><a href="#sectioncontroller">sectionController</a></li>
+        <li><a href="#statecontroller">stateController</a></li>
+        <li><a href="#tabapi">tabApi</a></li>
+        <li><a href="#tabtitlecontroller--标签栏控制器">tabTitleController // 标签栏控制器</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
 
@@ -1304,16 +1334,142 @@ https://github.com/alex-shpak/hugo-book
     
     
     
-    <h1>按钮权限</h1>
-    <p>作者：王书硕</p>
-    <hr/><p>多列表方案处理了顶部按钮的权限，但是要在列表方案中指定resourceId</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">public</span> <span style="color:#a6e22e">getQueryListOption</span>()<span style="color:#f92672">:</span> <span style="color:#a6e22e">IQueryListSolutionPresenterOptions</span> {
-  <span style="color:#66d9ef">return</span> {
-    ...<span style="color:#66d9ef">super</span>.<span style="color:#a6e22e">getQueryListOption</span>(),
-    <span style="color:#a6e22e">resourceId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;xxxxxxxxxxxxxxx&#39;</span>,
-  };
-}
-</code></pre></div></article>
+    <h1>BizFirmPageApi</h1>
+    <p>作者：张学鹏</p>
+    <hr/><h3 id="authcontroller-权限控制器">
+  authController: 权限控制器
+  <a class="anchor" href="#authcontroller-%e6%9d%83%e9%99%90%e6%8e%a7%e5%88%b6%e5%99%a8">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"> <span style="color:#a6e22e">authController</span>.<span style="color:#a6e22e">actionId</span> <span style="color:#75715e">// 权限行为动作id
+</span><span style="color:#75715e"></span> <span style="color:#a6e22e">authController</span>.<span style="color:#a6e22e">resourceId</span> <span style="color:#75715e">// 资源id
+</span><span style="color:#75715e"></span> <span style="color:#a6e22e">authController</span>.<span style="color:#a6e22e">setResourceId</span> <span style="color:#75715e">// 设置资源id
+</span><span style="color:#75715e"></span> <span style="color:#a6e22e">authController</span>.<span style="color:#a6e22e">checkAuth</span>  <span style="color:#75715e">// 权限校验
+</span><span style="color:#75715e"></span> <span style="color:#a6e22e">authController</span>.<span style="color:#a6e22e">checkAuthWithData</span> <span style="color:#75715e">// 校验数据权限
+</span><span style="color:#75715e"></span> <span style="color:#a6e22e">authController</span>.<span style="color:#a6e22e">backViewMode</span> <span style="color:#75715e">// 返回查看态
+</span></code></pre></div><h3 id="createmastercriteriaraction">
+  createMasterCriteriaRaction:
+  <a class="anchor" href="#createmastercriteriaraction">#</a>
+</h3>
+<h3 id="criteriacontroller">
+  criteriaController:
+  <a class="anchor" href="#criteriacontroller">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">criteriaController</span>.<span style="color:#a6e22e">createCriteriaStrReaction</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">producer</span>, <span style="color:#a6e22e">fireImmediately</span>) <span style="color:#75715e">// 设置字段查询参数
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">criteriaController</span>.<span style="color:#a6e22e">createCriteriaReaction</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">producer</span>, <span style="color:#a6e22e">fireImmediately</span>)
+<span style="color:#a6e22e">criteriaController</span>.<span style="color:#a6e22e">createDetailCriteriaStrReaction</span>(<span style="color:#a6e22e">rowField</span>, <span style="color:#a6e22e">subpath</span>, <span style="color:#a6e22e">producer</span>, <span style="color:#a6e22e">fireImmediately</span>)
+<span style="color:#a6e22e">criteriaController</span>.<span style="color:#a6e22e">createDetailCriteriaReaction</span>
+
+<span style="color:#a6e22e">criteriaController</span>.<span style="color:#a6e22e">getDetailCriteriaStr</span>(<span style="color:#a6e22e">rowField</span>, <span style="color:#a6e22e">fieldName</span>) <span style="color:#75715e">// 获取子表字段查询参数
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">criteriaController</span>.<span style="color:#a6e22e">getDetailBindVars</span>(<span style="color:#a6e22e">rowField</span>, <span style="color:#a6e22e">fieldName</span>) <span style="color:#75715e">// 获取子表字段 bindvar 变量
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">criteriaController</span>.<span style="color:#a6e22e">getCriteriaStr</span>(<span style="color:#a6e22e">path</span>)  <span style="color:#75715e">// 获取字段查询参数
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">criteriaController</span>.<span style="color:#a6e22e">getBindVars</span>(<span style="color:#a6e22e">path</span>) <span style="color:#75715e">// 获取字段bindvar 变量
+</span></code></pre></div><h3 id="defaultvaluecontroller">
+  defaultValueController
+  <a class="anchor" href="#defaultvaluecontroller">#</a>
+</h3>
+<h3 id="detailcontroller">
+  detailController
+  <a class="anchor" href="#detailcontroller">#</a>
+</h3>
+<h3 id="detaildefaultcontroller">
+  detailDefaultController
+  <a class="anchor" href="#detaildefaultcontroller">#</a>
+</h3>
+<h3 id="detailenrichercontroller">
+  detailEnricherController
+  <a class="anchor" href="#detailenrichercontroller">#</a>
+</h3>
+<h3 id="ecalogcontroller">
+  ecaLogController
+  <a class="anchor" href="#ecalogcontroller">#</a>
+</h3>
+<h3 id="eventcontroller">
+  eventController
+  <a class="anchor" href="#eventcontroller">#</a>
+</h3>
+<h3 id="fieldauthcontroller">
+  fieldAuthController
+  <a class="anchor" href="#fieldauthcontroller">#</a>
+</h3>
+<h3 id="fieldcomponentpropscontroller">
+  fieldComponentPropsController
+  <a class="anchor" href="#fieldcomponentpropscontroller">#</a>
+</h3>
+<h3 id="formcontroller">
+  formController
+  <a class="anchor" href="#formcontroller">#</a>
+</h3>
+<h3 id="formruntimecontroller">
+  formRuntimeController
+  <a class="anchor" href="#formruntimecontroller">#</a>
+</h3>
+<h3 id="initialcontroller">
+  initialController
+  <a class="anchor" href="#initialcontroller">#</a>
+</h3>
+<h3 id="mastercontroller">
+  masterController
+  <a class="anchor" href="#mastercontroller">#</a>
+</h3>
+<h3 id="masterrenderercontroller">
+  masterRendererController
+  <a class="anchor" href="#masterrenderercontroller">#</a>
+</h3>
+<h3 id="menucontroller">
+  menuController
+  <a class="anchor" href="#menucontroller">#</a>
+</h3>
+<h3 id="paramscontroller">
+  paramsController
+  <a class="anchor" href="#paramscontroller">#</a>
+</h3>
+<h3 id="polymorphicrendercontroller">
+  polymorphicRenderController
+  <a class="anchor" href="#polymorphicrendercontroller">#</a>
+</h3>
+<h3 id="rangewalkcontroller">
+  rangeWalkController
+  <a class="anchor" href="#rangewalkcontroller">#</a>
+</h3>
+<h3 id="reactionscenarioscontroller">
+  reactionScenariosController
+  <a class="anchor" href="#reactionscenarioscontroller">#</a>
+</h3>
+<h3 id="sectioncontroller">
+  sectionController
+  <a class="anchor" href="#sectioncontroller">#</a>
+</h3>
+<h3 id="statecontroller">
+  stateController
+  <a class="anchor" href="#statecontroller">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">StateController</span>.<span style="color:#a6e22e">billStatus</span> <span style="color:#75715e">//单据状态
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">StateController</span>.<span style="color:#a6e22e">mode</span> <span style="color:#75715e">//单据模式
+</span></code></pre></div><h3 id="tabapi">
+  tabApi
+  <a class="anchor" href="#tabapi">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">tabApi</span>.<span style="color:#a6e22e">changeTitle</span>() <span style="color:#75715e">// 变更标签 title
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">tabApi</span>.<span style="color:#a6e22e">changePath</span>  <span style="color:#75715e">// 变更页面路由
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">tabApi</span>.<span style="color:#a6e22e">closeTab</span>() <span style="color:#75715e">// 关闭标签
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">tabApi</span>.<span style="color:#a6e22e">showLoading</span>()  <span style="color:#75715e">// 显示页面加载loading状态
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">tabApi</span>.<span style="color:#a6e22e">hideLoading</span>()  <span style="color:#75715e">// 隐藏页面加载loading状态
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">tabApi</span>.<span style="color:#a6e22e">getInstance</span>    
+<span style="color:#a6e22e">tabApi</span>.<span style="color:#a6e22e">getParams</span>() <span style="color:#75715e">// 获取路由params
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">tabApi</span>.<span style="color:#a6e22e">getTitle</span> <span style="color:#75715e">// 获取当前标签栏titile
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">tabApi</span>.<span style="color:#a6e22e">getUrlParams</span>() <span style="color:#75715e">// 获取路由url参数 
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">tabApi</span>.<span style="color:#a6e22e">isActive</span>  <span style="color:#75715e">// 当前标签栏是否激活
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">tabApi</span>.<span style="color:#a6e22e">isClosed</span> <span style="color:#75715e">// 当前标签栏是否关闭
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">tabApi</span>.<span style="color:#a6e22e">whenActive</span>(<span style="color:#a6e22e">callback</span>) <span style="color:#75715e">// 当标签页激活状态时
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">tabApi</span>.<span style="color:#a6e22e">whenDeactive</span>(<span style="color:#a6e22e">callback</span>) <span style="color:#75715e">// 
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">tabApi</span>.<span style="color:#a6e22e">whenClosed</span>(<span style="color:#a6e22e">callback</span>) <span style="color:#75715e">// 当当标签栏关闭时触发
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">tabApi</span>.<span style="color:#a6e22e">whenRefresh</span>(<span style="color:#a6e22e">callback</span>) <span style="color:#75715e">// 当页面刷新时触发
+</span></code></pre></div><h3 id="tabtitlecontroller--标签栏控制器">
+  tabTitleController // 标签栏控制器
+  <a class="anchor" href="#tabtitlecontroller--%e6%a0%87%e7%ad%be%e6%a0%8f%e6%8e%a7%e5%88%b6%e5%99%a8">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">tabTitleController</span>.<span style="color:#a6e22e">setTabTitle</span>() <span style="color:#75715e">// 设置标签栏 title
+</span></code></pre></div></article>
  
       
 
@@ -1352,7 +1508,39 @@ https://github.com/alex-shpak/hugo-book
       <div class="book-toc-content">
         
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#authcontroller-权限控制器">authController: 权限控制器</a></li>
+        <li><a href="#createmastercriteriaraction">createMasterCriteriaRaction:</a></li>
+        <li><a href="#criteriacontroller">criteriaController:</a></li>
+        <li><a href="#defaultvaluecontroller">defaultValueController</a></li>
+        <li><a href="#detailcontroller">detailController</a></li>
+        <li><a href="#detaildefaultcontroller">detailDefaultController</a></li>
+        <li><a href="#detailenrichercontroller">detailEnricherController</a></li>
+        <li><a href="#ecalogcontroller">ecaLogController</a></li>
+        <li><a href="#eventcontroller">eventController</a></li>
+        <li><a href="#fieldauthcontroller">fieldAuthController</a></li>
+        <li><a href="#fieldcomponentpropscontroller">fieldComponentPropsController</a></li>
+        <li><a href="#formcontroller">formController</a></li>
+        <li><a href="#formruntimecontroller">formRuntimeController</a></li>
+        <li><a href="#initialcontroller">initialController</a></li>
+        <li><a href="#mastercontroller">masterController</a></li>
+        <li><a href="#masterrenderercontroller">masterRendererController</a></li>
+        <li><a href="#menucontroller">menuController</a></li>
+        <li><a href="#paramscontroller">paramsController</a></li>
+        <li><a href="#polymorphicrendercontroller">polymorphicRenderController</a></li>
+        <li><a href="#rangewalkcontroller">rangeWalkController</a></li>
+        <li><a href="#reactionscenarioscontroller">reactionScenariosController</a></li>
+        <li><a href="#sectioncontroller">sectionController</a></li>
+        <li><a href="#statecontroller">stateController</a></li>
+        <li><a href="#tabapi">tabApi</a></li>
+        <li><a href="#tabtitlecontroller--标签栏控制器">tabTitleController // 标签栏控制器</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
  

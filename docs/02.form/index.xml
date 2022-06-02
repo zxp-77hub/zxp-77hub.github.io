@@ -6,7 +6,16 @@
     <description>Recent content in 二. BizForm基础 on 菜鸟集市</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 24 Mar 2021 10:44:07 +0800</lastBuildDate><atom:link href="https://zxp-77hub.github.io/docs/02.form/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Apr 2022 14:16:24 +0800</lastBuildDate><atom:link href="https://zxp-77hub.github.io/docs/02.form/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BizFirmPageApi</title>
+      <link>https://zxp-77hub.github.io/docs/02.form/bizfirmpageapi/</link>
+      <pubDate>Fri, 01 Apr 2022 14:16:24 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/02.form/bizfirmpageapi/</guid>
+      <description>authController: 权限控制器 #  authController.actionId // 权限行为动作id  authController.resourceId // 资源id  authController.setResourceId // 设置资源id  authController.checkAuth // 权限校验  authController.checkAuthWithData // 校验数据权限  authController.backViewMode // 返回查看态 createMasterCriteriaRaction: #  criteriaController: #  criteriaController.createCriteriaStrReaction(path, producer, fireImmediately) // 设置字段查询参数 criteriaController.createCriteriaReaction(path, producer, fireImmediately) criteriaController.createDetailCriteriaStrReaction(rowField, subpath, producer, fireImmediately) criteriaController.createDetailCriteriaReaction criteriaController.getDetailCriteriaStr(rowField, fieldName) // 获取子表字段查询参数 criteriaController.getDetailBindVars(rowField, fieldName) // 获取子表字段 bindvar 变量 criteriaController.getCriteriaStr(path) // 获取字段查询参数 criteriaController.getBindVars(path) // 获取字段bindvar 变量 defaultValueController #  detailController #  detailDefaultController #  detailEnricherController #  ecaLogController #  eventController #  fieldAuthController #  fieldComponentPropsController #  formController #  formRuntimeController #  initialController #  masterController #  masterRendererController #  menuController #  paramsController #  polymorphicRenderController #  rangeWalkController #  reactionScenariosController #  sectionController #  stateController #  StateController.</description>
+    </item>
+    
     <item>
       <title>什么是BizForm</title>
       <link>https://zxp-77hub.github.io/docs/02.form/what-is-bizform/</link>

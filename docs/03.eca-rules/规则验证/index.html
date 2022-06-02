@@ -9,7 +9,7 @@
  2019年底，在 go 上使用 BizFormRuleManager。AddXXXControl 的规则，id前缀为 &quot;Old-{RuleName}&quot;  2020年底，使用第一版规则工具录入的规则，id前缀为 &quot;{RuleName}-&quot;  使用 ECA Rules 录入的全新规则，id 没有前缀  其中，我们通过配置工具录入的规则，是没有任何前缀的。同时，在多组织后，我们会逐步迁移老代码的规则，敬请各位期待 🤪
 调试 #   现阶段，可以通过断点的方式进行调试，目前我们正在推动执行过程数据收集，后续可以根据数据进行问题排查。
  所以规则的运行时代码，都在这里，根据规则名称就可以找到对应的执行代码。所有规则的运行时代码，都会实现 IBizRuleActions 这个接口
-/** * @link http://gitlab.q7link.com/front/platform/common-solution/-/blob/feature-multi-org2/src/eca/actions/declare.ts */ export interface IBizRuleActions&lt;T = any&gt; { readonly name: string; schema: JSONSchema7; schemaDefs?: Record&lt;string, JSONSchema7&gt; getExpression?(param: T): RuleFieldItem[] execute(ctx: IRuleActionContext, params: T); } ">
+/** * @link http://gitlab.q7link.com/front/platform/common-solution/-/blob/feature-multi-org2/src/eca/actions/declare.ts */ export interface IBizRuleActions&lt;T = any&gt; { readonly name: string; schema: JSONSchema7; schemaDefs?: Record&lt;string, JSONSchema7&gt; getExpression?(param: T): RuleFieldItem[] execute(ctx: IRuleActionContext, params: T); } 快捷查看eca #  bizFormPresenter.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="规则验证" />
 <meta property="og:description" content="验证规则及调试 #   在规则保存成功后，就可以到对应的方案中进行规则验证。
  确认规则被加载 #  1.表单 #   在 bizForm/init 接口中，可以通过 response 是否返回了规则，来验证 规则是否被加载。
@@ -17,7 +17,7 @@
  2019年底，在 go 上使用 BizFormRuleManager。AddXXXControl 的规则，id前缀为 &quot;Old-{RuleName}&quot;  2020年底，使用第一版规则工具录入的规则，id前缀为 &quot;{RuleName}-&quot;  使用 ECA Rules 录入的全新规则，id 没有前缀  其中，我们通过配置工具录入的规则，是没有任何前缀的。同时，在多组织后，我们会逐步迁移老代码的规则，敬请各位期待 🤪
 调试 #   现阶段，可以通过断点的方式进行调试，目前我们正在推动执行过程数据收集，后续可以根据数据进行问题排查。
  所以规则的运行时代码，都在这里，根据规则名称就可以找到对应的执行代码。所有规则的运行时代码，都会实现 IBizRuleActions 这个接口
-/** * @link http://gitlab.q7link.com/front/platform/common-solution/-/blob/feature-multi-org2/src/eca/actions/declare.ts */ export interface IBizRuleActions&lt;T = any&gt; { readonly name: string; schema: JSONSchema7; schemaDefs?: Record&lt;string, JSONSchema7&gt; getExpression?(param: T): RuleFieldItem[] execute(ctx: IRuleActionContext, params: T); } " />
+/** * @link http://gitlab.q7link.com/front/platform/common-solution/-/blob/feature-multi-org2/src/eca/actions/declare.ts */ export interface IBizRuleActions&lt;T = any&gt; { readonly name: string; schema: JSONSchema7; schemaDefs?: Record&lt;string, JSONSchema7&gt; getExpression?(param: T): RuleFieldItem[] execute(ctx: IRuleActionContext, params: T); } 快捷查看eca #  bizFormPresenter." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://zxp-77hub.github.io/docs/03.eca-rules/%E8%A7%84%E5%88%99%E9%AA%8C%E8%AF%81/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2021-10-18T10:28:35+08:00" />
@@ -28,7 +28,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.958cea7827621d6fbcb3acf091344c3e44e3d2a9428f9c3c38bb9eb37bf8c45d.css" integrity="sha256-lYzqeCdiHW&#43;8s6zwkTRMPkTj0qlCj5w8OLues3v4xF0=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.e0ac27a45cf0c1a64839689ae048cca2df28af737f7408870ddf583c69e036f3.js" integrity="sha256-4KwnpFzwwaZIOWia4EjMot8or3N/dAiHDd9YPGngNvM=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.b2436504d87b3d0e74c000d00cacddb50782f71597405a39a2c2141321956ac1.js" integrity="sha256-skNlBNh7PQ50wADQDKzdtQeC9xWXQFo5osIUEyGVasE=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -141,6 +141,19 @@ https://github.com/alex-shpak/hugo-book
 
           
   <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://zxp-77hub.github.io/docs/02.form/bizfirmpageapi/" class="">BizFirmPageApi</a>
+  
+
+        </li>
+      
     
       
         <li>
@@ -1297,6 +1310,7 @@ https://github.com/alex-shpak/hugo-book
               </ul>
             </li>
             <li><a href="#调试">调试</a></li>
+            <li><a href="#快捷查看eca">快捷查看eca</a></li>
           </ul>
         </li>
       </ul>
@@ -1365,7 +1379,15 @@ https://github.com/alex-shpak/hugo-book
   <span style="color:#a6e22e">getExpression</span><span style="color:#f92672">?</span>(<span style="color:#a6e22e">param</span>: <span style="color:#66d9ef">T</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">RuleFieldItem</span>[]
   <span style="color:#a6e22e">execute</span>(<span style="color:#a6e22e">ctx</span>: <span style="color:#66d9ef">IRuleActionContext</span>, <span style="color:#a6e22e">params</span>: <span style="color:#66d9ef">T</span>);
 }
-</code></pre></div></article>
+</code></pre></div><h4 id="快捷查看eca">
+  快捷查看eca
+  <a class="anchor" href="#%e5%bf%ab%e6%8d%b7%e6%9f%a5%e7%9c%8beca">#</a>
+</h4>
+<p>bizFormPresenter.api.ecaRules.collections.reduce((arr,item)=&gt;[...arr, ...item.items],[]).reduce((arr,i)=&gt;[...arr, ...i.actions.reduce((a,ii)=&gt;[...a, ...[{...ii, id: i.id, reference: i.reference}]], [])], [])</p>
+<p>如果想过滤一下, 比如 product 的赋值</p>
+<p>bizFormPresenter.api.ecaRules.collections.reduce((arr,item)=&gt;[...arr, ...item.items],[]).reduce((arr,i)=&gt;[...arr, ...i.actions.reduce((a,ii)=&gt;[...a, ...[{...ii, id: i.id, reference: i.reference}]], [])], []).filter(i=&gt;i.name.includes('Assignment')).filter(i=&gt;i.params.field=='product')</p>
+<p>其他过滤可以自己应用, 我将其中的 id 和 reference 带到了 actions 上, 便于直接查看.</p>
+</article>
  
       
 
@@ -1416,6 +1438,7 @@ https://github.com/alex-shpak/hugo-book
               </ul>
             </li>
             <li><a href="#调试">调试</a></li>
+            <li><a href="#快捷查看eca">快捷查看eca</a></li>
           </ul>
         </li>
       </ul>

@@ -6,7 +6,7 @@
     <description>Recent content on 菜鸟集市</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 25 Mar 2022 16:39:55 +0800</lastBuildDate><atom:link href="https://zxp-77hub.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Apr 2022 14:16:24 +0800</lastBuildDate><atom:link href="https://zxp-77hub.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>基础相关</title>
       <link>https://zxp-77hub.github.io/docs/03.eca-rules/%E5%9F%BA%E7%A1%80%E7%9B%B8%E5%85%B3/</link>
@@ -51,6 +51,15 @@
       
       <guid>https://zxp-77hub.github.io/docs/04.gql/%E5%B8%B8%E7%94%A8%E6%9F%A5%E8%AF%A2/</guid>
       <description>查找已存在的列表组 #  QueryDefinitionGroup(criteriaStr:&amp;#34;name like &amp;#39;%Misc%&amp;#39;&amp;#34;){ id name objectType } 查找老列表方案 #  { UiConfig(criteriaStr:&amp;#34;type=&amp;#39;listSolution&amp;#39;&amp;#34;){ name } } </description>
+    </item>
+    
+    <item>
+      <title>BizFirmPageApi</title>
+      <link>https://zxp-77hub.github.io/docs/02.form/bizfirmpageapi/</link>
+      <pubDate>Fri, 01 Apr 2022 14:16:24 +0800</pubDate>
+      
+      <guid>https://zxp-77hub.github.io/docs/02.form/bizfirmpageapi/</guid>
+      <description>authController: 权限控制器 #  authController.actionId // 权限行为动作id  authController.resourceId // 资源id  authController.setResourceId // 设置资源id  authController.checkAuth // 权限校验  authController.checkAuthWithData // 校验数据权限  authController.backViewMode // 返回查看态 createMasterCriteriaRaction: #  criteriaController: #  criteriaController.createCriteriaStrReaction(path, producer, fireImmediately) // 设置字段查询参数 criteriaController.createCriteriaReaction(path, producer, fireImmediately) criteriaController.createDetailCriteriaStrReaction(rowField, subpath, producer, fireImmediately) criteriaController.createDetailCriteriaReaction criteriaController.getDetailCriteriaStr(rowField, fieldName) // 获取子表字段查询参数 criteriaController.getDetailBindVars(rowField, fieldName) // 获取子表字段 bindvar 变量 criteriaController.getCriteriaStr(path) // 获取字段查询参数 criteriaController.getBindVars(path) // 获取字段bindvar 变量 defaultValueController #  detailController #  detailDefaultController #  detailEnricherController #  ecaLogController #  eventController #  fieldAuthController #  fieldComponentPropsController #  formController #  formRuntimeController #  initialController #  masterController #  masterRendererController #  menuController #  paramsController #  polymorphicRenderController #  rangeWalkController #  reactionScenariosController #  sectionController #  stateController #  StateController.</description>
     </item>
     
     <item>
@@ -190,7 +199,7 @@ formController #  获取视图中的数据: formController.getView(&#39;xxx&#39;
  2019年底，在 go 上使用 BizFormRuleManager。AddXXXControl 的规则，id前缀为 &amp;quot;Old-{RuleName}&amp;quot;  2020年底，使用第一版规则工具录入的规则，id前缀为 &amp;quot;{RuleName}-&amp;quot;  使用 ECA Rules 录入的全新规则，id 没有前缀  其中，我们通过配置工具录入的规则，是没有任何前缀的。同时，在多组织后，我们会逐步迁移老代码的规则，敬请各位期待 🤪
 调试 #   现阶段，可以通过断点的方式进行调试，目前我们正在推动执行过程数据收集，后续可以根据数据进行问题排查。
  所以规则的运行时代码，都在这里，根据规则名称就可以找到对应的执行代码。所有规则的运行时代码，都会实现 IBizRuleActions 这个接口
-/** * @link http://gitlab.q7link.com/front/platform/common-solution/-/blob/feature-multi-org2/src/eca/actions/declare.ts */ export interface IBizRuleActions&amp;lt;T = any&amp;gt; { readonly name: string; schema: JSONSchema7; schemaDefs?: Record&amp;lt;string, JSONSchema7&amp;gt; getExpression?(param: T): RuleFieldItem[] execute(ctx: IRuleActionContext, params: T); } </description>
+/** * @link http://gitlab.q7link.com/front/platform/common-solution/-/blob/feature-multi-org2/src/eca/actions/declare.ts */ export interface IBizRuleActions&amp;lt;T = any&amp;gt; { readonly name: string; schema: JSONSchema7; schemaDefs?: Record&amp;lt;string, JSONSchema7&amp;gt; getExpression?(param: T): RuleFieldItem[] execute(ctx: IRuleActionContext, params: T); } 快捷查看eca #  bizFormPresenter.</description>
     </item>
     
     <item>

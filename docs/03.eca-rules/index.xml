@@ -59,7 +59,7 @@
  2019年底，在 go 上使用 BizFormRuleManager。AddXXXControl 的规则，id前缀为 &amp;quot;Old-{RuleName}&amp;quot;  2020年底，使用第一版规则工具录入的规则，id前缀为 &amp;quot;{RuleName}-&amp;quot;  使用 ECA Rules 录入的全新规则，id 没有前缀  其中，我们通过配置工具录入的规则，是没有任何前缀的。同时，在多组织后，我们会逐步迁移老代码的规则，敬请各位期待 🤪
 调试 #   现阶段，可以通过断点的方式进行调试，目前我们正在推动执行过程数据收集，后续可以根据数据进行问题排查。
  所以规则的运行时代码，都在这里，根据规则名称就可以找到对应的执行代码。所有规则的运行时代码，都会实现 IBizRuleActions 这个接口
-/** * @link http://gitlab.q7link.com/front/platform/common-solution/-/blob/feature-multi-org2/src/eca/actions/declare.ts */ export interface IBizRuleActions&amp;lt;T = any&amp;gt; { readonly name: string; schema: JSONSchema7; schemaDefs?: Record&amp;lt;string, JSONSchema7&amp;gt; getExpression?(param: T): RuleFieldItem[] execute(ctx: IRuleActionContext, params: T); } </description>
+/** * @link http://gitlab.q7link.com/front/platform/common-solution/-/blob/feature-multi-org2/src/eca/actions/declare.ts */ export interface IBizRuleActions&amp;lt;T = any&amp;gt; { readonly name: string; schema: JSONSchema7; schemaDefs?: Record&amp;lt;string, JSONSchema7&amp;gt; getExpression?(param: T): RuleFieldItem[] execute(ctx: IRuleActionContext, params: T); } 快捷查看eca #  bizFormPresenter.</description>
     </item>
     
     <item>
